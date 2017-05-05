@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SHTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,13 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    // 启动窗口
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.rootViewController = [[SHTabBarController alloc] init];
+    [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 

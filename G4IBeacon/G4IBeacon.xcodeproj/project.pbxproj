@@ -9,13 +9,13 @@
 /* Begin PBXBuildFile section */
 		8BADAE331EBC2FA200D9E785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE321EBC2FA200D9E785 /* main.m */; };
 		8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE351EBC2FA200D9E785 /* AppDelegate.m */; };
-		8BADAE391EBC2FA200D9E785 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE381EBC2FA200D9E785 /* ViewController.m */; };
-		8BADAE3C1EBC2FA200D9E785 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE3A1EBC2FA200D9E785 /* Main.storyboard */; };
 		8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE3D1EBC2FA200D9E785 /* Assets.xcassets */; };
 		8BADAE411EBC2FA200D9E785 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE3F1EBC2FA200D9E785 /* LaunchScreen.storyboard */; };
 		8BADAE5B1EBC456200D9E785 /* SHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE5A1EBC456200D9E785 /* SHTabBarController.m */; };
 		8BADAE5E1EBC457400D9E785 /* SHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE5D1EBC457400D9E785 /* SHNavigationController.m */; };
 		8BADAE611EBC458000D9E785 /* SHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE601EBC457F00D9E785 /* SHViewController.m */; };
+		8BADAE681EBC489200D9E785 /* UIColor+set.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE671EBC489200D9E785 /* UIColor+set.m */; };
+		8BADAE6C1EBC48A700D9E785 /* UIView+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE6B1EBC48A700D9E785 /* UIView+frame.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,9 +23,6 @@
 		8BADAE321EBC2FA200D9E785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BADAE341EBC2FA200D9E785 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		8BADAE351EBC2FA200D9E785 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		8BADAE371EBC2FA200D9E785 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		8BADAE381EBC2FA200D9E785 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		8BADAE3B1EBC2FA200D9E785 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8BADAE3D1EBC2FA200D9E785 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BADAE401EBC2FA200D9E785 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BADAE421EBC2FA200D9E785 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -35,6 +32,10 @@
 		8BADAE5D1EBC457400D9E785 /* SHNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHNavigationController.m; sourceTree = "<group>"; };
 		8BADAE5F1EBC457F00D9E785 /* SHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHViewController.h; sourceTree = "<group>"; };
 		8BADAE601EBC457F00D9E785 /* SHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHViewController.m; sourceTree = "<group>"; };
+		8BADAE661EBC489200D9E785 /* UIColor+set.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+set.h"; sourceTree = "<group>"; };
+		8BADAE671EBC489200D9E785 /* UIColor+set.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+set.m"; sourceTree = "<group>"; };
+		8BADAE6A1EBC48A700D9E785 /* UIView+frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+frame.h"; sourceTree = "<group>"; };
+		8BADAE6B1EBC48A700D9E785 /* UIView+frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+frame.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,9 +88,6 @@
 			children = (
 				8BADAE341EBC2FA200D9E785 /* AppDelegate.h */,
 				8BADAE351EBC2FA200D9E785 /* AppDelegate.m */,
-				8BADAE371EBC2FA200D9E785 /* ViewController.h */,
-				8BADAE381EBC2FA200D9E785 /* ViewController.m */,
-				8BADAE3A1EBC2FA200D9E785 /* Main.storyboard */,
 				8BADAE3D1EBC2FA200D9E785 /* Assets.xcassets */,
 				8BADAE3F1EBC2FA200D9E785 /* LaunchScreen.storyboard */,
 				8BADAE421EBC2FA200D9E785 /* Info.plist */,
@@ -100,6 +98,7 @@
 		8BADAE551EBC454500D9E785 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8BADAE621EBC480200D9E785 /* Foundation */,
 				8BADAE561EBC454500D9E785 /* Base */,
 				8BADAE581EBC454500D9E785 /* Tools */,
 			);
@@ -130,8 +129,51 @@
 		8BADAE581EBC454500D9E785 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				8BADAE691EBC48A700D9E785 /* Frame */,
+				8BADAE651EBC489200D9E785 /* Color */,
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		8BADAE621EBC480200D9E785 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				8BADAE631EBC480200D9E785 /* All */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
+		8BADAE631EBC480200D9E785 /* All */ = {
+			isa = PBXGroup;
+			children = (
+				8BADAE641EBC480200D9E785 /* Controller */,
+			);
+			path = All;
+			sourceTree = "<group>";
+		};
+		8BADAE641EBC480200D9E785 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8BADAE651EBC489200D9E785 /* Color */ = {
+			isa = PBXGroup;
+			children = (
+				8BADAE661EBC489200D9E785 /* UIColor+set.h */,
+				8BADAE671EBC489200D9E785 /* UIColor+set.m */,
+			);
+			path = Color;
+			sourceTree = "<group>";
+		};
+		8BADAE691EBC48A700D9E785 /* Frame */ = {
+			isa = PBXGroup;
+			children = (
+				8BADAE6A1EBC48A700D9E785 /* UIView+frame.h */,
+				8BADAE6B1EBC48A700D9E785 /* UIView+frame.m */,
+			);
+			path = Frame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,7 +238,6 @@
 			files = (
 				8BADAE411EBC2FA200D9E785 /* LaunchScreen.storyboard in Resources */,
 				8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */,
-				8BADAE3C1EBC2FA200D9E785 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,9 +250,10 @@
 			files = (
 				8BADAE5E1EBC457400D9E785 /* SHNavigationController.m in Sources */,
 				8BADAE611EBC458000D9E785 /* SHViewController.m in Sources */,
-				8BADAE391EBC2FA200D9E785 /* ViewController.m in Sources */,
 				8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */,
 				8BADAE5B1EBC456200D9E785 /* SHTabBarController.m in Sources */,
+				8BADAE6C1EBC48A700D9E785 /* UIView+frame.m in Sources */,
+				8BADAE681EBC489200D9E785 /* UIColor+set.m in Sources */,
 				8BADAE331EBC2FA200D9E785 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -219,14 +261,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		8BADAE3A1EBC2FA200D9E785 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				8BADAE3B1EBC2FA200D9E785 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		8BADAE3F1EBC2FA200D9E785 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
