@@ -7,8 +7,13 @@
 //
 
 #import "SHTaskViewController.h"
+#import "SHTaskCollectionViewCell.h"
 
-@interface SHTaskViewController ()
+@interface SHTaskViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+
+
+/// 显示所有场景的视图
+@property (nonatomic, strong) UICollectionView* listView;
 
 @end
 
@@ -20,6 +25,15 @@
     self.navigationItem.title = @"Tasks";
     
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:self.listView];
+}
+
+- (void)viewDidLayoutSubviews {
+    
+    [super viewDidLayoutSubviews];
+    
+    self.listView.frame = self.view.bounds;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -27,14 +41,66 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+// MARK: - 数据库
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    
+    return 2;
 }
-*/
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    SHTaskCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SHTaskCollectionViewCell class]) forIndexPath:indexPath];
+
+    // 获得区域模型
+//    cell.modelZone = self.allZones[indexPath.item];
+    cell.backgroundColor = [UIColor orangeColor];
+    
+    return cell;
+}
+
+// MARK: gettr && setter
+
+/// 展示场景
+- (UICollectionView *)listView {
+    
+    if (!_listView) {
+        
+        // 1.自定义流水布局
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        
+        // 1.1 设置方向
+        flowLayout.scrollDirection = UICollectionViewScrollDirectionVertical;
+        
+        // 1.2 计算每个item的大小
+        CGFloat itemMarign = 1;
+        
+        // 总列数
+        NSUInteger totalCols = 3;
+        
+        CGFloat itemWidth = (self.view.frame_width - (totalCols * itemMarign)) / totalCols;
+        flowLayout.itemSize = CGSizeMake(itemWidth, itemWidth);
+        
+        // 1.3 设置间距
+        flowLayout.minimumLineSpacing = itemMarign;
+        flowLayout.minimumInteritemSpacing = itemMarign;
+        
+        // 2.创建 (临时指定一个高度，宽度不需要指定)
+        _listView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout] ;
+        
+        // 设置背景颜色
+        _listView.backgroundColor = [UIColor redColor];
+        
+        // 注册cell
+        [_listView registerNib:[UINib nibWithNibName:NSStringFromClass([SHTaskCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([SHTaskCollectionViewCell class])];
+        
+        // 设置数据源和方法
+        _listView.dataSource = self;
+        _listView.delegate = self;
+    }
+    
+    return _listView;
+}
+
 
 @end
