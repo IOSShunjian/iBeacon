@@ -105,7 +105,7 @@
 - (void)locationManager:(CLLocationManager *)manager rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error {
     
     if (error) {
-        [SVProgressHUD showWithStatus:@"open the phone Bluetooth"];
+        [SVProgressHUD showInfoWithStatus:@"open the phone Bluetooth"];
     }
 }
 
@@ -113,7 +113,7 @@
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
     
     if (error) {
-        [SVProgressHUD showWithStatus:@"open the phone Bluetooth"];
+        [SVProgressHUD showInfoWithStatus:@"open the phone Bluetooth"];
     }
 }
 

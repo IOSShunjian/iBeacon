@@ -13,6 +13,9 @@
 		8B9E8B661EBC60240037FAF1 /* SHTaskCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E8B641EBC60240037FAF1 /* SHTaskCollectionViewCell.xib */; };
 		8B9E8B6D1EBC62D40037FAF1 /* SHSenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B6C1EBC62D40037FAF1 /* SHSenceViewController.m */; };
 		8B9E8B701EBC648D0037FAF1 /* SHConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B6F1EBC648D0037FAF1 /* SHConstant.m */; };
+		8B9E8B741EBC6A850037FAF1 /* SHAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B721EBC6A850037FAF1 /* SHAddViewController.m */; };
+		8B9E8B751EBC6A850037FAF1 /* SHAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E8B731EBC6A850037FAF1 /* SHAddViewController.xib */; };
+		8B9E8B791EBC72120037FAF1 /* SHIBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B781EBC72120037FAF1 /* SHIBeacon.m */; };
 		8BADAE331EBC2FA200D9E785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE321EBC2FA200D9E785 /* main.m */; };
 		8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE351EBC2FA200D9E785 /* AppDelegate.m */; };
 		8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE3D1EBC2FA200D9E785 /* Assets.xcassets */; };
@@ -40,6 +43,11 @@
 		8B9E8B6C1EBC62D40037FAF1 /* SHSenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSenceViewController.m; sourceTree = "<group>"; };
 		8B9E8B6E1EBC647B0037FAF1 /* SHConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHConstant.h; sourceTree = "<group>"; };
 		8B9E8B6F1EBC648D0037FAF1 /* SHConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHConstant.m; sourceTree = "<group>"; };
+		8B9E8B711EBC6A850037FAF1 /* SHAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAddViewController.h; sourceTree = "<group>"; };
+		8B9E8B721EBC6A850037FAF1 /* SHAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAddViewController.m; sourceTree = "<group>"; };
+		8B9E8B731EBC6A850037FAF1 /* SHAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHAddViewController.xib; sourceTree = "<group>"; };
+		8B9E8B771EBC72120037FAF1 /* SHIBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHIBeacon.h; sourceTree = "<group>"; };
+		8B9E8B781EBC72120037FAF1 /* SHIBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHIBeacon.m; sourceTree = "<group>"; };
 		8BADAE2E1EBC2FA200D9E785 /* G4IBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = G4IBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BADAE321EBC2FA200D9E785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BADAE341EBC2FA200D9E785 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -101,6 +109,7 @@
 		8B9E8B5C1EBC5E070037FAF1 /* Task */ = {
 			isa = PBXGroup;
 			children = (
+				8B9E8B761EBC71FF0037FAF1 /* Model */,
 				8B9E8B611EBC600F0037FAF1 /* View */,
 				8B9E8B5D1EBC5E070037FAF1 /* Controller */,
 			);
@@ -112,6 +121,9 @@
 			children = (
 				8B9E8B5E1EBC5E140037FAF1 /* SHTaskViewController.h */,
 				8B9E8B5F1EBC5E140037FAF1 /* SHTaskViewController.m */,
+				8B9E8B711EBC6A850037FAF1 /* SHAddViewController.h */,
+				8B9E8B721EBC6A850037FAF1 /* SHAddViewController.m */,
+				8B9E8B731EBC6A850037FAF1 /* SHAddViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -141,6 +153,15 @@
 				8B9E8B6C1EBC62D40037FAF1 /* SHSenceViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		8B9E8B761EBC71FF0037FAF1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B9E8B771EBC72120037FAF1 /* SHIBeacon.h */,
+				8B9E8B781EBC72120037FAF1 /* SHIBeacon.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8BADAE251EBC2FA200D9E785 = {
@@ -357,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8BADAE411EBC2FA200D9E785 /* LaunchScreen.storyboard in Resources */,
+				8B9E8B751EBC6A850037FAF1 /* SHAddViewController.xib in Resources */,
 				8BADAE7A1EBC4D4D00D9E785 /* SHAllTableViewCell.xib in Resources */,
 				8B9E8B661EBC60240037FAF1 /* SHTaskCollectionViewCell.xib in Resources */,
 				8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */,
@@ -420,6 +442,7 @@
 			files = (
 				8BADAE791EBC4D4D00D9E785 /* SHAllTableViewCell.m in Sources */,
 				8BADAE5E1EBC457400D9E785 /* SHNavigationController.m in Sources */,
+				8B9E8B791EBC72120037FAF1 /* SHIBeacon.m in Sources */,
 				8BADAE611EBC458000D9E785 /* SHViewController.m in Sources */,
 				8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */,
 				8B9E8B701EBC648D0037FAF1 /* SHConstant.m in Sources */,
@@ -427,6 +450,7 @@
 				8BADAE721EBC4A7500D9E785 /* SHAllViewController.m in Sources */,
 				8BADAE5B1EBC456200D9E785 /* SHTabBarController.m in Sources */,
 				8B9E8B651EBC60240037FAF1 /* SHTaskCollectionViewCell.m in Sources */,
+				8B9E8B741EBC6A850037FAF1 /* SHAddViewController.m in Sources */,
 				8BADAE6F1EBC4A4A00D9E785 /* SHTableViewController.m in Sources */,
 				8BADAE6C1EBC48A700D9E785 /* UIView+frame.m in Sources */,
 				8BADAE681EBC489200D9E785 /* UIColor+set.m in Sources */,

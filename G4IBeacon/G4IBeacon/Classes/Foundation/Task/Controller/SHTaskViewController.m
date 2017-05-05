@@ -9,6 +9,7 @@
 #import "SHTaskViewController.h"
 #import "SHTaskCollectionViewCell.h"
 #import "SHSenceViewController.h"
+#import "SHAddViewController.h"
 
 @interface SHTaskViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -20,12 +21,18 @@
 
 @implementation SHTaskViewController
 
+
+// MARK: - UI
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     self.navigationItem.title = @"Tasks";
     
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    // 设置导航栏
+    [self setUpNavigationBar];
     
     [self.view addSubview:self.listView];
 }
@@ -35,6 +42,19 @@
     [super viewDidLayoutSubviews];
     
     self.listView.frame = self.view.bounds;
+}
+
+/// 设置导航栏
+- (void)setUpNavigationBar {
+
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewiBeacon)];
+}
+
+- (void)addNewiBeacon {
+    
+    SHAddViewController *addViewController = [[SHAddViewController alloc] init];
+    
+    [self.navigationController pushViewController:addViewController animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
