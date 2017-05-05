@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A2C4068DD82872EE3059F55 /* libPods-G4IBeacon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B95283FCCC4C7A219B5ACDE /* libPods-G4IBeacon.a */; };
+		8B9E8B601EBC5E140037FAF1 /* SHTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B5F1EBC5E140037FAF1 /* SHTaskViewController.m */; };
 		8BADAE331EBC2FA200D9E785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE321EBC2FA200D9E785 /* main.m */; };
 		8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE351EBC2FA200D9E785 /* AppDelegate.m */; };
 		8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE3D1EBC2FA200D9E785 /* Assets.xcassets */; };
@@ -26,6 +27,8 @@
 /* Begin PBXFileReference section */
 		1B95283FCCC4C7A219B5ACDE /* libPods-G4IBeacon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-G4IBeacon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2047FA1748EAE8A447F506 /* Pods-G4IBeacon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-G4IBeacon.release.xcconfig"; path = "Pods/Target Support Files/Pods-G4IBeacon/Pods-G4IBeacon.release.xcconfig"; sourceTree = "<group>"; };
+		8B9E8B5E1EBC5E140037FAF1 /* SHTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHTaskViewController.h; sourceTree = "<group>"; };
+		8B9E8B5F1EBC5E140037FAF1 /* SHTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHTaskViewController.m; sourceTree = "<group>"; };
 		8BADAE2E1EBC2FA200D9E785 /* G4IBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = G4IBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BADAE321EBC2FA200D9E785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BADAE341EBC2FA200D9E785 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -82,6 +85,23 @@
 				1B95283FCCC4C7A219B5ACDE /* libPods-G4IBeacon.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		8B9E8B5C1EBC5E070037FAF1 /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				8B9E8B5D1EBC5E070037FAF1 /* Controller */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		8B9E8B5D1EBC5E070037FAF1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8B9E8B5E1EBC5E140037FAF1 /* SHTaskViewController.h */,
+				8B9E8B5F1EBC5E140037FAF1 /* SHTaskViewController.m */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 		8BADAE251EBC2FA200D9E785 = {
@@ -179,6 +199,7 @@
 		8BADAE621EBC480200D9E785 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				8B9E8B5C1EBC5E070037FAF1 /* Task */,
 				8BADAE631EBC480200D9E785 /* All */,
 			);
 			path = Foundation;
@@ -364,6 +385,7 @@
 				8BADAE6C1EBC48A700D9E785 /* UIView+frame.m in Sources */,
 				8BADAE681EBC489200D9E785 /* UIColor+set.m in Sources */,
 				8BADAE331EBC2FA200D9E785 /* main.m in Sources */,
+				8B9E8B601EBC5E140037FAF1 /* SHTaskViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,6 +544,7 @@
 				8BADAE471EBC2FA200D9E785 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

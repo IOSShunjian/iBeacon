@@ -25,6 +25,13 @@
 
 @implementation SHNavigationController
 
+/// 设置统一的背景与字体
++ (void)load {
+    
+    // 设置字体
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:22]}];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
    

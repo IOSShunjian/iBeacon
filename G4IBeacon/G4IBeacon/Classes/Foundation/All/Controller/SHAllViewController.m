@@ -78,9 +78,9 @@
         [self.locationManager stopRangingBeaconsInRegion:region];
     }
     
-    for (CLBeacon *beacon in beacons) {
-        NSLog(@"%@", beacon);
-    }
+//    for (CLBeacon *beacon in beacons) {
+//        NSLog(@"%@", beacon);
+//    }
     
     // 设置最新信息
     self.beacons = beacons;

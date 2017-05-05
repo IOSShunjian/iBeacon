@@ -11,6 +11,7 @@
 #import "UIColor+set.h"
 
 #import "SHAllViewController.h"
+#import "SHTaskViewController.h"
 
 #define SHTabBarFont ([UIFont systemFontOfSize:15])
 
@@ -51,7 +52,7 @@
     
     [self setUpChildController:[[SHAllViewController alloc] init] title:@"All" imageName:@"All" highlightedImageName:@"All_highlighted"];
 
-   
+   [self setUpChildController:[[SHTaskViewController alloc] init] title:@"task" imageName:@"task" highlightedImageName:@"task_highlighted"];
 }
 
 /**
