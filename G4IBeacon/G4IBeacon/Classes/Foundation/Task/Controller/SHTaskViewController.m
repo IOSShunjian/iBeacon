@@ -8,6 +8,7 @@
 
 #import "SHTaskViewController.h"
 #import "SHTaskCollectionViewCell.h"
+#import "SHSenceViewController.h"
 
 @interface SHTaskViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
 
@@ -39,6 +40,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// MARK: - 代理
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    
+    SHSenceViewController *senceViewController = [[SHSenceViewController alloc] init];
+    
+    [self.navigationController pushViewController:senceViewController animated:YES];
 }
 
 // MARK: - 数据库

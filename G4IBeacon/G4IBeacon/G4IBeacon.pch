@@ -23,6 +23,8 @@
 // 导入一些头文件
 #import <SVProgressHUD.h>
 #import "UIView+frame.h"
+#import "SHConstant.h"
+
 
 #endif
 

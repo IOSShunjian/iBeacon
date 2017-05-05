@@ -11,6 +11,8 @@
 		8B9E8B601EBC5E140037FAF1 /* SHTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B5F1EBC5E140037FAF1 /* SHTaskViewController.m */; };
 		8B9E8B651EBC60240037FAF1 /* SHTaskCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B631EBC60240037FAF1 /* SHTaskCollectionViewCell.m */; };
 		8B9E8B661EBC60240037FAF1 /* SHTaskCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E8B641EBC60240037FAF1 /* SHTaskCollectionViewCell.xib */; };
+		8B9E8B6D1EBC62D40037FAF1 /* SHSenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B6C1EBC62D40037FAF1 /* SHSenceViewController.m */; };
+		8B9E8B701EBC648D0037FAF1 /* SHConstant.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B6F1EBC648D0037FAF1 /* SHConstant.m */; };
 		8BADAE331EBC2FA200D9E785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE321EBC2FA200D9E785 /* main.m */; };
 		8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE351EBC2FA200D9E785 /* AppDelegate.m */; };
 		8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE3D1EBC2FA200D9E785 /* Assets.xcassets */; };
@@ -34,6 +36,10 @@
 		8B9E8B621EBC60240037FAF1 /* SHTaskCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHTaskCollectionViewCell.h; sourceTree = "<group>"; };
 		8B9E8B631EBC60240037FAF1 /* SHTaskCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHTaskCollectionViewCell.m; sourceTree = "<group>"; };
 		8B9E8B641EBC60240037FAF1 /* SHTaskCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHTaskCollectionViewCell.xib; sourceTree = "<group>"; };
+		8B9E8B6B1EBC62D40037FAF1 /* SHSenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSenceViewController.h; sourceTree = "<group>"; };
+		8B9E8B6C1EBC62D40037FAF1 /* SHSenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSenceViewController.m; sourceTree = "<group>"; };
+		8B9E8B6E1EBC647B0037FAF1 /* SHConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHConstant.h; sourceTree = "<group>"; };
+		8B9E8B6F1EBC648D0037FAF1 /* SHConstant.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHConstant.m; sourceTree = "<group>"; };
 		8BADAE2E1EBC2FA200D9E785 /* G4IBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = G4IBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BADAE321EBC2FA200D9E785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BADAE341EBC2FA200D9E785 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -120,6 +126,23 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		8B9E8B691EBC62C50037FAF1 /* Sence */ = {
+			isa = PBXGroup;
+			children = (
+				8B9E8B6A1EBC62C50037FAF1 /* Controller */,
+			);
+			path = Sence;
+			sourceTree = "<group>";
+		};
+		8B9E8B6A1EBC62C50037FAF1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8B9E8B6B1EBC62D40037FAF1 /* SHSenceViewController.h */,
+				8B9E8B6C1EBC62D40037FAF1 /* SHSenceViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		8BADAE251EBC2FA200D9E785 = {
 			isa = PBXGroup;
 			children = (
@@ -183,6 +206,8 @@
 			isa = PBXGroup;
 			children = (
 				8BADAE571EBC454500D9E785 /* Controller */,
+				8B9E8B6E1EBC647B0037FAF1 /* SHConstant.h */,
+				8B9E8B6F1EBC648D0037FAF1 /* SHConstant.m */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -215,6 +240,7 @@
 		8BADAE621EBC480200D9E785 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				8B9E8B691EBC62C50037FAF1 /* Sence */,
 				8B9E8B5C1EBC5E070037FAF1 /* Task */,
 				8BADAE631EBC480200D9E785 /* All */,
 			);
@@ -396,6 +422,8 @@
 				8BADAE5E1EBC457400D9E785 /* SHNavigationController.m in Sources */,
 				8BADAE611EBC458000D9E785 /* SHViewController.m in Sources */,
 				8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */,
+				8B9E8B701EBC648D0037FAF1 /* SHConstant.m in Sources */,
+				8B9E8B6D1EBC62D40037FAF1 /* SHSenceViewController.m in Sources */,
 				8BADAE721EBC4A7500D9E785 /* SHAllViewController.m in Sources */,
 				8BADAE5B1EBC456200D9E785 /* SHTabBarController.m in Sources */,
 				8B9E8B651EBC60240037FAF1 /* SHTaskCollectionViewCell.m in Sources */,
