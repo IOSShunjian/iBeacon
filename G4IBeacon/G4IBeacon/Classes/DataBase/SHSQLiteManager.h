@@ -12,6 +12,8 @@
 
 @interface SHSQLiteManager : NSObject
 
+/// 搜索所有的iBeacon
+- (NSMutableArray *)searchiBeacons;
 
 /// 获得最大的iBeaconID
 - (NSUInteger)getMaxiBeaconID;

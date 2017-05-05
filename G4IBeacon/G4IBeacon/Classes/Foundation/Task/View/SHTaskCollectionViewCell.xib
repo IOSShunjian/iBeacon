@@ -41,6 +41,9 @@
                 <constraint firstItem="9WE-Gs-GWV" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="w9p-6n-UL0"/>
             </constraints>
             <size key="customSize" width="221" height="136"/>
+            <connections>
+                <outlet property="nameLabel" destination="9WE-Gs-GWV" id="RZG-R9-tik"/>
+            </connections>
             <point key="canvasLocation" x="68.5" y="9"/>
         </collectionViewCell>
     </objects>

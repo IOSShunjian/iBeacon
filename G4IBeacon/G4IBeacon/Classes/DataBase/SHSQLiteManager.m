@@ -24,6 +24,22 @@
 
 @implementation SHSQLiteManager
 
+/// 搜索所有的iBeacon
+- (NSMutableArray *)searchiBeacons {
+    
+    // 获得字典数组
+    NSArray *resultiBeacons = [self selectProprty:@"select iBeaonID, name, uuidString, majorValue, minorValue, rssiValue, rssiBufValue from iBeaconList order by iBeaonID;"];
+    
+    // 将字典数组转换成模型
+    NSMutableArray *alliBeacons = [NSMutableArray arrayWithCapacity:resultiBeacons.count];
+    for (NSDictionary *dict in resultiBeacons) {
+        
+        [alliBeacons addObject: [SHIBeacon iBeaconWithDictionary:dict]];
+    }
+    
+    return alliBeacons;
+}
+
 /// 获得最大的iBeaconID
 - (NSUInteger)getMaxiBeaconID {
     

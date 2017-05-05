@@ -10,4 +10,7 @@
 
 @interface SHTaskCollectionViewCell : UICollectionViewCell
 
+/// iBeacon模型
+@property (nonatomic, strong) SHIBeacon *iBeacon;
+
 @end

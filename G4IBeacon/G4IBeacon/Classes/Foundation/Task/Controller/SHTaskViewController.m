@@ -17,6 +17,9 @@
 /// 显示所有场景的视图
 @property (nonatomic, strong) UICollectionView* listView;
 
+/// 所有的iBeaon
+@property (strong, nonatomic)NSMutableArray *alliBeacons;
+
 @end
 
 @implementation SHTaskViewController
@@ -35,6 +38,16 @@
     [self setUpNavigationBar];
     
     [self.view addSubview:self.listView];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    
+    [super viewDidAppear:animated];
+    
+    // 显示出所有的列表
+    self.alliBeacons = [[SHSQLiteManager shareSHSQLiteManager] searchiBeacons];
+    
+    [self.listView reloadData];
 }
 
 - (void)viewDidLayoutSubviews {
@@ -75,7 +88,7 @@
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
-    return 2;
+    return self.alliBeacons.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -83,8 +96,7 @@
     SHTaskCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SHTaskCollectionViewCell class]) forIndexPath:indexPath];
 
     // 获得区域模型
-//    cell.modelZone = self.allZones[indexPath.item];
-    cell.backgroundColor = [UIColor orangeColor];
+    cell.iBeacon = self.alliBeacons[indexPath.item];
     
     return cell;
 }
@@ -119,7 +131,7 @@
         _listView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout] ;
         
         // 设置背景颜色
-        _listView.backgroundColor = [UIColor redColor];
+        _listView.backgroundColor = self.view.backgroundColor;
         
         // 注册cell
         [_listView registerNib:[UINib nibWithNibName:NSStringFromClass([SHTaskCollectionViewCell class]) bundle:nil] forCellWithReuseIdentifier:NSStringFromClass([SHTaskCollectionViewCell class])];
