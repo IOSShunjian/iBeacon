@@ -16,6 +16,8 @@
 		8B9E8B741EBC6A850037FAF1 /* SHAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B721EBC6A850037FAF1 /* SHAddViewController.m */; };
 		8B9E8B751EBC6A850037FAF1 /* SHAddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E8B731EBC6A850037FAF1 /* SHAddViewController.xib */; };
 		8B9E8B791EBC72120037FAF1 /* SHIBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B781EBC72120037FAF1 /* SHIBeacon.m */; };
+		8B9E8B7D1EBC75C90037FAF1 /* SHSQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B7C1EBC75C90037FAF1 /* SHSQLiteManager.m */; };
+		8B9E8B821EBC760C0037FAF1 /* FileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B811EBC760C0037FAF1 /* FileTools.m */; };
 		8BADAE331EBC2FA200D9E785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE321EBC2FA200D9E785 /* main.m */; };
 		8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE351EBC2FA200D9E785 /* AppDelegate.m */; };
 		8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE3D1EBC2FA200D9E785 /* Assets.xcassets */; };
@@ -48,6 +50,11 @@
 		8B9E8B731EBC6A850037FAF1 /* SHAddViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHAddViewController.xib; sourceTree = "<group>"; };
 		8B9E8B771EBC72120037FAF1 /* SHIBeacon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHIBeacon.h; sourceTree = "<group>"; };
 		8B9E8B781EBC72120037FAF1 /* SHIBeacon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHIBeacon.m; sourceTree = "<group>"; };
+		8B9E8B7B1EBC75C90037FAF1 /* SHSQLiteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSQLiteManager.h; sourceTree = "<group>"; };
+		8B9E8B7C1EBC75C90037FAF1 /* SHSQLiteManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSQLiteManager.m; sourceTree = "<group>"; };
+		8B9E8B7E1EBC75E70037FAF1 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		8B9E8B801EBC760C0037FAF1 /* FileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTools.h; sourceTree = "<group>"; };
+		8B9E8B811EBC760C0037FAF1 /* FileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTools.m; sourceTree = "<group>"; };
 		8BADAE2E1EBC2FA200D9E785 /* G4IBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = G4IBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BADAE321EBC2FA200D9E785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BADAE341EBC2FA200D9E785 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -164,6 +171,24 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		8B9E8B7A1EBC75A60037FAF1 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				8B9E8B7B1EBC75C90037FAF1 /* SHSQLiteManager.h */,
+				8B9E8B7C1EBC75C90037FAF1 /* SHSQLiteManager.m */,
+			);
+			path = DataBase;
+			sourceTree = "<group>";
+		};
+		8B9E8B7F1EBC760C0037FAF1 /* File */ = {
+			isa = PBXGroup;
+			children = (
+				8B9E8B801EBC760C0037FAF1 /* FileTools.h */,
+				8B9E8B811EBC760C0037FAF1 /* FileTools.m */,
+			);
+			path = File;
+			sourceTree = "<group>";
+		};
 		8BADAE251EBC2FA200D9E785 = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +241,7 @@
 		8BADAE551EBC454500D9E785 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8B9E8B7A1EBC75A60037FAF1 /* DataBase */,
 				8BADAE621EBC480200D9E785 /* Foundation */,
 				8BADAE561EBC454500D9E785 /* Base */,
 				8BADAE581EBC454500D9E785 /* Tools */,
@@ -251,6 +277,8 @@
 		8BADAE581EBC454500D9E785 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				8B9E8B7F1EBC760C0037FAF1 /* File */,
+				8B9E8B7E1EBC75E70037FAF1 /* Singleton.h */,
 				8BADAE741EBC4B7000D9E785 /* PrintLog.h */,
 				8BADAE691EBC48A700D9E785 /* Frame */,
 				8BADAE651EBC489200D9E785 /* Color */,
@@ -449,7 +477,9 @@
 				8B9E8B6D1EBC62D40037FAF1 /* SHSenceViewController.m in Sources */,
 				8BADAE721EBC4A7500D9E785 /* SHAllViewController.m in Sources */,
 				8BADAE5B1EBC456200D9E785 /* SHTabBarController.m in Sources */,
+				8B9E8B821EBC760C0037FAF1 /* FileTools.m in Sources */,
 				8B9E8B651EBC60240037FAF1 /* SHTaskCollectionViewCell.m in Sources */,
+				8B9E8B7D1EBC75C90037FAF1 /* SHSQLiteManager.m in Sources */,
 				8B9E8B741EBC6A850037FAF1 /* SHAddViewController.m in Sources */,
 				8BADAE6F1EBC4A4A00D9E785 /* SHTableViewController.m in Sources */,
 				8BADAE6C1EBC48A700D9E785 /* UIView+frame.m in Sources */,

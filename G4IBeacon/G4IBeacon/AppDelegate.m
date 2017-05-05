@@ -23,6 +23,8 @@
     self.window.rootViewController = [[SHTabBarController alloc] init];
     [self.window makeKeyAndVisible];
     
+    // 打开数据库
+    [SHSQLiteManager shareSHSQLiteManager];
     
     return YES;
 }

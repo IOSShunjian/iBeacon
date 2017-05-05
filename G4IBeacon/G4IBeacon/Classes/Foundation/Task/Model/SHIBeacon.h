@@ -10,6 +10,9 @@
 
 @interface SHIBeacon : NSObject
 
+/// iBeaonID
+@property (nonatomic, assign) NSUInteger iBeaonID;
+
 /// 名称
 @property (nonatomic, copy) NSString *name;
 

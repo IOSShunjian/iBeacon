@@ -24,7 +24,8 @@
 #import <SVProgressHUD.h>
 #import "UIView+frame.h"
 #import "SHConstant.h"
-
+#import "FileTools.h"
+#import "SHSQLiteManager.h"
 
 #endif
 

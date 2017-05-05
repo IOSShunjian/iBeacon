@@ -72,6 +72,7 @@
     
     // 创建一个模型
     SHIBeacon *iBeacon = [[SHIBeacon alloc] init];
+    iBeacon.iBeaonID = [[SHSQLiteManager shareSHSQLiteManager] getMaxiBeaconID] + 1;
     iBeacon.name = name;
     iBeacon.majorValue = majorValue;
     iBeacon.minorValue = minorValue;
@@ -80,6 +81,7 @@
     iBeacon.uuidString = UUIDStirng;
     
     // TODO: - 保存到数据库中去
+    [[SHSQLiteManager shareSHSQLiteManager] insert:iBeacon];
     
     [self.navigationController popViewControllerAnimated:YES];
 }
