@@ -28,6 +28,13 @@
 
 // MARK: - UI
 
+- (void)dealloc {
+    
+    // 停止扫描
+    [self.locationManager stopMonitoringForRegion:self.region];
+    [self.locationManager stopRangingBeaconsInRegion:self.region];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -71,10 +78,9 @@
         [self.locationManager stopRangingBeaconsInRegion:region];
     }
     
-    // 获得详细数据
-//    for (CLBeacon *beacon in beacons) {
-//        NSLog(@"%@", beacon);
-//    }
+    for (CLBeacon *beacon in beacons) {
+        NSLog(@"%@", beacon);
+    }
     
     // 设置最新信息
     self.beacons = beacons;
