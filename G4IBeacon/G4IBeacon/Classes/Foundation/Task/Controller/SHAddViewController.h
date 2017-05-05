@@ -10,4 +10,7 @@
 
 @interface SHAddViewController : SHViewController
 
+/// iBeacon模型
+@property (nonatomic, strong) SHIBeacon *iBeacon;
+
 @end

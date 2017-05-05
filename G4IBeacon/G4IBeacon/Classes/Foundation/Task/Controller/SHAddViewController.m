@@ -71,17 +71,17 @@
     NSUInteger rssiBufValue = self.rssiBufferTextField.text.integerValue;
     
     // 创建一个模型
-    SHIBeacon *iBeacon = [[SHIBeacon alloc] init];
-    iBeacon.iBeaonID = [[SHSQLiteManager shareSHSQLiteManager] getMaxiBeaconID] + 1;
-    iBeacon.name = name;
-    iBeacon.majorValue = majorValue;
-    iBeacon.minorValue = minorValue;
-    iBeacon.rssiValue = rssiValue;
-    iBeacon.rssiBufValue = rssiBufValue;
-    iBeacon.uuidString = UUIDStirng;
+//    SHIBeacon *iBeacon = [[SHIBeacon alloc] init];
+    self.iBeacon.iBeaonID = [[SHSQLiteManager shareSHSQLiteManager] getMaxiBeaconID] + 1;
+    self.iBeacon.name = name;
+    self.iBeacon.majorValue = majorValue;
+    self.iBeacon.minorValue = minorValue;
+    self.iBeacon.rssiValue = rssiValue;
+    self.iBeacon.rssiBufValue = rssiBufValue;
+    self.iBeacon.uuidString = UUIDStirng;
     
     // TODO: - 保存到数据库中去
-    [[SHSQLiteManager shareSHSQLiteManager] insert:iBeacon];
+    [[SHSQLiteManager shareSHSQLiteManager] insert:self.iBeacon];
     
     [self.navigationController popViewControllerAnimated:YES];
 }

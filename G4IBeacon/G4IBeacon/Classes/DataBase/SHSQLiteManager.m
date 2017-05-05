@@ -44,14 +44,29 @@
 - (NSUInteger)getMaxiBeaconID {
     
     // 获得结果ID
-    id resID = [[[self selectProprty:@"select max(iBeaonID) from iBeaconList"] lastObject] objectForKey:@"max(iBeaonID)"];
+    id resID = [[[self selectProprty:@"select max(iBeaonID) from iBeaconList;"] lastObject] objectForKey:@"max(iBeaonID)"];
     return (resID == [NSNull null]) ? 0 : [resID integerValue];
+}
+
+/// 这个iBeacon是否存在
+- (BOOL)isiBeaconExist:(SHIBeacon *)iBeacon {
+
+    NSString *existSql = [NSString stringWithFormat:@"select name from iBeaconList where iBeaonID = %zd;", iBeacon.iBeaonID];
+    
+    return [[self selectProprty:existSql] count];
 }
 
 /// 插入一个新的iBeacon
 - (BOOL)insert:(SHIBeacon *)iBeacon {
     
-    NSString *inserSql = [NSString stringWithFormat:@"INSERT  INTO iBeaconList(iBeaonID, name, uuidString, majorValue, minorValue, rssiValue, rssiBufValue) VALUES(%zd, '%@', '%@', %zd, %zd, %zd, %zd);", iBeacon.iBeaonID, iBeacon.name, iBeacon.uuidString, iBeacon.majorValue, iBeacon.minorValue, iBeacon.rssiValue, iBeacon.rssiBufValue];
+    NSString *inserSql = @"";
+    // 1.先判断这个iBeaonID是否存在，如果存在更新，否则插入
+    if ([self isiBeaconExist:iBeacon]) {
+        // 更新
+    } else {  // 直接插入
+       inserSql = [NSString stringWithFormat:@"INSERT  INTO iBeaconList(iBeaonID, name, uuidString, majorValue, minorValue, rssiValue, rssiBufValue) VALUES(%zd, '%@', '%@', %zd, %zd, %zd, %zd);", iBeacon.iBeaonID, iBeacon.name, iBeacon.uuidString, iBeacon.majorValue, iBeacon.minorValue, iBeacon.rssiValue, iBeacon.rssiBufValue];
+    }
+    
     return [self insetData:inserSql];
 }
 

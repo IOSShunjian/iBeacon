@@ -19,8 +19,9 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    // Initialization code
+    
 }
+
 
 - (void)setIBeacon:(SHIBeacon *)iBeacon {
     
