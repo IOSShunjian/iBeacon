@@ -10,6 +10,10 @@
 #import "SHNavigationController.h"
 #import "UIColor+set.h"
 
+#import "SHAllViewController.h"
+
+#define SHTabBarFont ([UIFont systemFontOfSize:15])
+
 @interface SHTabBarController ()
 
 @end
@@ -38,7 +42,7 @@
 + (void)initialize {
     
     // 常态
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:15], NSForegroundColorAttributeName : [UIColor cololrWithHex:0X1296db alpa:1.0]} forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName: SHTabBarFont, NSForegroundColorAttributeName : [UIColor cololrWithHex:0X1296db alpa:1.0]} forState:UIControlStateNormal];
     
     // 选中状态 
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor cololrWithHex:0Xd81e06 alpa:1.0]} forState:UIControlStateSelected];
@@ -47,7 +51,7 @@
 /// 添加所有的子控制器
 - (void)addChildControllers {
     
-    [self setUpChildController:[[UIViewController alloc] init] title:@"All" imageName:@"All" highlightedImageName:@"All_highlighted"];
+    [self setUpChildController:[[SHAllViewController alloc] init] title:@"All" imageName:@"All" highlightedImageName:@"All_highlighted"];
 
     [self setUpChildController:[[UIViewController alloc] init] title:@"All" imageName:@"All" highlightedImageName:@"All_highlighted"];
     

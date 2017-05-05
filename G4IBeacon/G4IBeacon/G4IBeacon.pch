@@ -1,0 +1,25 @@
+//
+//  G4IBeacon.pch
+//  G4IBeacon
+//
+//  Created by LHY on 2017/5/5.
+//  Copyright © 2017年 SmartHomeGroup. All rights reserved.
+//
+
+#ifndef G4IBeacon_pch
+#define G4IBeacon_pch
+
+#ifdef __OBJC__
+
+
+#import "PrintLog.h"
+
+/// 设备的UUID
+#define UUIDStirng (@"E2C56DB5-DFFB-48D2-B060-D0F5A71096E0")
+
+/// 标示符
+#define REGION_IDENTIFIER (@"SmartHomeGroup")
+
+#endif
+
+#endif /* G4IBeacon_pch */
