@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A2C4068DD82872EE3059F55 /* libPods-G4IBeacon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B95283FCCC4C7A219B5ACDE /* libPods-G4IBeacon.a */; };
 		8BADAE331EBC2FA200D9E785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE321EBC2FA200D9E785 /* main.m */; };
 		8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE351EBC2FA200D9E785 /* AppDelegate.m */; };
 		8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE3D1EBC2FA200D9E785 /* Assets.xcassets */; };
@@ -23,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1B95283FCCC4C7A219B5ACDE /* libPods-G4IBeacon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-G4IBeacon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F2047FA1748EAE8A447F506 /* Pods-G4IBeacon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-G4IBeacon.release.xcconfig"; path = "Pods/Target Support Files/Pods-G4IBeacon/Pods-G4IBeacon.release.xcconfig"; sourceTree = "<group>"; };
 		8BADAE2E1EBC2FA200D9E785 /* G4IBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = G4IBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BADAE321EBC2FA200D9E785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BADAE341EBC2FA200D9E785 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -49,6 +52,7 @@
 		8BADAE761EBC4D4D00D9E785 /* SHAllTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAllTableViewCell.h; sourceTree = "<group>"; };
 		8BADAE771EBC4D4D00D9E785 /* SHAllTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAllTableViewCell.m; sourceTree = "<group>"; };
 		8BADAE781EBC4D4D00D9E785 /* SHAllTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHAllTableViewCell.xib; sourceTree = "<group>"; };
+		B2D96B020A18AD43F966AEC4 /* Pods-G4IBeacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-G4IBeacon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-G4IBeacon/Pods-G4IBeacon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,17 +60,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A2C4068DD82872EE3059F55 /* libPods-G4IBeacon.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		04FAADEE4820A37E9B384679 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2D96B020A18AD43F966AEC4 /* Pods-G4IBeacon.debug.xcconfig */,
+				5F2047FA1748EAE8A447F506 /* Pods-G4IBeacon.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		354CA04AE35514E5CFD7B621 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1B95283FCCC4C7A219B5ACDE /* libPods-G4IBeacon.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8BADAE251EBC2FA200D9E785 = {
 			isa = PBXGroup;
 			children = (
 				8BADAE301EBC2FA200D9E785 /* G4IBeacon */,
 				8BADAE2F1EBC2FA200D9E785 /* Products */,
+				04FAADEE4820A37E9B384679 /* Pods */,
+				354CA04AE35514E5CFD7B621 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -213,9 +237,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8BADAE451EBC2FA200D9E785 /* Build configuration list for PBXNativeTarget "G4IBeacon" */;
 			buildPhases = (
+				0FB68641B1EDA265275106FB /* [CP] Check Pods Manifest.lock */,
 				8BADAE2A1EBC2FA200D9E785 /* Sources */,
 				8BADAE2B1EBC2FA200D9E785 /* Frameworks */,
 				8BADAE2C1EBC2FA200D9E785 /* Resources */,
+				F90B0B4AAF92D4550D412984 /* [CP] Embed Pods Frameworks */,
+				096B3BEDC18A904B9C7F8F23 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -273,6 +300,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		096B3BEDC18A904B9C7F8F23 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-G4IBeacon/Pods-G4IBeacon-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0FB68641B1EDA265275106FB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F90B0B4AAF92D4550D412984 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-G4IBeacon/Pods-G4IBeacon-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		8BADAE2A1EBC2FA200D9E785 /* Sources */ = {
@@ -400,6 +475,7 @@
 		};
 		8BADAE461EBC2FA200D9E785 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2D96B020A18AD43F966AEC4 /* Pods-G4IBeacon.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SC36A8Q9D5;
@@ -414,6 +490,7 @@
 		};
 		8BADAE471EBC2FA200D9E785 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F2047FA1748EAE8A447F506 /* Pods-G4IBeacon.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = SC36A8Q9D5;

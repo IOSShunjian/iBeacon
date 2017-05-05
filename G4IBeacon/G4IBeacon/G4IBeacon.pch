@@ -20,6 +20,9 @@
 /// 标示符
 #define REGION_IDENTIFIER (@"SmartHomeGroup")
 
+// 导入一些头文件
+#import <SVProgressHUD.h>
+
 #endif
 
 #endif /* G4IBeacon_pch */

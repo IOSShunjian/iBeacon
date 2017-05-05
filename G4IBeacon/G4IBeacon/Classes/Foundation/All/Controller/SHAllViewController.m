@@ -35,6 +35,9 @@
     
     // 准备表格
     [self initTableView];
+    
+    // 开始定位扫描
+    [self startScanDevice];
 }
 
 /// 准备表格
@@ -50,6 +53,42 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// MARK: - 定位与扫描
+
+
+/// 用户授权的变化
+- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
+    
+    switch (status) {
+        case kCLAuthorizationStatusAuthorizedAlways: {
+            
+            // 授权才开始开启监测
+            [self.locationManager startMonitoringForRegion:self.region];
+            [self.locationManager requestStateForRegion:self.region];
+        }
+            
+            break;
+            
+        default:
+            break;
+    }
+}
+
+/// 开始定位扫描
+- (void)startScanDevice {
+    
+    if (![CLLocationManager locationServicesEnabled]) {
+        return;
+    }
+    
+    if (![CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]]) {
+        return;
+    }
+    
+    // 申请手动授权
+    [self.locationManager requestAlwaysAuthorization];
 }
 
 // MARK: - 数据源
