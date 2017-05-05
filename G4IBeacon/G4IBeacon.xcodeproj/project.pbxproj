@@ -13,9 +13,9 @@
 		8BADAE3C1EBC2FA200D9E785 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE3A1EBC2FA200D9E785 /* Main.storyboard */; };
 		8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE3D1EBC2FA200D9E785 /* Assets.xcassets */; };
 		8BADAE411EBC2FA200D9E785 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE3F1EBC2FA200D9E785 /* LaunchScreen.storyboard */; };
-		8BADAE511EBC2FC400D9E785 /* SHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE491EBC2FC400D9E785 /* SHViewController.m */; };
-		8BADAE521EBC2FC400D9E785 /* SHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE4B1EBC2FC400D9E785 /* SHNavigationController.m */; };
-		8BADAE531EBC2FC400D9E785 /* SHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE4D1EBC2FC400D9E785 /* SHTabBarController.m */; };
+		8BADAE5B1EBC456200D9E785 /* SHTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE5A1EBC456200D9E785 /* SHTabBarController.m */; };
+		8BADAE5E1EBC457400D9E785 /* SHNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE5D1EBC457400D9E785 /* SHNavigationController.m */; };
+		8BADAE611EBC458000D9E785 /* SHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE601EBC457F00D9E785 /* SHViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,12 +29,12 @@
 		8BADAE3D1EBC2FA200D9E785 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BADAE401EBC2FA200D9E785 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8BADAE421EBC2FA200D9E785 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8BADAE481EBC2FC400D9E785 /* SHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHViewController.h; sourceTree = "<group>"; };
-		8BADAE491EBC2FC400D9E785 /* SHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHViewController.m; sourceTree = "<group>"; };
-		8BADAE4A1EBC2FC400D9E785 /* SHNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHNavigationController.h; sourceTree = "<group>"; };
-		8BADAE4B1EBC2FC400D9E785 /* SHNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHNavigationController.m; sourceTree = "<group>"; };
-		8BADAE4C1EBC2FC400D9E785 /* SHTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHTabBarController.h; sourceTree = "<group>"; };
-		8BADAE4D1EBC2FC400D9E785 /* SHTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHTabBarController.m; sourceTree = "<group>"; };
+		8BADAE591EBC456200D9E785 /* SHTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHTabBarController.h; sourceTree = "<group>"; };
+		8BADAE5A1EBC456200D9E785 /* SHTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHTabBarController.m; sourceTree = "<group>"; };
+		8BADAE5C1EBC457300D9E785 /* SHNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHNavigationController.h; sourceTree = "<group>"; };
+		8BADAE5D1EBC457400D9E785 /* SHNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHNavigationController.m; sourceTree = "<group>"; };
+		8BADAE5F1EBC457F00D9E785 /* SHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHViewController.h; sourceTree = "<group>"; };
+		8BADAE601EBC457F00D9E785 /* SHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,7 +67,7 @@
 		8BADAE301EBC2FA200D9E785 /* G4IBeacon */ = {
 			isa = PBXGroup;
 			children = (
-				8BADAE501EBC2FC400D9E785 /* Classes */,
+				8BADAE551EBC454500D9E785 /* Classes */,
 				8BADAE541EBC2FC900D9E785 /* System */,
 				8BADAE311EBC2FA200D9E785 /* Supporting Files */,
 			);
@@ -80,36 +80,6 @@
 				8BADAE321EBC2FA200D9E785 /* main.m */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		8BADAE4E1EBC2FC400D9E785 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				8BADAE481EBC2FC400D9E785 /* SHViewController.h */,
-				8BADAE491EBC2FC400D9E785 /* SHViewController.m */,
-				8BADAE4A1EBC2FC400D9E785 /* SHNavigationController.h */,
-				8BADAE4B1EBC2FC400D9E785 /* SHNavigationController.m */,
-				8BADAE4C1EBC2FC400D9E785 /* SHTabBarController.h */,
-				8BADAE4D1EBC2FC400D9E785 /* SHTabBarController.m */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		8BADAE4F1EBC2FC400D9E785 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				8BADAE4E1EBC2FC400D9E785 /* Controller */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		8BADAE501EBC2FC400D9E785 /* Classes */ = {
-			isa = PBXGroup;
-			children = (
-				8BADAE4F1EBC2FC400D9E785 /* Base */,
-			);
-			name = Classes;
-			path = ../../../../G4IBeacon/G4IBeacon/Classes;
 			sourceTree = "<group>";
 		};
 		8BADAE541EBC2FC900D9E785 /* System */ = {
@@ -125,6 +95,43 @@
 				8BADAE421EBC2FA200D9E785 /* Info.plist */,
 			);
 			name = System;
+			sourceTree = "<group>";
+		};
+		8BADAE551EBC454500D9E785 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				8BADAE561EBC454500D9E785 /* Base */,
+				8BADAE581EBC454500D9E785 /* Tools */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		8BADAE561EBC454500D9E785 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				8BADAE571EBC454500D9E785 /* Controller */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		8BADAE571EBC454500D9E785 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				8BADAE5F1EBC457F00D9E785 /* SHViewController.h */,
+				8BADAE601EBC457F00D9E785 /* SHViewController.m */,
+				8BADAE5C1EBC457300D9E785 /* SHNavigationController.h */,
+				8BADAE5D1EBC457400D9E785 /* SHNavigationController.m */,
+				8BADAE591EBC456200D9E785 /* SHTabBarController.h */,
+				8BADAE5A1EBC456200D9E785 /* SHTabBarController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8BADAE581EBC454500D9E785 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -200,12 +207,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BADAE521EBC2FC400D9E785 /* SHNavigationController.m in Sources */,
+				8BADAE5E1EBC457400D9E785 /* SHNavigationController.m in Sources */,
+				8BADAE611EBC458000D9E785 /* SHViewController.m in Sources */,
 				8BADAE391EBC2FA200D9E785 /* ViewController.m in Sources */,
 				8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */,
+				8BADAE5B1EBC456200D9E785 /* SHTabBarController.m in Sources */,
 				8BADAE331EBC2FA200D9E785 /* main.m in Sources */,
-				8BADAE531EBC2FC400D9E785 /* SHTabBarController.m in Sources */,
-				8BADAE511EBC2FC400D9E785 /* SHViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
