@@ -57,6 +57,59 @@
 
 // MARK: - 定位与扫描
 
+/// 获得详细数据的回调
+- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray<CLBeacon *> *)beacons inRegion:(CLBeaconRegion *)region {
+    
+    if (!beacons.count) {
+        self.beacons = nil;
+        return;
+    }
+
+    //如果存在不是我们要监测的iBeacon那就停止扫描
+    if (![[region.proximityUUID UUIDString] isEqualToString:UUIDStirng]) {
+        [self.locationManager stopMonitoringForRegion:region];
+        [self.locationManager stopRangingBeaconsInRegion:region];
+    }
+    
+    // 获得详细数据
+//    for (CLBeacon *beacon in beacons) {
+//        NSLog(@"%@", beacon);
+//    }
+    
+    // 设置最新信息
+    self.beacons = beacons;
+    [self.tableView reloadData];
+}
+
+/// 获得状态
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
+    
+    if (state == CLRegionStateInside) {
+        NSLog(@"进入区域");
+        
+        // 获得详细信息
+        [self.locationManager startRangingBeaconsInRegion:self.region];
+        
+    } else if (state == CLRegionStateOutside) {
+         NSLog(@"离开区域");
+    }
+}
+
+/// 获得距离失败
+- (void)locationManager:(CLLocationManager *)manager rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error {
+    
+    if (error) {
+        [SVProgressHUD showWithStatus:@"open the phone Bluetooth"];
+    }
+}
+
+/// 打开监听失败
+- (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
+    
+    if (error) {
+        [SVProgressHUD showWithStatus:@"open the phone Bluetooth"];
+    }
+}
 
 /// 用户授权的变化
 - (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
@@ -130,13 +183,12 @@
     if (!_locationManager) {
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
-        
-        
+
         _locationManager.distanceFilter = kCLDistanceFilterNone;
-        
-        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9) {
-            _locationManager.allowsBackgroundLocationUpdates = YES;
-        }
+//
+//        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9) {
+//            _locationManager.allowsBackgroundLocationUpdates = YES;
+//        }
         
     }
     return _locationManager;

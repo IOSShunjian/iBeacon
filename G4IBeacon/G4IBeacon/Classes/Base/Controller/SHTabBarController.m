@@ -36,9 +36,7 @@
 
 // MARK: - 增加子控制器
 
-/**
- 设置字体
- */
+/// 设置字体
 + (void)initialize {
     
     // 常态
@@ -53,9 +51,7 @@
     
     [self setUpChildController:[[SHAllViewController alloc] init] title:@"All" imageName:@"All" highlightedImageName:@"All_highlighted"];
 
-    [self setUpChildController:[[UIViewController alloc] init] title:@"All" imageName:@"All" highlightedImageName:@"All_highlighted"];
-    
-    [self setUpChildController:[[UIViewController alloc] init] title:@"All" imageName:@"All" highlightedImageName:@"All_highlighted"];
+   
 }
 
 /**
