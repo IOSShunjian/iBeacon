@@ -36,15 +36,15 @@
     [super viewDidLoad];
    
     // 滑动返回
-    // 创建手势
-    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
-    
-    pan.delegate = self;
-    
-    [self.view addGestureRecognizer:pan];
-    
-    // 禁用系统的
-    self.interactivePopGestureRecognizer.enabled = NO;
+//    // 创建手势
+//    UIPanGestureRecognizer *pan = [[UIPanGestureRecognizer alloc] initWithTarget:self.interactivePopGestureRecognizer.delegate action:@selector(handleNavigationTransition:)];
+//    
+//    pan.delegate = self;
+//    
+//    [self.view addGestureRecognizer:pan];
+//    
+//    // 禁用系统的
+//    self.interactivePopGestureRecognizer.enabled = NO;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,10 +53,10 @@
 }
 
 /// 手势代理
-- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
-    
-    return self.childViewControllers.count > 1; // 不是栈顶控制器才有效
-}
+//- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch {
+//    
+//    return self.childViewControllers.count > 1; // 不是栈顶控制器才有效
+//}
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
     

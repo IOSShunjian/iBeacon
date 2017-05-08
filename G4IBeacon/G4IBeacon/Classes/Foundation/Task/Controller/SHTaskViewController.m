@@ -10,8 +10,9 @@
 #import "SHTaskCollectionViewCell.h"
 #import "SHSenceViewController.h"
 #import "SHAddViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface SHTaskViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@interface SHTaskViewController () <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate>
 
 
 /// 显示所有场景的视图
@@ -20,10 +21,65 @@
 /// 所有的iBeaon
 @property (strong, nonatomic)NSMutableArray *alliBeacons;
 
+/// 所有的区域
+@property (strong, nonatomic) NSMutableArray *allBeaconRegions;
+
+/// 定位管理器
+@property (nonatomic, strong) CLLocationManager *locationManager;
+
 @end
 
 @implementation SHTaskViewController
 
+
+// MARK: - 定位
+
+/// 获得详细数据的回调
+- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray<CLBeacon *> *)beacons inRegion:(CLBeaconRegion *)region {
+    
+    if (!beacons.count) {
+        
+        return;
+    }
+    
+    //如果存在不是我们要监测的iBeacon那就停止扫描
+    if (![[region.proximityUUID UUIDString] isEqualToString:UUIDStirng]) {
+        [self.locationManager stopMonitoringForRegion:region];
+        [self.locationManager stopRangingBeaconsInRegion:region];
+    }
+    
+    for (CLBeacon *beacon in beacons) {
+        
+        NSLog(@"我要不断的执行任务： %@", beacon);
+
+        
+        // TODO: 从数据库中获取数据执行任务
+        
+        
+    }
+    
+    
+}
+
+/// 获得状态
+- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
+    
+    if (![region isKindOfClass:[CLBeaconRegion class]]) {
+        return;
+    }
+    
+    if (state == CLRegionStateInside) {
+        NSLog(@"进入区域");
+        
+        NSLog(@"%@", region);
+        
+        // 获得详细信息
+        [self.locationManager startRangingBeaconsInRegion: (CLBeaconRegion *)region];
+        
+    } else if (state == CLRegionStateOutside) {
+        NSLog(@"离开区域");
+    }
+}
 
 // MARK: - UI
 
@@ -47,7 +103,19 @@
     // 显示出所有的列表
     self.alliBeacons = [[SHSQLiteManager shareSHSQLiteManager] searchiBeacons];
     
+    for (SHIBeacon *iBeacon in self.alliBeacons) {
+        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:iBeacon.uuidString] major:iBeacon.majorValue minor:iBeacon.minorValue identifier:@"iBeacon"];
+        [self.allBeaconRegions addObject:region];
+    }
+    
     [self.listView reloadData];
+    
+    // 开始通信
+    for (CLBeaconRegion *region in self.allBeaconRegions) {
+        
+        [self.locationManager startMonitoringForRegion:region];
+        [self.locationManager requestStateForRegion:region];
+    }
 }
 
 - (void)viewDidLayoutSubviews {
@@ -59,7 +127,7 @@
 
 /// 设置导航栏
 - (void)setUpNavigationBar {
-
+    
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewiBeacon)];
 }
 
@@ -109,8 +177,24 @@
     return cell;
 }
 
-
 // MARK: gettr && setter
+
+/// locationManager
+- (CLLocationManager *)locationManager {
+    
+    if (!_locationManager) {
+        _locationManager = [[CLLocationManager alloc] init];
+        _locationManager.delegate = self;
+        
+        _locationManager.distanceFilter = kCLDistanceFilterNone;
+        //
+        //        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9) {
+        //            _locationManager.allowsBackgroundLocationUpdates = YES;
+        //        }
+        
+    }
+    return _locationManager;
+}
 
 /// 展示场景
 - (UICollectionView *)listView {
@@ -153,5 +237,10 @@
     return _listView;
 }
 
-
+- (NSMutableArray *)allBeaconRegions {
+    if (!_allBeaconRegions) {
+        _allBeaconRegions = [NSMutableArray array];
+    }
+    return _allBeaconRegions;
+}
 @end
