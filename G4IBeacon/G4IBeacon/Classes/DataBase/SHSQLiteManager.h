@@ -18,8 +18,11 @@
 /// 获得最大的iBeaconID
 - (NSUInteger)getMaxiBeaconID;
 
+/// 删除一个iBeacon
+- (BOOL)deleteiBeacon:(SHIBeacon *)iBeacon;
+
 /// 插入一个新的iBeacon
-- (BOOL)insert:(SHIBeacon *)iBeacon;
+- (BOOL)insertiBeacon:(SHIBeacon *)iBeacon;
 
 SingletonInterface(SHSQLiteManager)
 

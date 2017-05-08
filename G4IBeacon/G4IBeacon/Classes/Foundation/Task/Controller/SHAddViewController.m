@@ -37,17 +37,29 @@
     
     // 设置导航栏
     [self setUpNavigationBar];
+    
+    // 设置数据
+    self.nameTextField.text = self.iBeacon.name;
+    self.majorTextField.text = [NSString stringWithFormat:@"%zd", self.iBeacon.majorValue];
+    self.minorTextField.text = [NSString stringWithFormat:@"%zd", self.iBeacon.minorValue];
+    self.rssiTextField.text = [NSString stringWithFormat:@"%zd", self.iBeacon.rssiValue];
+    
+    self.rssiBufferTextField.text = [NSString stringWithFormat:@"%zd", self.iBeacon.rssiBufValue];
 }
 
 /// 设置导航栏
 - (void)setUpNavigationBar {
 
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveiBeacon)];
+    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveiBeacon)];
+    
+    UIBarButtonItem *deleteItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(deleteiBeacon)];
+    
+    self.navigationItem.rightBarButtonItems = @[saveItem, deleteItem];
 }
 
-/// 保存区域
-- (void)saveiBeacon {
-    
+/// 获得当前区域模型
+- (void)getCurrentiBeacon {
+
     // 检测数据
     if (!self.nameTextField.text.length ||
         !self.minorTextField.text.length ||
@@ -62,7 +74,7 @@
         });
         return;
     }
-
+    
     // 获得所有的数据
     NSString *name = self.nameTextField.text;
     NSUInteger majorValue = self.majorTextField.text.integerValue;
@@ -70,18 +82,32 @@
     NSUInteger rssiValue = self.rssiTextField.text.integerValue;
     NSUInteger rssiBufValue = self.rssiBufferTextField.text.integerValue;
     
-    // 创建一个模型
-//    SHIBeacon *iBeacon = [[SHIBeacon alloc] init];
-    self.iBeacon.iBeaonID = [[SHSQLiteManager shareSHSQLiteManager] getMaxiBeaconID] + 1;
     self.iBeacon.name = name;
     self.iBeacon.majorValue = majorValue;
     self.iBeacon.minorValue = minorValue;
     self.iBeacon.rssiValue = rssiValue;
     self.iBeacon.rssiBufValue = rssiBufValue;
     self.iBeacon.uuidString = UUIDStirng;
+}
+
+/// 删除区域
+- (void)deleteiBeacon {
+
+    [self getCurrentiBeacon];
     
     // TODO: - 保存到数据库中去
-    [[SHSQLiteManager shareSHSQLiteManager] insert:self.iBeacon];
+    [[SHSQLiteManager shareSHSQLiteManager] deleteiBeacon:self.iBeacon];
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+/// 保存区域
+- (void)saveiBeacon {
+    
+    [self getCurrentiBeacon];
+    
+    // TODO: - 保存到数据库中去
+    [[SHSQLiteManager shareSHSQLiteManager] insertiBeacon:self.iBeacon];
     
     [self.navigationController popViewControllerAnimated:YES];
 }

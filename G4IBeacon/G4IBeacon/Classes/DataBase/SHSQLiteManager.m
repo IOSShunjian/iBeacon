@@ -56,13 +56,29 @@
     return [[self selectProprty:existSql] count];
 }
 
+/// 删除一个iBeacon
+- (BOOL)deleteiBeacon:(SHIBeacon *)iBeacon {
+    
+    
+    // 如果区域还不存在就不要删除
+    if (![self isiBeaconExist:iBeacon]) {
+        return YES;
+    }
+    
+    // 如果存在就直接删除
+    NSString *deleteSql = [NSString stringWithFormat:@"DELETE FROM iBeaconList WHERE iBeaonID = %zd", iBeacon.iBeaonID];
+    
+    return [self insetData:deleteSql];
+}
+
 /// 插入一个新的iBeacon
-- (BOOL)insert:(SHIBeacon *)iBeacon {
+- (BOOL)insertiBeacon:(SHIBeacon *)iBeacon {
     
     NSString *inserSql = @"";
     // 1.先判断这个iBeaonID是否存在，如果存在更新，否则插入
     if ([self isiBeaconExist:iBeacon]) {
         // 更新
+        inserSql = [NSString stringWithFormat:@"UPDATE iBeaconList SET name = '%@', uuidString = '%@', majorValue = %zd, minorValue = %zd, rssiValue = %zd, rssiBufValue = %zd WHERE iBeaonID = %zd", iBeacon.name, iBeacon.uuidString, iBeacon.majorValue, iBeacon.minorValue, iBeacon.rssiValue, iBeacon.rssiBufValue, iBeacon.iBeaonID];
     } else {  // 直接插入
        inserSql = [NSString stringWithFormat:@"INSERT  INTO iBeaconList(iBeaonID, name, uuidString, majorValue, minorValue, rssiValue, rssiBufValue) VALUES(%zd, '%@', '%@', %zd, %zd, %zd, %zd);", iBeacon.iBeaonID, iBeacon.name, iBeacon.uuidString, iBeacon.majorValue, iBeacon.minorValue, iBeacon.rssiValue, iBeacon.rssiBufValue];
     }

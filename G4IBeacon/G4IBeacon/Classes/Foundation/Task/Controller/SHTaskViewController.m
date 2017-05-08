@@ -74,7 +74,7 @@
 }
 
 /// 手势设置值
-- (void)setArgs:(UILongPressGestureRecognizer *)recognizer {
+- (void)setArgs:(UILongPressGestureRecognizer *)recognizer indexPath:(NSIndexPath *)indexPath {
     
     if (recognizer.state != UIGestureRecognizerStateBegan) {
         return;
@@ -82,7 +82,7 @@
     
     SHAddViewController *addViewController = [[SHAddViewController alloc] init];
     
-  
+    addViewController.iBeacon = self.alliBeacons[indexPath.item];
     
     [self.navigationController pushViewController:addViewController animated:YES];
     
@@ -115,7 +115,7 @@
     
     // 给cell添加手势
     // 添加长按手势
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(setArgs:)];
+    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(setArgs:indexPath:)];
     
     // 设置长按时间
     longPress.minimumPressDuration = 1.5;

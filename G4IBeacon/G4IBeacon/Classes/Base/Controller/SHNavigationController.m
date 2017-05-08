@@ -58,4 +58,13 @@
     return self.childViewControllers.count > 1; // 不是栈顶控制器才有效
 }
 
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    
+    if (self.childViewControllers.count > 0) {
+        viewController.hidesBottomBarWhenPushed = YES;
+    }
+    
+    [super pushViewController:viewController animated:animated];
+}
+
 @end
