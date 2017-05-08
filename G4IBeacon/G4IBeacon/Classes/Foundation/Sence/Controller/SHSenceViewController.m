@@ -8,6 +8,7 @@
 
 #import "SHSenceViewController.h"
 #import "SHAddViewController.h"
+#import "SHEnterAreaViewController.h"
 
 
 @interface SHSenceViewController ()
@@ -64,6 +65,16 @@
     [self.navigationController pushViewController:addViewController animated:YES];
 }
 
+/// 进入区域
+- (void)enterAreaTasks {
+
+    SHEnterAreaViewController *enterAreaViewController = [[SHEnterAreaViewController alloc] init];
+    
+    enterAreaViewController.iBeacon = self.iBeacon;
+    
+    [self.navigationController pushViewController:enterAreaViewController animated:YES];
+}
+
 // MARK: - 代理
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -75,7 +86,8 @@
     } else {
     
         if (!indexPath.row) {
-            NSLog(@"进入区域的任务");
+            [self enterAreaTasks];
+            
         } else {
             NSLog(@"离开区域的任务");
         }

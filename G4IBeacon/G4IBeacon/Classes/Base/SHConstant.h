@@ -11,6 +11,22 @@
 
 #import <Foundation/Foundation.h>
 
+typedef enum {
+    
+    /// 调光器
+    SHDeviceTypeDimmer,
+    
+    SHDeviceTypeLed,
+    
+    SHDeviceTypeAudio,
+    
+    SHDeviceTypeCurtain,
+    
+    SHDeviceTypeAirConditioner
+
+
+} SHDeviceType;
+
 extern CGFloat SHNavigationBarHeight;
 
 extern CGFloat SHTabBarHeight;
