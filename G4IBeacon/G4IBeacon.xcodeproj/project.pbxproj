@@ -18,6 +18,7 @@
 		8B9E8B791EBC72120037FAF1 /* SHIBeacon.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B781EBC72120037FAF1 /* SHIBeacon.m */; };
 		8B9E8B7D1EBC75C90037FAF1 /* SHSQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B7C1EBC75C90037FAF1 /* SHSQLiteManager.m */; };
 		8B9E8B821EBC760C0037FAF1 /* FileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B811EBC760C0037FAF1 /* FileTools.m */; };
+		8BAA7E3A1EC0172F003BD713 /* SHSenceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BAA7E391EC0172F003BD713 /* SHSenceViewController.storyboard */; };
 		8BADAE331EBC2FA200D9E785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE321EBC2FA200D9E785 /* main.m */; };
 		8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE351EBC2FA200D9E785 /* AppDelegate.m */; };
 		8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE3D1EBC2FA200D9E785 /* Assets.xcassets */; };
@@ -55,6 +56,7 @@
 		8B9E8B7E1EBC75E70037FAF1 /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		8B9E8B801EBC760C0037FAF1 /* FileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTools.h; sourceTree = "<group>"; };
 		8B9E8B811EBC760C0037FAF1 /* FileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTools.m; sourceTree = "<group>"; };
+		8BAA7E391EC0172F003BD713 /* SHSenceViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SHSenceViewController.storyboard; sourceTree = "<group>"; };
 		8BADAE2E1EBC2FA200D9E785 /* G4IBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = G4IBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BADAE321EBC2FA200D9E785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BADAE341EBC2FA200D9E785 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -158,6 +160,7 @@
 			children = (
 				8B9E8B6B1EBC62D40037FAF1 /* SHSenceViewController.h */,
 				8B9E8B6C1EBC62D40037FAF1 /* SHSenceViewController.m */,
+				8BAA7E391EC0172F003BD713 /* SHSenceViewController.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -405,6 +408,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BAA7E3A1EC0172F003BD713 /* SHSenceViewController.storyboard in Resources */,
 				8BADAE411EBC2FA200D9E785 /* LaunchScreen.storyboard in Resources */,
 				8B9E8B751EBC6A850037FAF1 /* SHAddViewController.xib in Resources */,
 				8BADAE7A1EBC4D4D00D9E785 /* SHAllTableViewCell.xib in Resources */,

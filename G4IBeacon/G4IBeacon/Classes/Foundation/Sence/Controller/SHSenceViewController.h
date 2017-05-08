@@ -6,8 +6,8 @@
 //  Copyright © 2017年 SmartHomeGroup. All rights reserved.
 //
 
-#import "SHViewController.h"
+#import "SHTableViewController.h"
 
-@interface SHSenceViewController : SHViewController
+@interface SHSenceViewController : SHTableViewController
 
 @end

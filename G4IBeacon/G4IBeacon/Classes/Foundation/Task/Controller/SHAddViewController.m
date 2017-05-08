@@ -26,6 +26,8 @@
 /// 触发值的误差范围(+-)
 @property (weak, nonatomic) IBOutlet UITextField *rssiBufferTextField;
 
+/// pickerView
+@property (strong, nonatomic) UIPickerView *pickerView;
 
 @end
 
@@ -33,7 +35,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     
     // 设置导航栏
     [self setUpNavigationBar];

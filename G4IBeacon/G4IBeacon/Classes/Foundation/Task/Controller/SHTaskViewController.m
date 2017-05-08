@@ -97,7 +97,10 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    SHSenceViewController *senceViewController = [[SHSenceViewController alloc] init];
+    SHSenceViewController *senceViewController =
+    [[UIStoryboard storyboardWithName:NSStringFromClass([SHSenceViewController class ]) bundle:nil] instantiateInitialViewController];
+    
+    // 传入模型
     
     [self.navigationController pushViewController:senceViewController animated:YES];
 }

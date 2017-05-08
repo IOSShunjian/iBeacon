@@ -13,6 +13,12 @@
 /// 任务选项卡
 @property (weak, nonatomic) UISegmentedControl *segmentedControl;
 
+/// 进入区域任务
+@property (weak, nonatomic) UIView *enterView;
+
+/// 离开区域任务
+@property (weak, nonatomic) UIView *exitView;
+
 @end
 
 @implementation SHSenceViewController
@@ -21,6 +27,12 @@
     [super viewDidLayoutSubviews];
     
     self.segmentedControl.frame = CGRectMake(0, SHNavigationBarHeight, self.view.frame_width, SHTabBarHeight);
+    
+    self.enterView.frame = self.view.bounds;
+    self.enterView.frame_y = SHNavigationBarHeight + SHTabBarHeight;
+    
+    self.exitView.frame = self.view.bounds;
+    self.exitView.frame_y = SHNavigationBarHeight + SHTabBarHeight;
 }
 
 - (void)viewDidLoad {
@@ -28,44 +40,33 @@
     
     self.navigationItem.title = @"Sence";
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.tableView.sectionHeaderHeight = 0;
+    self.tableView.sectionFooterHeight = 0;
+    self.tableView.contentInset = UIEdgeInsetsMake(-15, 0, 0, 0);
     
-    
-    [self setUpsegmentedControl];
 }
 
-/// 设置选项卡
-- (void)setUpsegmentedControl {
-
-    // 添加选择卡
-    UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:@[@"Enter", @"Exit"]];
-    [self.view addSubview:segmentedControl];
-    self.segmentedControl = segmentedControl;
-    
-    // 增加监听
-    [segmentedControl addTarget:self action:@selector(selectGoal:) forControlEvents:UIControlEventValueChanged];
-    
-    // 默认进入选择第一项
-    segmentedControl.selectedSegmentIndex = 0;
-    [self selectGoal:segmentedControl];
-    
-    // 设置字体
-    [segmentedControl setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:20]} forState:UIControlStateNormal];
-}
-
-/// 选项卡
-- (void)selectGoal:(UISegmentedControl *)segmentedControl {
-    
-    if (segmentedControl.selectedSegmentIndex) {
-        NSLog(@"退出任务");
-    } else {
-        NSLog(@"进入任务");
-    }
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+// MARK: - 代理
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if (!indexPath.section && !indexPath.row) {
+        NSLog(@"设置");
+    
+    } else {
+    
+        if (!indexPath.row) {
+            NSLog(@"进入区域的任务");
+        } else {
+            NSLog(@"离开区域的任务");
+        }
+    }
 }
 
  
