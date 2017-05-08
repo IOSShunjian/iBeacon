@@ -6,9 +6,9 @@
 //  Copyright © 2017年 SmartHomeGroup. All rights reserved.
 //
 
-#import "SHAreaViewController.h"
+ 
 #import "SHEnterAreaViewController.h"
-
+#import "SHExitAreaViewController.h"
 
 @interface SHAreaViewController () <UITableViewDelegate, UITableViewDataSource>
 

@@ -8,19 +8,15 @@
 
 #import "SHSenceViewController.h"
 #import "SHAddViewController.h"
-#import "SHEnterAreaViewController.h"
+//#import "SHAreaViewController.h"
 #import "SHExitAreaViewController.h"
+#import "SHEnterAreaViewController.h"
 
 @interface SHSenceViewController ()
 
 /// 任务选项卡
 @property (weak, nonatomic) UISegmentedControl *segmentedControl;
 
-/// 进入区域任务
-@property (weak, nonatomic) UIView *enterView;
-
-/// 离开区域任务
-@property (weak, nonatomic) UIView *exitView;
 
 @end
 
@@ -31,11 +27,6 @@
     
     self.segmentedControl.frame = CGRectMake(0, SHNavigationBarHeight, self.view.frame_width, SHTabBarHeight);
     
-    self.enterView.frame = self.view.bounds;
-    self.enterView.frame_y = SHNavigationBarHeight + SHTabBarHeight;
-    
-    self.exitView.frame = self.view.bounds;
-    self.exitView.frame_y = SHNavigationBarHeight + SHTabBarHeight;
 }
 
 - (void)viewDidLoad {
@@ -65,24 +56,19 @@
     [self.navigationController pushViewController:addViewController animated:YES];
 }
 
-/// 进入区域
-- (void)enterAreaTasks {
-
-    SHEnterAreaViewController *enterAreaViewController = [[SHEnterAreaViewController alloc] init];
+/// 设置进入区域的任务
+- (void)seUpEnterTasks  {
     
-    enterAreaViewController.iBeacon = self.iBeacon;
+    SHEnterAreaViewController *areaViewController = [[SHEnterAreaViewController alloc] init];
     
-    [self.navigationController pushViewController:enterAreaViewController animated:YES];
+    [self.navigationController pushViewController:areaViewController animated:YES];
 }
 
-/// 离开区域 
-- (void)exitAreaTasks {
-
-    SHExitAreaViewController *exitAreaViewController = [[SHExitAreaViewController alloc] init];
+/// 设置离开区域的任务
+- (void)seUpExitTasks {
+    SHExitAreaViewController *areaViewController = [[SHExitAreaViewController alloc] init];
     
-    exitAreaViewController.iBeacon = self.iBeacon;
-    
-    [self.navigationController pushViewController:exitAreaViewController animated:YES];
+    [self.navigationController pushViewController:areaViewController animated:YES];
 }
 
 // MARK: - 代理
@@ -94,12 +80,11 @@
         [self setUpiBeacon];
     
     } else {
-    
         if (!indexPath.row) {
-            [self enterAreaTasks];
-            
+            // 进入区域
+            [self seUpEnterTasks];
         } else {
-            [self exitAreaTasks];
+            [self seUpExitTasks];
         }
     }
 }

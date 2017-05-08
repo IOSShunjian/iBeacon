@@ -7,9 +7,7 @@
 //
 
 #import "SHAreaViewController.h"
- 
 
 @interface SHEnterAreaViewController : SHAreaViewController
-
 
 @end

@@ -19,9 +19,10 @@
 		8B9E8B7D1EBC75C90037FAF1 /* SHSQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B7C1EBC75C90037FAF1 /* SHSQLiteManager.m */; };
 		8B9E8B821EBC760C0037FAF1 /* FileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B811EBC760C0037FAF1 /* FileTools.m */; };
 		8BAA7E3A1EC0172F003BD713 /* SHSenceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BAA7E391EC0172F003BD713 /* SHSenceViewController.storyboard */; };
-		8BAA7E3D1EC01C8C003BD713 /* SHEnterAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA7E3C1EC01C8C003BD713 /* SHEnterAreaViewController.m */; };
 		8BAA7E4C1EC03FF5003BD713 /* SHAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA7E4B1EC03FF5003BD713 /* SHAreaViewController.m */; };
-		8BAA7E4F1EC04185003BD713 /* SHExitAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA7E4E1EC04185003BD713 /* SHExitAreaViewController.m */; };
+		8BAA7E631EC0676F003BD713 /* SHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA7E621EC0676F003BD713 /* SHButton.m */; };
+		8BAA7E661EC069B7003BD713 /* SHEnterAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA7E651EC069B7003BD713 /* SHEnterAreaViewController.m */; };
+		8BAA7E691EC069C6003BD713 /* SHExitAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA7E681EC069C6003BD713 /* SHExitAreaViewController.m */; };
 		8BADAE331EBC2FA200D9E785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE321EBC2FA200D9E785 /* main.m */; };
 		8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE351EBC2FA200D9E785 /* AppDelegate.m */; };
 		8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE3D1EBC2FA200D9E785 /* Assets.xcassets */; };
@@ -60,12 +61,14 @@
 		8B9E8B801EBC760C0037FAF1 /* FileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTools.h; sourceTree = "<group>"; };
 		8B9E8B811EBC760C0037FAF1 /* FileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTools.m; sourceTree = "<group>"; };
 		8BAA7E391EC0172F003BD713 /* SHSenceViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SHSenceViewController.storyboard; sourceTree = "<group>"; };
-		8BAA7E3B1EC01C8C003BD713 /* SHEnterAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHEnterAreaViewController.h; sourceTree = "<group>"; };
-		8BAA7E3C1EC01C8C003BD713 /* SHEnterAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHEnterAreaViewController.m; sourceTree = "<group>"; };
 		8BAA7E4A1EC03FF5003BD713 /* SHAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAreaViewController.h; sourceTree = "<group>"; };
 		8BAA7E4B1EC03FF5003BD713 /* SHAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAreaViewController.m; sourceTree = "<group>"; };
-		8BAA7E4D1EC04185003BD713 /* SHExitAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHExitAreaViewController.h; sourceTree = "<group>"; };
-		8BAA7E4E1EC04185003BD713 /* SHExitAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHExitAreaViewController.m; sourceTree = "<group>"; };
+		8BAA7E611EC0676F003BD713 /* SHButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHButton.h; sourceTree = "<group>"; };
+		8BAA7E621EC0676F003BD713 /* SHButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHButton.m; sourceTree = "<group>"; };
+		8BAA7E641EC069B7003BD713 /* SHEnterAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHEnterAreaViewController.h; sourceTree = "<group>"; };
+		8BAA7E651EC069B7003BD713 /* SHEnterAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHEnterAreaViewController.m; sourceTree = "<group>"; };
+		8BAA7E671EC069C6003BD713 /* SHExitAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHExitAreaViewController.h; sourceTree = "<group>"; };
+		8BAA7E681EC069C6003BD713 /* SHExitAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHExitAreaViewController.m; sourceTree = "<group>"; };
 		8BADAE2E1EBC2FA200D9E785 /* G4IBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = G4IBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BADAE321EBC2FA200D9E785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BADAE341EBC2FA200D9E785 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -172,10 +175,10 @@
 				8BAA7E391EC0172F003BD713 /* SHSenceViewController.storyboard */,
 				8BAA7E4A1EC03FF5003BD713 /* SHAreaViewController.h */,
 				8BAA7E4B1EC03FF5003BD713 /* SHAreaViewController.m */,
-				8BAA7E3B1EC01C8C003BD713 /* SHEnterAreaViewController.h */,
-				8BAA7E3C1EC01C8C003BD713 /* SHEnterAreaViewController.m */,
-				8BAA7E4D1EC04185003BD713 /* SHExitAreaViewController.h */,
-				8BAA7E4E1EC04185003BD713 /* SHExitAreaViewController.m */,
+				8BAA7E641EC069B7003BD713 /* SHEnterAreaViewController.h */,
+				8BAA7E651EC069B7003BD713 /* SHEnterAreaViewController.m */,
+				8BAA7E671EC069C6003BD713 /* SHExitAreaViewController.h */,
+				8BAA7E681EC069C6003BD713 /* SHExitAreaViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -205,6 +208,30 @@
 				8B9E8B811EBC760C0037FAF1 /* FileTools.m */,
 			);
 			path = File;
+			sourceTree = "<group>";
+		};
+		8BAA7E591EC0668D003BD713 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				8BAA7E5A1EC0668D003BD713 /* Controller */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		8BAA7E5A1EC0668D003BD713 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		8BAA7E601EC0675F003BD713 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8BAA7E611EC0676F003BD713 /* SHButton.h */,
+				8BAA7E621EC0676F003BD713 /* SHButton.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		8BADAE251EBC2FA200D9E785 = {
@@ -270,6 +297,7 @@
 		8BADAE561EBC454500D9E785 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				8BAA7E601EC0675F003BD713 /* View */,
 				8BADAE571EBC454500D9E785 /* Controller */,
 				8B9E8B6E1EBC647B0037FAF1 /* SHConstant.h */,
 				8B9E8B6F1EBC648D0037FAF1 /* SHConstant.m */,
@@ -307,6 +335,7 @@
 		8BADAE621EBC480200D9E785 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				8BAA7E591EC0668D003BD713 /* Setting */,
 				8B9E8B691EBC62C50037FAF1 /* Sence */,
 				8B9E8B5C1EBC5E070037FAF1 /* Task */,
 				8BADAE631EBC480200D9E785 /* All */,
@@ -490,19 +519,20 @@
 				8BADAE791EBC4D4D00D9E785 /* SHAllTableViewCell.m in Sources */,
 				8BADAE5E1EBC457400D9E785 /* SHNavigationController.m in Sources */,
 				8B9E8B791EBC72120037FAF1 /* SHIBeacon.m in Sources */,
-				8BAA7E3D1EC01C8C003BD713 /* SHEnterAreaViewController.m in Sources */,
 				8BADAE611EBC458000D9E785 /* SHViewController.m in Sources */,
 				8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */,
 				8B9E8B701EBC648D0037FAF1 /* SHConstant.m in Sources */,
+				8BAA7E661EC069B7003BD713 /* SHEnterAreaViewController.m in Sources */,
 				8B9E8B6D1EBC62D40037FAF1 /* SHSenceViewController.m in Sources */,
 				8BADAE721EBC4A7500D9E785 /* SHAllViewController.m in Sources */,
 				8BADAE5B1EBC456200D9E785 /* SHTabBarController.m in Sources */,
 				8B9E8B821EBC760C0037FAF1 /* FileTools.m in Sources */,
 				8B9E8B651EBC60240037FAF1 /* SHTaskCollectionViewCell.m in Sources */,
+				8BAA7E691EC069C6003BD713 /* SHExitAreaViewController.m in Sources */,
+				8BAA7E631EC0676F003BD713 /* SHButton.m in Sources */,
 				8BAA7E4C1EC03FF5003BD713 /* SHAreaViewController.m in Sources */,
 				8B9E8B7D1EBC75C90037FAF1 /* SHSQLiteManager.m in Sources */,
 				8B9E8B741EBC6A850037FAF1 /* SHAddViewController.m in Sources */,
-				8BAA7E4F1EC04185003BD713 /* SHExitAreaViewController.m in Sources */,
 				8BADAE6F1EBC4A4A00D9E785 /* SHTableViewController.m in Sources */,
 				8BADAE6C1EBC48A700D9E785 /* UIView+frame.m in Sources */,
 				8BADAE681EBC489200D9E785 /* UIColor+set.m in Sources */,
