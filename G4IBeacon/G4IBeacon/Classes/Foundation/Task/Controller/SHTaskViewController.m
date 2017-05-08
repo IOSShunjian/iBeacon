@@ -73,20 +73,6 @@
     [self.navigationController pushViewController:addViewController animated:YES];
 }
 
-/// 手势设置值
-- (void)setArgs:(UILongPressGestureRecognizer *)recognizer indexPath:(NSIndexPath *)indexPath {
-    
-    if (recognizer.state != UIGestureRecognizerStateBegan) {
-        return;
-    }
-    
-    SHAddViewController *addViewController = [[SHAddViewController alloc] init];
-    
-    addViewController.iBeacon = self.alliBeacons[indexPath.item];
-    
-    [self.navigationController pushViewController:addViewController animated:YES];
-    
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -101,6 +87,7 @@
     [[UIStoryboard storyboardWithName:NSStringFromClass([SHSenceViewController class ]) bundle:nil] instantiateInitialViewController];
     
     // 传入模型
+    senceViewController.iBeacon = self.alliBeacons[indexPath.row];
     
     [self.navigationController pushViewController:senceViewController animated:YES];
 }
@@ -115,16 +102,6 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
     SHTaskCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([SHTaskCollectionViewCell class]) forIndexPath:indexPath];
-    
-    // 给cell添加手势
-    // 添加长按手势
-    UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(setArgs:indexPath:)];
-    
-    // 设置长按时间
-    longPress.minimumPressDuration = 1.5;
-    longPress.cancelsTouchesInView = YES; // 默认也是YES
-    [cell addGestureRecognizer:longPress];
-
     
     // 获得区域模型
     cell.iBeacon = self.alliBeacons[indexPath.item];

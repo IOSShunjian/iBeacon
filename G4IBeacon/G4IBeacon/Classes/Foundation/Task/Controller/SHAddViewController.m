@@ -8,6 +8,7 @@
 
 #import "SHAddViewController.h"
 #import "SHIBeacon.h"
+#import "SHTaskViewController.h"
 
 @interface SHAddViewController ()
 
@@ -99,7 +100,14 @@
     // TODO: - 保存到数据库中去
     [[SHSQLiteManager shareSHSQLiteManager] deleteiBeacon:self.iBeacon];
     
-    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popViewControllerAnimated:YES];
+    
+    // 直接回到任务列表
+    for (UIViewController *viewController in self.navigationController.childViewControllers) {
+        if ([viewController isKindOfClass:[SHTaskViewController class]]) {
+            [self.navigationController popToViewController:viewController animated:YES];
+        }
+    }
 }
 
 /// 保存区域

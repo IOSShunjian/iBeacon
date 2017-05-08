@@ -7,6 +7,8 @@
 //
 
 #import "SHSenceViewController.h"
+#import "SHAddViewController.h"
+
 
 @interface SHSenceViewController ()
 
@@ -52,12 +54,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+/// 设置区域
+- (void)setUpiBeacon {
+
+    SHAddViewController *addViewController = [[SHAddViewController alloc] init];
+    
+    addViewController.iBeacon = self.iBeacon;
+    
+    [self.navigationController pushViewController:addViewController animated:YES];
+}
+
 // MARK: - 代理
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (!indexPath.section && !indexPath.row) {
-        NSLog(@"设置");
+       
+        [self setUpiBeacon];
     
     } else {
     
