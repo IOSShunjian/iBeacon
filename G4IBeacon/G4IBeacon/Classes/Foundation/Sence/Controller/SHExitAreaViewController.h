@@ -1,5 +1,5 @@
 //
-//  SHEnterAreaViewController.h
+//  SHExitAreaViewController.h
 //  G4IBeacon
 //
 //  Created by LHY on 2017/5/8.
@@ -7,9 +7,7 @@
 //
 
 #import "SHAreaViewController.h"
- 
 
-@interface SHEnterAreaViewController : SHAreaViewController
-
+@interface SHExitAreaViewController : SHAreaViewController
 
 @end

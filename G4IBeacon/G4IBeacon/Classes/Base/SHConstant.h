@@ -20,10 +20,9 @@ typedef enum {
     
     SHDeviceTypeAudio,
     
-    SHDeviceTypeCurtain,
+    SHDeviceTypeAirConditioner,
     
-    SHDeviceTypeAirConditioner
-
+    SHDeviceTypeCurtain
 
 } SHDeviceType;
 
