@@ -10,6 +10,8 @@
 
 @interface SHAreaTaskTableViewCell : UITableViewCell
 
+/// cell对应的按钮
+@property (nonatomic, strong) SHButton *button;
 
 /// 行高
 + (CGFloat)cellRowHeight;

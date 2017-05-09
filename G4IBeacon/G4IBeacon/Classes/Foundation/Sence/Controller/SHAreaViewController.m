@@ -89,7 +89,7 @@
 }
 
 /// 按钮点击
-- (void)selectDeviceTouched:(UIButton *)button {
+- (void)selectDeviceTouched:(SHButton *)button {
     
     [self.tasks addObject:button];
     
@@ -118,10 +118,10 @@
     SHAreaTaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([SHAreaTaskTableViewCell class]) forIndexPath:indexPath];
     
     // 获得按钮
-//    UIButton *button = self.tasks[indexPath.row];
-//    
-//    cell.textLabel.text = [button titleForState:UIControlStateNormal];
-//    cell.imageView.image = [UIImage imageNamed:cell.textLabel.text];
+    SHButton *button = self.tasks[indexPath.row];
+
+    cell.button = button;
+    
     
     return cell;
     
@@ -140,31 +140,57 @@
 
         
         // 添加按钮
-        NSArray *selectNames = @[@"Dimmer", @"AC",@"Audio", @"Curtain", @"LED"];
+        NSArray *selectNames = @[@"Dimmer", @"AC", @"Audio", @"Curtain", @"LED"];
         self.selectNames = selectNames;
         
         _selectDeviceButtonScrollView.contentSize = CGSizeMake(0, selectNames.count * SHTabBarHeight);
         
         for (NSUInteger i = 0; i < selectNames.count; i++) {
             
-            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            SHButton *button = [SHButton buttonWithType:UIButtonTypeCustom];
             
             button.backgroundColor = [UIColor orangeColor];
             
             button.tag = i;
-            
-            // 匹配图片和文字
-//            [button setImage:[UIImage imageNamed:selectNames[i]] forState:UIControlStateNormal];
+   
             [button setTitle:[selectNames objectAtIndex:i] forState:UIControlStateNormal];
+        
             
             // 点击显示出来
             [button addTarget:self action:@selector(selectDeviceTouched:) forControlEvents:UIControlEventTouchUpInside];
             
             [_selectDeviceButtonScrollView addSubview:button];
+            
+            switch (i) {
+                case 0:
+                    button.buttonKind = SHButtonTypeDimmer;
+                    break;
+                    
+                case 1:
+                    button.buttonKind = SHButtonTypeAc;
+                    break;
+                    
+                case 2:
+                    button.buttonKind = SHButtonTypeAudio;
+                    break;
+                    
+                case 3:
+                    button.buttonKind = SHButtonTypeCurtain;
+                    break;
+                    
+                case 4:
+                    button.buttonKind = SHButtonTypeLed;
+                    break;
+                    
+                default:
+                    break;
+            }
         }
     }
     return _selectDeviceButtonScrollView;
 }
+
+
 
 /// 任务列表
 - (UITableView *)taskView {
