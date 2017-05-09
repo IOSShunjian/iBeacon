@@ -172,6 +172,8 @@
         _taskView = [[UITableView alloc] init];
         _taskView.delegate = self;
         _taskView.dataSource = self;
+        _taskView.separatorStyle = UITableViewCellSeparatorStyleNone;
+        _taskView.rowHeight = SHTabBarHeight;
         
         [_taskView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
     }

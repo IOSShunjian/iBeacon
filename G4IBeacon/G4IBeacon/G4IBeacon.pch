@@ -26,6 +26,7 @@
 #import "SHConstant.h"
 #import "FileTools.h"
 #import "SHSQLiteManager.h"
+#import "UIBarButtonItem+init.h"
 
 #endif
 

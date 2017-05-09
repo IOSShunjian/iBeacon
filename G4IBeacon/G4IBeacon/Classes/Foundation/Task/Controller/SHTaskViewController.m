@@ -104,7 +104,9 @@
     [self.view addSubview:self.listView];
 }
 
-/// 相同的UUID只会触发一次
+// MARK: - 本地通知
+
+//注意： 相同的UUID只会触发一次
 
 /// 发送进入区域的通知
 - (void)sendEnterNotification {
