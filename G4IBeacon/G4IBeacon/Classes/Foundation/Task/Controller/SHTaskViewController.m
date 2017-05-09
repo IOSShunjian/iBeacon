@@ -81,8 +81,6 @@
     if (state == CLRegionStateInside) {
         NSLog(@"进入区域");
         
-        NSLog(@"%@", region);
-        
         // 获得详细信息
         [self.locationManager startRangingBeaconsInRegion: (CLBeaconRegion *)region];
         
@@ -106,6 +104,43 @@
     [self.view addSubview:self.listView];
 }
 
+/// 相同的UUID只会触发一次
+
+/// 发送进入区域的通知
+- (void)sendEnterNotification {
+    
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"welcome";
+    notification.soundName = @"Default";
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+///发送离开区域的通知
+- (void)sendExitNotification {
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"Exit Region?";
+    notification.soundName = @"Default";
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+/// 进入区域
+- (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
+    
+    if ([region isKindOfClass:[CLBeaconRegion class]]) {
+        
+        [self sendEnterNotification];
+    }
+}
+
+// 离开区域
+- (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
+    
+    if ([region isKindOfClass:[CLBeaconRegion class]]) {
+        
+        [self sendExitNotification];
+    }
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     
     [super viewDidAppear:animated];
@@ -115,6 +150,10 @@
     
     for (SHIBeacon *iBeacon in self.alliBeacons) {
         CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:iBeacon.uuidString] major:iBeacon.majorValue minor:iBeacon.minorValue identifier:@"iBeacon"];
+        region.notifyOnEntry = YES;
+        region.notifyOnExit = YES;
+        region.notifyEntryStateOnDisplay = YES;
+        
         [self.allBeaconRegions addObject:region];
     }
     
@@ -197,10 +236,6 @@
         _locationManager.delegate = self;
         
         _locationManager.distanceFilter = kCLDistanceFilterNone;
-        //
-        //        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9) {
-        //            _locationManager.allowsBackgroundLocationUpdates = YES;
-        //        }
         
     }
     return _locationManager;
