@@ -10,6 +10,7 @@
 #import "SHEnterAreaViewController.h"
 #import "SHExitAreaViewController.h"
 #import "SHSettingDeviceViewController.h"
+#import "SHAreaTaskTableViewCell.h"
 
 @interface SHAreaViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -114,13 +115,13 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([UITableViewCell class]) forIndexPath:indexPath];
+    SHAreaTaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([SHAreaTaskTableViewCell class]) forIndexPath:indexPath];
     
     // 获得按钮
-    UIButton *button = self.tasks[indexPath.row];
-    
-    cell.textLabel.text = [button titleForState:UIControlStateNormal];
-    cell.imageView.image = [UIImage imageNamed:cell.textLabel.text];
+//    UIButton *button = self.tasks[indexPath.row];
+//    
+//    cell.textLabel.text = [button titleForState:UIControlStateNormal];
+//    cell.imageView.image = [UIImage imageNamed:cell.textLabel.text];
     
     return cell;
     
@@ -173,9 +174,9 @@
         _taskView.delegate = self;
         _taskView.dataSource = self;
         _taskView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _taskView.rowHeight = SHTabBarHeight;
+        _taskView.rowHeight = [SHAreaTaskTableViewCell cellRowHeight];
         
-        [_taskView registerClass:[UITableViewCell class] forCellReuseIdentifier:NSStringFromClass([UITableViewCell class])];
+        [_taskView registerNib:[UINib nibWithNibName:NSStringFromClass([SHAreaTaskTableViewCell class]) bundle:nil] forCellReuseIdentifier: NSStringFromClass([SHAreaTaskTableViewCell class])];
     }
     return _taskView;
 }

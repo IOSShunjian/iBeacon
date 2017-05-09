@@ -14,9 +14,6 @@
 
 @interface SHSenceViewController ()
 
-/// 任务选项卡
-@property (weak, nonatomic) UISegmentedControl *segmentedControl;
-
 
 @end
 
@@ -24,8 +21,6 @@
 
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
-    
-    self.segmentedControl.frame = CGRectMake(0, SHNavigationBarHeight, self.view.frame_width, SHTabBarHeight);
     
 }
 

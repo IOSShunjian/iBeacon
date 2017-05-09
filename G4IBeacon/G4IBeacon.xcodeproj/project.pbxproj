@@ -10,6 +10,8 @@
 		3A2C4068DD82872EE3059F55 /* libPods-G4IBeacon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B95283FCCC4C7A219B5ACDE /* libPods-G4IBeacon.a */; };
 		8B75AFBD1EC15CDD009F7D33 /* UIBarButtonItem+init.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B75AFBA1EC15CDD009F7D33 /* UIBarButtonItem+init.m */; };
 		8B75AFBE1EC15CDD009F7D33 /* UIButton+init.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B75AFBC1EC15CDD009F7D33 /* UIButton+init.m */; };
+		8B75AFD21EC16E8E009F7D33 /* SHAreaTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B75AFD01EC16E8E009F7D33 /* SHAreaTaskTableViewCell.m */; };
+		8B75AFD31EC16E8E009F7D33 /* SHAreaTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B75AFD11EC16E8E009F7D33 /* SHAreaTaskTableViewCell.xib */; };
 		8B9E8B601EBC5E140037FAF1 /* SHTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B5F1EBC5E140037FAF1 /* SHTaskViewController.m */; };
 		8B9E8B651EBC60240037FAF1 /* SHTaskCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B631EBC60240037FAF1 /* SHTaskCollectionViewCell.m */; };
 		8B9E8B661EBC60240037FAF1 /* SHTaskCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B9E8B641EBC60240037FAF1 /* SHTaskCollectionViewCell.xib */; };
@@ -49,6 +51,9 @@
 		8B75AFBA1EC15CDD009F7D33 /* UIBarButtonItem+init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+init.m"; sourceTree = "<group>"; };
 		8B75AFBB1EC15CDD009F7D33 /* UIButton+init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+init.h"; sourceTree = "<group>"; };
 		8B75AFBC1EC15CDD009F7D33 /* UIButton+init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+init.m"; sourceTree = "<group>"; };
+		8B75AFCF1EC16E8E009F7D33 /* SHAreaTaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAreaTaskTableViewCell.h; sourceTree = "<group>"; };
+		8B75AFD01EC16E8E009F7D33 /* SHAreaTaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAreaTaskTableViewCell.m; sourceTree = "<group>"; };
+		8B75AFD11EC16E8E009F7D33 /* SHAreaTaskTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHAreaTaskTableViewCell.xib; sourceTree = "<group>"; };
 		8B9E8B5E1EBC5E140037FAF1 /* SHTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHTaskViewController.h; sourceTree = "<group>"; };
 		8B9E8B5F1EBC5E140037FAF1 /* SHTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHTaskViewController.m; sourceTree = "<group>"; };
 		8B9E8B621EBC60240037FAF1 /* SHTaskCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHTaskCollectionViewCell.h; sourceTree = "<group>"; };
@@ -252,6 +257,9 @@
 		8BAA7E741EC06D72003BD713 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8B75AFCF1EC16E8E009F7D33 /* SHAreaTaskTableViewCell.h */,
+				8B75AFD01EC16E8E009F7D33 /* SHAreaTaskTableViewCell.m */,
+				8B75AFD11EC16E8E009F7D33 /* SHAreaTaskTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -484,6 +492,7 @@
 				8BADAE7A1EBC4D4D00D9E785 /* SHAllTableViewCell.xib in Resources */,
 				8B9E8B661EBC60240037FAF1 /* SHTaskCollectionViewCell.xib in Resources */,
 				8BAA7E7E1EC07737003BD713 /* SHSettingDeviceViewController.xib in Resources */,
+				8B75AFD31EC16E8E009F7D33 /* SHAreaTaskTableViewCell.xib in Resources */,
 				8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -557,6 +566,7 @@
 				8B9E8B821EBC760C0037FAF1 /* FileTools.m in Sources */,
 				8B9E8B651EBC60240037FAF1 /* SHTaskCollectionViewCell.m in Sources */,
 				8BAA7E691EC069C6003BD713 /* SHExitAreaViewController.m in Sources */,
+				8B75AFD21EC16E8E009F7D33 /* SHAreaTaskTableViewCell.m in Sources */,
 				8BAA7E631EC0676F003BD713 /* SHButton.m in Sources */,
 				8BAA7E4C1EC03FF5003BD713 /* SHAreaViewController.m in Sources */,
 				8B9E8B7D1EBC75C90037FAF1 /* SHSQLiteManager.m in Sources */,
