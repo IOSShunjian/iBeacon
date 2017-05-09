@@ -1,0 +1,7 @@
+target ‘G4IBeacon’ do
+
+pod 'SVProgressHUD'
+
+pod 'FMDB'
+
+end
