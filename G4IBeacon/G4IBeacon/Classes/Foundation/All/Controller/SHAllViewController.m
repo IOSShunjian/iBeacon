@@ -79,7 +79,7 @@
     }
     
 //    for (CLBeacon *beacon in beacons) {
-//        NSLog(@"%@", beacon);
+//        NSLog(@"All - %@", beacon);
 //    }
     
     // 设置最新信息

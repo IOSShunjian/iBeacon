@@ -23,6 +23,10 @@
 		8BAA7E631EC0676F003BD713 /* SHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA7E621EC0676F003BD713 /* SHButton.m */; };
 		8BAA7E661EC069B7003BD713 /* SHEnterAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA7E651EC069B7003BD713 /* SHEnterAreaViewController.m */; };
 		8BAA7E691EC069C6003BD713 /* SHExitAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA7E681EC069C6003BD713 /* SHExitAreaViewController.m */; };
+		8BAA7E781EC06D8B003BD713 /* SHDimmerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA7E761EC06D8B003BD713 /* SHDimmerViewCell.m */; };
+		8BAA7E791EC06D8B003BD713 /* SHDimmerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BAA7E771EC06D8B003BD713 /* SHDimmerViewCell.xib */; };
+		8BAA7E7D1EC07737003BD713 /* SHSettingDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA7E7B1EC07737003BD713 /* SHSettingDeviceViewController.m */; };
+		8BAA7E7E1EC07737003BD713 /* SHSettingDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BAA7E7C1EC07737003BD713 /* SHSettingDeviceViewController.xib */; };
 		8BADAE331EBC2FA200D9E785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE321EBC2FA200D9E785 /* main.m */; };
 		8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE351EBC2FA200D9E785 /* AppDelegate.m */; };
 		8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE3D1EBC2FA200D9E785 /* Assets.xcassets */; };
@@ -69,6 +73,12 @@
 		8BAA7E651EC069B7003BD713 /* SHEnterAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHEnterAreaViewController.m; sourceTree = "<group>"; };
 		8BAA7E671EC069C6003BD713 /* SHExitAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHExitAreaViewController.h; sourceTree = "<group>"; };
 		8BAA7E681EC069C6003BD713 /* SHExitAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHExitAreaViewController.m; sourceTree = "<group>"; };
+		8BAA7E751EC06D8B003BD713 /* SHDimmerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDimmerViewCell.h; sourceTree = "<group>"; };
+		8BAA7E761EC06D8B003BD713 /* SHDimmerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDimmerViewCell.m; sourceTree = "<group>"; };
+		8BAA7E771EC06D8B003BD713 /* SHDimmerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHDimmerViewCell.xib; sourceTree = "<group>"; };
+		8BAA7E7A1EC07737003BD713 /* SHSettingDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSettingDeviceViewController.h; sourceTree = "<group>"; };
+		8BAA7E7B1EC07737003BD713 /* SHSettingDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSettingDeviceViewController.m; sourceTree = "<group>"; };
+		8BAA7E7C1EC07737003BD713 /* SHSettingDeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHSettingDeviceViewController.xib; sourceTree = "<group>"; };
 		8BADAE2E1EBC2FA200D9E785 /* G4IBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = G4IBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BADAE321EBC2FA200D9E785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BADAE341EBC2FA200D9E785 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -162,6 +172,7 @@
 		8B9E8B691EBC62C50037FAF1 /* Sence */ = {
 			isa = PBXGroup;
 			children = (
+				8BAA7E741EC06D72003BD713 /* View */,
 				8B9E8B6A1EBC62C50037FAF1 /* Controller */,
 			);
 			path = Sence;
@@ -221,6 +232,9 @@
 		8BAA7E5A1EC0668D003BD713 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8BAA7E7A1EC07737003BD713 /* SHSettingDeviceViewController.h */,
+				8BAA7E7B1EC07737003BD713 /* SHSettingDeviceViewController.m */,
+				8BAA7E7C1EC07737003BD713 /* SHSettingDeviceViewController.xib */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -230,6 +244,16 @@
 			children = (
 				8BAA7E611EC0676F003BD713 /* SHButton.h */,
 				8BAA7E621EC0676F003BD713 /* SHButton.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		8BAA7E741EC06D72003BD713 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8BAA7E751EC06D8B003BD713 /* SHDimmerViewCell.h */,
+				8BAA7E761EC06D8B003BD713 /* SHDimmerViewCell.m */,
+				8BAA7E771EC06D8B003BD713 /* SHDimmerViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -452,11 +476,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8BAA7E791EC06D8B003BD713 /* SHDimmerViewCell.xib in Resources */,
 				8BAA7E3A1EC0172F003BD713 /* SHSenceViewController.storyboard in Resources */,
 				8BADAE411EBC2FA200D9E785 /* LaunchScreen.storyboard in Resources */,
 				8B9E8B751EBC6A850037FAF1 /* SHAddViewController.xib in Resources */,
 				8BADAE7A1EBC4D4D00D9E785 /* SHAllTableViewCell.xib in Resources */,
 				8B9E8B661EBC60240037FAF1 /* SHTaskCollectionViewCell.xib in Resources */,
+				8BAA7E7E1EC07737003BD713 /* SHSettingDeviceViewController.xib in Resources */,
 				8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,6 +550,7 @@
 				8B9E8B701EBC648D0037FAF1 /* SHConstant.m in Sources */,
 				8BAA7E661EC069B7003BD713 /* SHEnterAreaViewController.m in Sources */,
 				8B9E8B6D1EBC62D40037FAF1 /* SHSenceViewController.m in Sources */,
+				8BAA7E781EC06D8B003BD713 /* SHDimmerViewCell.m in Sources */,
 				8BADAE721EBC4A7500D9E785 /* SHAllViewController.m in Sources */,
 				8BADAE5B1EBC456200D9E785 /* SHTabBarController.m in Sources */,
 				8B9E8B821EBC760C0037FAF1 /* FileTools.m in Sources */,
@@ -533,6 +560,7 @@
 				8BAA7E4C1EC03FF5003BD713 /* SHAreaViewController.m in Sources */,
 				8B9E8B7D1EBC75C90037FAF1 /* SHSQLiteManager.m in Sources */,
 				8B9E8B741EBC6A850037FAF1 /* SHAddViewController.m in Sources */,
+				8BAA7E7D1EC07737003BD713 /* SHSettingDeviceViewController.m in Sources */,
 				8BADAE6F1EBC4A4A00D9E785 /* SHTableViewController.m in Sources */,
 				8BADAE6C1EBC48A700D9E785 /* UIView+frame.m in Sources */,
 				8BADAE681EBC489200D9E785 /* UIColor+set.m in Sources */,

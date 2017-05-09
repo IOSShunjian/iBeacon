@@ -9,6 +9,7 @@
  
 #import "SHEnterAreaViewController.h"
 #import "SHExitAreaViewController.h"
+#import "SHSettingDeviceViewController.h"
 
 @interface SHAreaViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -98,7 +99,10 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-     
+    SHSettingDeviceViewController *setDeviceViewController = [[SHSettingDeviceViewController alloc] init];
+    
+
+    [self.navigationController pushViewController:setDeviceViewController animated:YES];
 }
 
 
