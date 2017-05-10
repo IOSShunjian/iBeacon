@@ -53,6 +53,8 @@
 
 /// 设置导航栏
 - (void)setUpNavigationBar {
+    
+    self.navigationItem.title = @"Add iBeacon";
 
     UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveiBeacon)];
     
@@ -62,7 +64,7 @@
 }
 
 /// 获得当前区域模型
-- (void)getCurrentiBeacon {
+- (BOOL)getCurrentiBeacon {
 
     // 检测数据
     if (!self.nameTextField.text.length ||
@@ -73,10 +75,10 @@
         
         [SVProgressHUD showInfoWithStatus:@"Value Can not nil"];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [SVProgressHUD dismiss];
         });
-        return;
+        return NO;
     }
     
     // 获得所有的数据
@@ -92,12 +94,16 @@
     self.iBeacon.rssiValue = rssiValue;
     self.iBeacon.rssiBufValue = rssiBufValue;
     self.iBeacon.uuidString = UUIDStirng;
+    
+    return YES;
 }
 
 /// 删除区域
 - (void)deleteiBeacon {
 
-    [self getCurrentiBeacon];
+    if (![self getCurrentiBeacon]) {
+        return;
+    };
     
     // TODO: - 保存到数据库中去
     [[SHSQLiteManager shareSHSQLiteManager] deleteiBeacon:self.iBeacon];
@@ -115,7 +121,9 @@
 /// 保存区域
 - (void)saveiBeacon {
     
-    [self getCurrentiBeacon];
+    if (![self getCurrentiBeacon]) {
+        return;
+    };
     
     // TODO: - 保存到数据库中去
     [[SHSQLiteManager shareSHSQLiteManager] insertiBeacon:self.iBeacon];
