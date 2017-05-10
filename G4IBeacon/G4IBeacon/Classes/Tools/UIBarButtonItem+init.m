@@ -19,7 +19,7 @@
 + (instancetype)barButtonItemWithImageName:(NSString *)imageName hightlightedImageName:(NSString *)hightlightedImageName addTarget:(id)target action:(SEL)action {
     
     UIButton *button = [UIButton buttonWithImageName:imageName hightlightedImageName:hightlightedImageName addTarget:target action:action];
-               
+    
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithCustomView:button];
     
     return item;

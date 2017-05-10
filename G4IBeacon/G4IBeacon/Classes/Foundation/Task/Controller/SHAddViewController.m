@@ -40,7 +40,12 @@
     self.view.backgroundColor = SHGlobalBackgroundColor;
     
     // 设置导航栏
-    [self setUpNavigationBar];
+    self.navigationItem.title = @"Add iBeacon";
+    
+    // 如果这个设备是新增的不要设置
+    if (![[SHSQLiteManager shareSHSQLiteManager] isiBeaconExist:self.iBeacon]) {
+        return;
+    }
     
     // 设置数据
     self.nameTextField.text = self.iBeacon.name;
@@ -51,17 +56,7 @@
     self.rssiBufferTextField.text = [NSString stringWithFormat:@"%zd", self.iBeacon.rssiBufValue];
 }
 
-/// 设置导航栏
-- (void)setUpNavigationBar {
-    
-    self.navigationItem.title = @"Add iBeacon";
 
-    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveiBeacon)];
-    
-    UIBarButtonItem *deleteItem = [[UIBarButtonItem alloc] initWithTitle:@"Delete" style:UIBarButtonItemStylePlain target:self action:@selector(deleteiBeacon)];
-    
-    self.navigationItem.rightBarButtonItems = @[saveItem, deleteItem];
-}
 
 /// 获得当前区域模型
 - (BOOL)getCurrentiBeacon {
@@ -99,16 +94,14 @@
 }
 
 /// 删除区域
-- (void)deleteiBeacon {
+- (IBAction)deleteiBeacon {
 
     if (![self getCurrentiBeacon]) {
         return;
     };
     
-    // TODO: - 保存到数据库中去
+    // 保存到数据库中去
     [[SHSQLiteManager shareSHSQLiteManager] deleteiBeacon:self.iBeacon];
-    
-//    [self.navigationController popViewControllerAnimated:YES];
     
     // 直接回到任务列表
     for (UIViewController *viewController in self.navigationController.childViewControllers) {
@@ -119,16 +112,22 @@
 }
 
 /// 保存区域
-- (void)saveiBeacon {
+- (IBAction)saveiBeacon {
     
     if (![self getCurrentiBeacon]) {
         return;
     };
     
-    // TODO: - 保存到数据库中去
-    [[SHSQLiteManager shareSHSQLiteManager] insertiBeacon:self.iBeacon];
+    // 保存到数据库中去
+    BOOL res = [[SHSQLiteManager shareSHSQLiteManager] insertiBeacon:self.iBeacon];
     
-    [self.navigationController popViewControllerAnimated:YES];
+    if (res) {
+         [self.navigationController popViewControllerAnimated:YES];
+    } else {
+        [SVProgressHUD showErrorWithStatus:@"iBeacon Already Exists"];
+    }
+    
+   
 }
 
 

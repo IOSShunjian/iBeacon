@@ -31,6 +31,9 @@
     
     // 设置字体
     [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:22], NSForegroundColorAttributeName: SHTextHighlightedColor}];
+    
+    [[UINavigationBar appearance] setTintColor:SHTextNormalColor];
+    
 }
 
 - (void)viewDidLoad {

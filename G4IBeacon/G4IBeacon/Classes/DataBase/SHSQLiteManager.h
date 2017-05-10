@@ -24,6 +24,9 @@
 /// 插入一个新的iBeacon
 - (BOOL)insertiBeacon:(SHIBeacon *)iBeacon;
 
+/// 这个iBeacon是否存在
+- (BOOL)isiBeaconExist:(SHIBeacon *)iBeacon;
+
 SingletonInterface(SHSQLiteManager)
 
 @end
