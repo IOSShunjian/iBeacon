@@ -102,6 +102,7 @@
         
     } else if (state == CLRegionStateOutside) {
          NSLog(@"离开区域");
+        [self.locationManager stopRangingBeaconsInRegion:self.region];
     }
 }
 
@@ -110,6 +111,10 @@
     
     if (error) {
         [SVProgressHUD showInfoWithStatus:@"open the phone Bluetooth"];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
     }
 }
 
@@ -118,6 +123,9 @@
     
     if (error) {
         [SVProgressHUD showInfoWithStatus:@"open the phone Bluetooth"];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [SVProgressHUD dismiss];
+        });
     }
 }
 

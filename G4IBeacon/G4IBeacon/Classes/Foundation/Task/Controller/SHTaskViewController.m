@@ -80,12 +80,20 @@
     
     if (state == CLRegionStateInside) {
         NSLog(@"进入区域");
-        
+  
         // 获得详细信息
-        [self.locationManager startRangingBeaconsInRegion: (CLBeaconRegion *)region];
+        for (CLBeaconRegion *region in self.allBeaconRegions) {
+
+            [self.locationManager startRangingBeaconsInRegion:region];
+        }
         
     } else if (state == CLRegionStateOutside) {
         NSLog(@"离开区域");
+        // 获得详细信息
+        for (CLBeaconRegion *region in self.allBeaconRegions) {
+            
+            [self.locationManager stopRangingBeaconsInRegion:region];
+        }
     }
 }
 
@@ -120,7 +128,7 @@
 ///发送离开区域的通知
 - (void)sendExitNotification {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = @"Exit Region?";
+    notification.alertBody = @"Exit Region";
     notification.soundName = @"Default";
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
