@@ -20,6 +20,8 @@
 /// 标示符
 #define REGION_IDENTIFIER (@"SmartHomeGroup")
 
+#define SHGlobalBackgroundColor ([UIColor colorWithWhite:233/255.0 alpha:1.0])
+
 // 导入一些头文件
 #import <SVProgressHUD.h>
 #import "UIView+frame.h"

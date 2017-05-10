@@ -37,6 +37,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = SHGlobalBackgroundColor;
+    
     // 设置导航栏
     [self setUpNavigationBar];
     

@@ -27,6 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.view.backgroundColor = SHGlobalBackgroundColor;
+    
     self.navigationItem.title = @"Sence";
     
     self.tableView.sectionHeaderHeight = 0;

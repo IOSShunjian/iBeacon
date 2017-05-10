@@ -48,7 +48,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
    
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = SHGlobalBackgroundColor;
     
     // 设置导航
     [self setUpNavigationBar];
@@ -201,6 +201,8 @@
         _taskView.dataSource = self;
         _taskView.separatorStyle = UITableViewCellSeparatorStyleNone;
         _taskView.rowHeight = [SHAreaTaskTableViewCell cellRowHeight];
+        
+        _taskView.backgroundColor = SHGlobalBackgroundColor;
         
         [_taskView registerNib:[UINib nibWithNibName:NSStringFromClass([SHAreaTaskTableViewCell class]) bundle:nil] forCellReuseIdentifier: NSStringFromClass([SHAreaTaskTableViewCell class])];
     }

@@ -11,6 +11,8 @@
 
 #import "SHAllTableViewCell.h"
 
+
+
 @interface SHAllViewController () <CLLocationManagerDelegate>
 
 /// 定位
@@ -37,6 +39,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.view.backgroundColor = SHGlobalBackgroundColor;
     
     self.navigationItem.title = @"All Device On Line";
     

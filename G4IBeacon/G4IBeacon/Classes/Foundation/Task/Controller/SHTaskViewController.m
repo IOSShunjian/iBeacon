@@ -96,7 +96,7 @@
     
     self.navigationItem.title = @"Tasks";
     
-    self.view.backgroundColor = [UIColor whiteColor];
+    self.view.backgroundColor = SHGlobalBackgroundColor;
     
     // 设置导航栏
     [self setUpNavigationBar];
