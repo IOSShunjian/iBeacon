@@ -7,6 +7,7 @@
 //
 
 #import "SHNavigationController.h"
+#import "UIColor+set.h"
 
 /**
  注意：这不是一个真正的协议，只是为了防止系统报警告
@@ -29,7 +30,7 @@
 + (void)load {
     
     // 设置字体
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:22]}];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:22], NSForegroundColorAttributeName: [UIColor cololrWithHex:0Xd81e06 alpa:1.0]}];
 }
 
 - (void)viewDidLoad {
