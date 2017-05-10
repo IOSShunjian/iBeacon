@@ -211,7 +211,7 @@
     [self.navigationController pushViewController:senceViewController animated:YES];
 }
 
-// MARK: - 数据库
+// MARK: - 数据源
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
     
@@ -238,7 +238,6 @@
         _locationManager.delegate = self;
         
         _locationManager.distanceFilter = kCLDistanceFilterNone;
-        
     }
     return _locationManager;
 }
