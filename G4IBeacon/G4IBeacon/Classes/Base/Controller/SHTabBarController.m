@@ -13,8 +13,6 @@
 #import "SHAllViewController.h"
 #import "SHTaskViewController.h"
 
-#define SHTabBarFont ([UIFont systemFontOfSize:15])
-
 @interface SHTabBarController ()
 
 @end

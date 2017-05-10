@@ -51,8 +51,8 @@
     [button setTitleColor:normalTextColor forState:UIControlStateNormal];
     [button setTitleColor:highlightedTextColor forState:UIControlStateHighlighted];
     
-//    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
-//    button.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
+    button.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+    button.contentEdgeInsets = UIEdgeInsetsMake(0, -10, 0, 0);
     
     [button sizeToFit];
     
