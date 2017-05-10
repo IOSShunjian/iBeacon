@@ -22,6 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    // 程序启动进入相应的面面
+    [self viewWillTransitionToSize:self.view.bounds.size withTransitionCoordinator:self.transitionCoordinator];
     
     // 添加子控制器
     [self addChildControllers];
@@ -72,6 +74,17 @@
     
     // 添加到父控件上
     [self addChildViewController:[[SHNavigationController alloc] initWithRootViewController:viewController]];
+}
+
+// MARK: - 横竖屏适配
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    
+    if ([UIDevice currentDevice].userInterfaceIdiom == UIUserInterfaceIdiomPad) {
+        return [super supportedInterfaceOrientations];
+    }
+    
+    return UIInterfaceOrientationMaskPortrait;
 }
 
 @end
