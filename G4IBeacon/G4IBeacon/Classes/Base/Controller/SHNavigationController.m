@@ -30,7 +30,7 @@
 + (void)load {
     
     // 设置字体
-    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:22], NSForegroundColorAttributeName: [UIColor cololrWithHex:0Xd81e06 alpa:1.0]}];
+    [[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName: [UIFont systemFontOfSize:22], NSForegroundColorAttributeName: SHTextHighlightedColor}];
 }
 
 - (void)viewDidLoad {
@@ -66,7 +66,7 @@
         viewController.hidesBottomBarWhenPushed = YES;
         
         // 设置返回item
-        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemTitle:@"" font:[UIFont systemFontOfSize:20] normalTextColor:[UIColor cololrWithHex:0X1296db alpa:1.0] highlightedTextColor:[UIColor cololrWithHex:0Xd81e06 alpa:1.0] imageName:@"return" hightlightedImageName:@"return_highlighted" addTarget:self action:@selector(popBack)];
+        viewController.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemTitle:@"" font:[UIFont systemFontOfSize:20] normalTextColor:SHTextNormalColor highlightedTextColor:SHTextHighlightedColor imageName:@"return" hightlightedImageName:@"return_highlighted" addTarget:self action:@selector(popBack)];
         
     }
     

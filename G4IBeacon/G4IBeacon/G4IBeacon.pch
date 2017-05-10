@@ -26,6 +26,12 @@
 /// tabBar字体
 #define SHTabBarFont ([UIFont systemFontOfSize:15])
 
+/// 全局字体的正常颜色
+#define SHTextNormalColor ([UIColor cololrWithHex:0X1296db alpa:1.0])
+
+/// 全局字体的高亮颜色
+#define SHTextHighlightedColor ([UIColor cololrWithHex:0Xd81e06 alpa:1.0])
+
 // 导入一些头文件
 #import <SVProgressHUD.h>
 #import "UIView+frame.h"

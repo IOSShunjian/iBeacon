@@ -41,10 +41,10 @@
 + (void)initialize {
     
     // 常态
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName: SHTabBarFont, NSForegroundColorAttributeName : [UIColor cololrWithHex:0X1296db alpa:1.0]} forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName: SHTabBarFont, NSForegroundColorAttributeName : SHTextNormalColor } forState:UIControlStateNormal];
     
     // 选中状态 
-    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: [UIColor cololrWithHex:0Xd81e06 alpa:1.0]} forState:UIControlStateSelected];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName: SHTextHighlightedColor } forState:UIControlStateSelected];
 }
 
 /// 添加所有的子控制器
