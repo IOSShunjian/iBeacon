@@ -56,8 +56,8 @@
 - (IBAction)deleteButtonClick:(UIButton *)sender {
     
     // 来源控制器的保存按钮数组中删除
-    if ([self.sourceViewController.tasks containsObject:self.settingButton]) {
-        [self.sourceViewController.tasks removeObject:self.settingButton];
+    if ([self.sourceViewController.iBeacon.allDeviceButtonInCurrentZone containsObject:self.settingButton]) {
+        [self.sourceViewController.iBeacon.allDeviceButtonInCurrentZone removeObject:self.settingButton];
     }
 
     // 数据库也要删除

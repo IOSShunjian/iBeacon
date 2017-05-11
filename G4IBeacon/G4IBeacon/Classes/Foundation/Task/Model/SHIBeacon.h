@@ -34,4 +34,7 @@
 /// 字典转换为模型
 + (instancetype)iBeaconWithDictionary:(NSDictionary *)dictionary;
 
+/// 当前所有的设备按钮
+@property (nonatomic, strong) NSMutableArray *allDeviceButtonInCurrentZone;
+
 @end

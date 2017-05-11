@@ -20,4 +20,13 @@
     return obj;
 }
 
+/// 保证外界访问时有值
+- (NSMutableArray *)allDeviceButtonInCurrentZone {
+    
+    if (!_allDeviceButtonInCurrentZone) {
+        _allDeviceButtonInCurrentZone = [NSMutableArray array];
+    }
+    return _allDeviceButtonInCurrentZone;
+}
+
 @end

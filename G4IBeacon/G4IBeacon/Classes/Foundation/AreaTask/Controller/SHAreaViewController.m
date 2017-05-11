@@ -53,7 +53,7 @@
     [super viewDidAppear:animated];
     
     // 显示已经存在的任务
-    self.tasks = [[SHSQLiteManager shareSHSQLiteManager] getAllButtonsForCurrentZone:self.iBeacon];
+    self.iBeacon.allDeviceButtonInCurrentZone = [[SHSQLiteManager shareSHSQLiteManager] getAllButtonsForCurrentZone:self.iBeacon];
     
     // 刷新
     [self.taskView reloadData];
@@ -112,7 +112,7 @@
     deviceButton.iBeaconID = self.iBeacon.iBeaconID;
     deviceButton.subNetID = 1; // 默认都是1
     
-    [self.tasks addObject:deviceButton];
+    [self.iBeacon.allDeviceButtonInCurrentZone addObject:deviceButton];
     [self.taskView reloadData];
     
     // TODO: 保存到数据库中去
@@ -126,7 +126,7 @@
     SHSettingViewController *settingViewController = [[UIStoryboard storyboardWithName:NSStringFromClass([SHSettingViewController class]) bundle:nil] instantiateInitialViewController];
     
     // 设置长按的按钮
-    settingViewController.settingButton = self.tasks[indexPath.row];
+    settingViewController.settingButton = self.iBeacon.allDeviceButtonInCurrentZone[indexPath.row];
     
     [self.navigationController pushViewController:settingViewController animated:YES];
 }
@@ -134,7 +134,7 @@
 // MARK: - 数据源
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return self.tasks.count;
+    return self.iBeacon.allDeviceButtonInCurrentZone.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -142,7 +142,7 @@
     SHAreaTaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([SHAreaTaskTableViewCell class]) forIndexPath:indexPath];
     
     // 获得按钮
-    cell.button = self.tasks[indexPath.row];
+    cell.button = self.iBeacon.allDeviceButtonInCurrentZone[indexPath.row];
     
     return cell;
 }
@@ -224,13 +224,6 @@
         [_taskView registerNib:[UINib nibWithNibName:NSStringFromClass([SHAreaTaskTableViewCell class]) bundle:nil] forCellReuseIdentifier: NSStringFromClass([SHAreaTaskTableViewCell class])];
     }
     return _taskView;
-}
-
-- (NSMutableArray *)tasks {
-    if (!_tasks) {
-        _tasks = [NSMutableArray array];
-    }
-    return _tasks;
 }
 
 @end

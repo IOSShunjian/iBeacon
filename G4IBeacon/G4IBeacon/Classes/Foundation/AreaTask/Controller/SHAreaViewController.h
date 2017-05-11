@@ -15,6 +15,6 @@
 @property (nonatomic, strong) SHIBeacon *iBeacon;
 
 /// 当前区域的任务
-@property (strong, nonatomic) NSMutableArray *tasks;
+//@property (strong, nonatomic) NSMutableArray *tasks;
 
 @end
