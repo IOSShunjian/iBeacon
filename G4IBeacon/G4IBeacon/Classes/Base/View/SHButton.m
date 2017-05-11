@@ -14,20 +14,20 @@
 
  
 
-- (void)layoutSubviews {
-    [super layoutSubviews];
-    
-//    self.titleLabel.backgroundColor = [UIColor redColor];
-//    self.imageView.backgroundColor = [UIColor greenColor];
-    
-    self.titleLabel.frame_x = 0;
-    self.titleLabel.frame_y = 0;
-    self.titleLabel.frame_width = self.frame_width * 0.6;
-    self.titleLabel.frame_height = self.frame_height;
-    
-    self.imageView.frame_width = self.frame_width - self.titleLabel.frame_width - SHButtonMaign;
-    self.imageView.frame_x = self.titleLabel.frame_width;
-}
+//- (void)layoutSubviews {
+//    [super layoutSubviews];
+//    
+////    self.titleLabel.backgroundColor = [UIColor redColor];
+////    self.imageView.backgroundColor = [UIColor greenColor];
+//    
+//    self.titleLabel.frame_x = 0;
+//    self.titleLabel.frame_y = 0;
+//    self.titleLabel.frame_width = self.frame_width * 0.6;
+//    self.titleLabel.frame_height = self.frame_height;
+//    
+//    self.imageView.frame_width = self.frame_width - self.titleLabel.frame_width - SHButtonMaign;
+//    self.imageView.frame_x = self.titleLabel.frame_width;
+//}
 
 /// 字典转换为模型
 + (instancetype)buttonWithDictionary:(NSDictionary *)dictionary {
@@ -45,8 +45,7 @@
  
     btn.buttonKind = (ButtonKind)[dictionary[@"buttonKind"] integerValue];
 
-    btn.buttonRectSaved = CGRectFromString(dictionary[@"buttonRectSaved"]);
-
+   
     btn.buttonPara1 = [dictionary[@"buttonPara1"] integerValue];
     btn.buttonPara2 = [dictionary[@"buttonPara2"] integerValue];
     btn.buttonPara3 = [dictionary[@"buttonPara3"] integerValue];
