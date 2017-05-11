@@ -49,6 +49,13 @@
     
 }
 
+- (void)viewDidDisappear:(BOOL)animated {
+    [super viewDidDisappear:animated];
+    
+    // 保存数据
+   [[SHSQLiteManager shareSHSQLiteManager] saveCurrentZonesButtons:self.iBeacon];
+}
+
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
@@ -83,23 +90,11 @@
     
     self.navigationItem.title = [self isKindOfClass:[SHEnterAreaViewController class]] ? @"Enter Area" : @"Exit Area";
     
-    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveAreaTask)];
-    
-    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewTask)];
-    
-    self.navigationItem.rightBarButtonItems = @[addItem, saveItem];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(showDeviceSelectList)];
 }
 
-/// 保存区域任务
-- (void)saveAreaTask {
-    
-    [[SHSQLiteManager shareSHSQLiteManager] saveCurrentZonesButtons:self.iBeacon];
-    
-    [SVProgressHUD showSuccessWithStatus:@"save success"];
-}
-
-/// 新增任务
-- (void)addNewTask {
+/// 显示选择列表
+- (void)showDeviceSelectList {
     
     self.selectDeviceButtonScrollView.hidden = !self.selectDeviceButtonScrollView.hidden;
 }
