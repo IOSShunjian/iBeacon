@@ -26,7 +26,22 @@
 
 // MARK: - 每个iBeacon中所有的设备操作
 
+/// 获得最大的按钮ID
+- (NSUInteger)getMaxButtonID {
+    
+    // 获得结果ID
+    id resID = [[[self selectProprty:@"select max(buttonID) from DeviceButtonForZone"] lastObject] objectForKey:@"max(buttonID)"];
+    return (resID == [NSNull null]) ? 0 : [resID integerValue];
+}
 
+/// 将新创建的按钮保存在数据库中
+- (void)inserNewButton:(SHButton *)button {
+    
+    NSString * sql = [NSString stringWithFormat:@"INSERT INTO DeviceButtonForZone (iBeaconID, buttonID, subnetID, deviceID, buttonKind, buttonPara1, buttonPara2, buttonPara3, buttonPara4, buttonPara5, buttonPara6) VALUES (%zd, %zd, %d, %d, %d, %d, %d, %d, %d, %d, %d);",  button.iBeaconID, button.buttonID, button.subNetID, button.deviceID, button.buttonKind, button.buttonPara1, button.buttonPara2, button.buttonPara3, button.buttonPara4, button.buttonPara5, button.buttonPara6];
+    
+    // 执行SQL
+    [self insetData:sql];
+}
 
 
 // MARK: - iBeacon区域模块的操作
@@ -130,7 +145,7 @@
      'buttonPara6'      不同设备的参数6
      */
     NSString *buttonSql = @"CREATE TABLE IF NOT EXISTS 'DeviceButtonForZone' (\
-    'zoneID' INTEGER NOT NULL DEFAULT (0),\
+    'iBeaconID' INTEGER NOT NULL DEFAULT (0),\
     'buttonID' INTEGER PRIMARY KEY NOT NULL DEFAULT (1),\
     'subnetID' INTEGER NOT NULL DEFAULT (1),\
     'deviceID' INTEGER NOT NULL DEFAULT (0),\

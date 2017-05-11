@@ -71,4 +71,7 @@ typedef enum  {
 /// 字典转换为模型
 + (instancetype)buttonWithDictionary:(NSDictionary *)dictionary;
 
+/// 由类型来确定默认名称
++ (NSString *)buttonDefaultTitleFromKind:(SHButton *)button;
+
 @end

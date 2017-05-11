@@ -38,11 +38,10 @@
 }
 
 
-
 - (void)setButton:(SHButton *)button {
     _button = button;
     
-    self.nameLabel.text = [button titleForState:UIControlStateNormal];
+    self.nameLabel.text = [SHButton buttonDefaultTitleFromKind:button];
     
     self.iconView.image = [UIImage imageNamed:self.nameLabel.text];
     

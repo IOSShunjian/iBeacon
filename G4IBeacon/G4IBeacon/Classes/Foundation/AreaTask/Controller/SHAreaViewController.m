@@ -33,7 +33,7 @@
 - (void)viewDidLayoutSubviews {
     [super viewDidLayoutSubviews];
     
-    self.selectDeviceButtonScrollView.frame  = CGRectMake(self.view.frame_width - SHNavigationBarHeight, SHNavigationBarHeight,SHNavigationBarHeight, self.view.frame_height - SHNavigationBarHeight);
+    self.selectDeviceButtonScrollView.frame  = CGRectMake(self.view.frame_width *  0.8, SHNavigationBarHeight,self.view.frame_width *  0.2, self.view.frame_height - SHNavigationBarHeight);
     
     for (NSUInteger i = 0; i < self.selectDeviceButtonScrollView.subviews.count; i++) {
         UIView *subView = self.selectDeviceButtonScrollView.subviews[i];
@@ -93,7 +93,13 @@
 - (void)selectDeviceTouched:(SHButton *)button {
     
     // 添加到所任务队列中去
-    [self.tasks addObject:button];
+    SHButton *deviceButton = [[SHButton alloc] init];
+    deviceButton.buttonID = [[SHSQLiteManager shareSHSQLiteManager] getMaxButtonID] + 1;
+    deviceButton.buttonKind = button.buttonKind;
+    deviceButton.iBeaconID = self.iBeacon.iBeaconID;
+    deviceButton.subNetID = 1; // 默认都是1
+    
+    [self.tasks addObject:deviceButton];
     
     // TODO: 保存到数据库中去
     [self.taskView reloadData];
