@@ -8,6 +8,7 @@
 
 
 #import "SHViewController.h"
+#import "SHAreaViewController.h"
 
 @interface SHSettingViewController : SHViewController
 
@@ -16,6 +17,6 @@
 @property (strong,nonatomic)SHButton *settingButton;
 
 /// 来源控制器
-//@property (nonatomic, strong) SHZoneDetailViewController *sourceViewController;
+@property (nonatomic, strong) SHAreaViewController *sourceViewController;
 
 @end

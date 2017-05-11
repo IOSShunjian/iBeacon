@@ -26,6 +26,32 @@
 
 // MARK: - 每个iBeacon中所有的设备操作
 
+/// 删除已经存在按钮
+- (void)deleteButton:(SHButton *)button {
+    
+    // 准备SQL
+    NSString *sql = sql = [NSString stringWithFormat:@"DELETE FROM DeviceButtonForZone WHERE iBeaconID = %zd and buttonID = %zd",button.iBeaconID,button.buttonID];
+    
+    // 执行sql
+    [self insetData:sql];
+}
+
+/// 获得当前区域的所有按钮
+- (NSMutableArray *)getAllButtonsForCurrentZone:(SHIBeacon *)iBeacon {
+    
+    NSString *selectSql = [NSString stringWithFormat:@"SELECT iBeaconID, buttonID, subnetID, deviceID, buttonKind, buttonPara1, buttonPara2, buttonPara3, buttonPara4, buttonPara5, buttonPara6 FROM DeviceButtonForZone WHERE iBeaconID = %zd;", iBeacon.iBeaconID];
+    
+    NSMutableArray *resArr = [self selectProprty:selectSql];
+    NSMutableArray *allButtons = [NSMutableArray arrayWithCapacity:resArr.count];
+    
+    for (NSDictionary *dict in resArr) {
+        SHButton *button = [SHButton buttonWithDictionary:dict];
+        [allButtons addObject:button];
+    }
+    
+    return allButtons;
+}
+
 /// 获得最大的按钮ID
 - (NSUInteger)getMaxButtonID {
     

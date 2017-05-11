@@ -21,10 +21,13 @@
 /// 设备列表名称
 @property (strong, nonatomic) NSArray *selectNames;
 
+/// 设备种类
+@property (assign, nonatomic) NSUInteger deviceKindCount;
+
 /// 显示任务的tableView
 @property (strong, nonatomic) UITableView *taskView;
 
-@property (strong, nonatomic) NSMutableArray *tasks;
+
 
 @end
 
@@ -44,6 +47,16 @@
     }
     self.taskView.frame = self.view.bounds;
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    // 显示已经存在的任务
+    self.tasks = [[SHSQLiteManager shareSHSQLiteManager] getAllButtonsForCurrentZone:self.iBeacon];
+    
+    // 刷新
+    [self.taskView reloadData];
 }
 
 - (void)viewDidLoad {
@@ -100,9 +113,10 @@
     deviceButton.subNetID = 1; // 默认都是1
     
     [self.tasks addObject:deviceButton];
+    [self.taskView reloadData];
     
     // TODO: 保存到数据库中去
-    [self.taskView reloadData];
+    [[SHSQLiteManager shareSHSQLiteManager] inserNewButton:deviceButton];
 }
 
 // MARK: - 代理
@@ -138,20 +152,18 @@
 /// 选择设备列表框
 - (UIScrollView *)selectDeviceButtonScrollView {
     
+    self.deviceKindCount = 5;
+    
     if (!_selectDeviceButtonScrollView) {
         
         _selectDeviceButtonScrollView = [[UIScrollView alloc] init];
         _selectDeviceButtonScrollView.showsVerticalScrollIndicator = YES;
         _selectDeviceButtonScrollView.pagingEnabled = YES;
 
-        
         // 添加按钮
-        NSArray *selectNames = @[@"Light", @"AC", @"Audio", @"Curtain", @"LED"];
-        self.selectNames = selectNames;
+        _selectDeviceButtonScrollView.contentSize = CGSizeMake(0, self.deviceKindCount * SHTabBarHeight);
         
-        _selectDeviceButtonScrollView.contentSize = CGSizeMake(0, selectNames.count * SHTabBarHeight);
-        
-        for (NSUInteger i = 0; i < selectNames.count; i++) {
+        for (NSUInteger i = 0; i < self.deviceKindCount; i++) {
             
             SHButton *button = [SHButton buttonWithType:UIButtonTypeCustom];
             
@@ -159,14 +171,7 @@
             
             button.tag = i;
    
-            [button setTitle:[selectNames objectAtIndex:i] forState:UIControlStateNormal];
         
-            
-            // 点击显示出来
-            [button addTarget:self action:@selector(selectDeviceTouched:) forControlEvents:UIControlEventTouchUpInside];
-            
-            [_selectDeviceButtonScrollView addSubview:button];
-            
             switch (i) {
                 case 0:
                     button.buttonKind = ButtonKindLight;
@@ -191,6 +196,14 @@
                 default:
                     break;
             }
+            
+            [button setTitle:[SHButton buttonDefaultTitleFromKind:button] forState:UIControlStateNormal];
+            
+            // 点击显示出来
+            [button addTarget:self action:@selector(selectDeviceTouched:) forControlEvents:UIControlEventTouchUpInside];
+            
+            [_selectDeviceButtonScrollView addSubview:button];
+            
         }
     }
     return _selectDeviceButtonScrollView;

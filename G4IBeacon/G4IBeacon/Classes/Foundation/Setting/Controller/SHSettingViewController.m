@@ -56,16 +56,13 @@
 - (IBAction)deleteButtonClick:(UIButton *)sender {
     
     // 来源控制器的保存按钮数组中删除
-//    if ([self.sourceViewController.zone.allDeviceButtonInCurrentZone containsObject:self.settingButton]) {
-//        [self.sourceViewController.zone.allDeviceButtonInCurrentZone removeObject:self.settingButton];
-//    }
-//    
-//    // 数据库也要删除
-//    [[SHSQLiteManager shareSHSQLiteManager] deleteButton:self.settingButton];;
-//    
-//    // 从界面上删除这个按钮
-//    [self.settingButton removeFromSuperview];
-//    
+    if ([self.sourceViewController.tasks containsObject:self.settingButton]) {
+        [self.sourceViewController.tasks removeObject:self.settingButton];
+    }
+
+    // 数据库也要删除
+    [[SHSQLiteManager shareSHSQLiteManager] deleteButton:self.settingButton];;
+    
     // 返回
     [self.navigationController popViewControllerAnimated:YES];
 }

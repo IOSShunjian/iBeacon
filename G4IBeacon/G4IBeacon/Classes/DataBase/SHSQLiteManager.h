@@ -15,6 +15,12 @@
 
 // MARK: - 区域内部操作
 
+/// 删除已经存在按钮
+- (void)deleteButton:(SHButton *)button;
+
+/// 获得当前区域的所有按钮
+- (NSMutableArray *)getAllButtonsForCurrentZone:(SHIBeacon *)iBeacon;
+
 /// 获得最大的按钮ID
 - (NSUInteger)getMaxButtonID;
 
