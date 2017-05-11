@@ -126,8 +126,6 @@
     } else {
         [SVProgressHUD showErrorWithStatus:@"iBeacon Already Exists"];
     }
-    
-   
 }
 
 
