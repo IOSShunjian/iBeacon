@@ -87,6 +87,8 @@
 - (void)addNewTask {
     
     self.selectDeviceButtonScrollView.hidden = !self.selectDeviceButtonScrollView.hidden;
+    
+    self.selectDeviceButtonScrollView.backgroundColor = [UIColor purpleColor];
 }
 
 /// 按钮点击
