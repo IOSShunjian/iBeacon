@@ -28,8 +28,6 @@
 		8B9E8B7D1EBC75C90037FAF1 /* SHSQLiteManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B7C1EBC75C90037FAF1 /* SHSQLiteManager.m */; };
 		8B9E8B821EBC760C0037FAF1 /* FileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B811EBC760C0037FAF1 /* FileTools.m */; };
 		8BAA7E3A1EC0172F003BD713 /* SHSenceViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BAA7E391EC0172F003BD713 /* SHSenceViewController.storyboard */; };
-		8BAA7E7D1EC07737003BD713 /* SHSettingDeviceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BAA7E7B1EC07737003BD713 /* SHSettingDeviceViewController.m */; };
-		8BAA7E7E1EC07737003BD713 /* SHSettingDeviceViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BAA7E7C1EC07737003BD713 /* SHSettingDeviceViewController.xib */; };
 		8BADAE331EBC2FA200D9E785 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE321EBC2FA200D9E785 /* main.m */; };
 		8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE351EBC2FA200D9E785 /* AppDelegate.m */; };
 		8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE3D1EBC2FA200D9E785 /* Assets.xcassets */; };
@@ -43,6 +41,8 @@
 		8BADAE721EBC4A7500D9E785 /* SHAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE711EBC4A7500D9E785 /* SHAllViewController.m */; };
 		8BADAE791EBC4D4D00D9E785 /* SHAllTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE771EBC4D4D00D9E785 /* SHAllTableViewCell.m */; };
 		8BADAE7A1EBC4D4D00D9E785 /* SHAllTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE781EBC4D4D00D9E785 /* SHAllTableViewCell.xib */; };
+		8BE509581EC432390090E6BC /* SHSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE509561EC432390090E6BC /* SHSettingViewController.m */; };
+		8BE509591EC432390090E6BC /* SHSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE509571EC432390090E6BC /* SHSettingViewController.storyboard */; };
 		8BF61A281EC2C7B0009030CD /* SHAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF61A231EC2C7B0009030CD /* SHAreaViewController.m */; };
 		8BF61A291EC2C7B0009030CD /* SHEnterAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF61A251EC2C7B0009030CD /* SHEnterAreaViewController.m */; };
 		8BF61A2A1EC2C7B1009030CD /* SHExitAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF61A271EC2C7B0009030CD /* SHExitAreaViewController.m */; };
@@ -86,9 +86,6 @@
 		8B9E8B801EBC760C0037FAF1 /* FileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileTools.h; sourceTree = "<group>"; };
 		8B9E8B811EBC760C0037FAF1 /* FileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileTools.m; sourceTree = "<group>"; };
 		8BAA7E391EC0172F003BD713 /* SHSenceViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SHSenceViewController.storyboard; sourceTree = "<group>"; };
-		8BAA7E7A1EC07737003BD713 /* SHSettingDeviceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSettingDeviceViewController.h; sourceTree = "<group>"; };
-		8BAA7E7B1EC07737003BD713 /* SHSettingDeviceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSettingDeviceViewController.m; sourceTree = "<group>"; };
-		8BAA7E7C1EC07737003BD713 /* SHSettingDeviceViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHSettingDeviceViewController.xib; sourceTree = "<group>"; };
 		8BADAE2E1EBC2FA200D9E785 /* G4IBeacon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = G4IBeacon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BADAE321EBC2FA200D9E785 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		8BADAE341EBC2FA200D9E785 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,6 +112,9 @@
 		8BADAE761EBC4D4D00D9E785 /* SHAllTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAllTableViewCell.h; sourceTree = "<group>"; };
 		8BADAE771EBC4D4D00D9E785 /* SHAllTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAllTableViewCell.m; sourceTree = "<group>"; };
 		8BADAE781EBC4D4D00D9E785 /* SHAllTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHAllTableViewCell.xib; sourceTree = "<group>"; };
+		8BE509551EC432390090E6BC /* SHSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSettingViewController.h; sourceTree = "<group>"; };
+		8BE509561EC432390090E6BC /* SHSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSettingViewController.m; sourceTree = "<group>"; };
+		8BE509571EC432390090E6BC /* SHSettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SHSettingViewController.storyboard; sourceTree = "<group>"; };
 		8BF61A221EC2C7B0009030CD /* SHAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAreaViewController.h; sourceTree = "<group>"; };
 		8BF61A231EC2C7B0009030CD /* SHAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAreaViewController.m; sourceTree = "<group>"; };
 		8BF61A241EC2C7B0009030CD /* SHEnterAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHEnterAreaViewController.h; sourceTree = "<group>"; };
@@ -265,9 +265,9 @@
 		8BAA7E5A1EC0668D003BD713 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8BAA7E7A1EC07737003BD713 /* SHSettingDeviceViewController.h */,
-				8BAA7E7B1EC07737003BD713 /* SHSettingDeviceViewController.m */,
-				8BAA7E7C1EC07737003BD713 /* SHSettingDeviceViewController.xib */,
+				8BE509551EC432390090E6BC /* SHSettingViewController.h */,
+				8BE509561EC432390090E6BC /* SHSettingViewController.m */,
+				8BE509571EC432390090E6BC /* SHSettingViewController.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -540,10 +540,10 @@
 				8B53DBFC1EC3F2EA00ED5334 /* SHCurtainView.xib in Resources */,
 				8BADAE7A1EBC4D4D00D9E785 /* SHAllTableViewCell.xib in Resources */,
 				8B9E8B661EBC60240037FAF1 /* SHTaskCollectionViewCell.xib in Resources */,
-				8BAA7E7E1EC07737003BD713 /* SHSettingDeviceViewController.xib in Resources */,
 				8B53DBFE1EC3F2EA00ED5334 /* SHDimmerView.xib in Resources */,
 				8B53DBFA1EC3F2EA00ED5334 /* SHAreaTaskTableViewCell.xib in Resources */,
 				8BADAE3E1EBC2FA200D9E785 /* Assets.xcassets in Resources */,
+				8BE509591EC432390090E6BC /* SHSettingViewController.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -614,12 +614,12 @@
 				8BADAE5B1EBC456200D9E785 /* SHTabBarController.m in Sources */,
 				8B9E8B821EBC760C0037FAF1 /* FileTools.m in Sources */,
 				8B9E8B651EBC60240037FAF1 /* SHTaskCollectionViewCell.m in Sources */,
+				8BE509581EC432390090E6BC /* SHSettingViewController.m in Sources */,
 				8BF61A281EC2C7B0009030CD /* SHAreaViewController.m in Sources */,
 				8B53DBF91EC3F2EA00ED5334 /* SHAreaTaskTableViewCell.m in Sources */,
 				8B9E8B7D1EBC75C90037FAF1 /* SHSQLiteManager.m in Sources */,
 				8B9E8B741EBC6A850037FAF1 /* SHAddViewController.m in Sources */,
 				8B75AFBD1EC15CDD009F7D33 /* UIBarButtonItem+init.m in Sources */,
-				8BAA7E7D1EC07737003BD713 /* SHSettingDeviceViewController.m in Sources */,
 				8BADAE6F1EBC4A4A00D9E785 /* SHTableViewController.m in Sources */,
 				8BF61A2A1EC2C7B1009030CD /* SHExitAreaViewController.m in Sources */,
 				8BADAE6C1EBC48A700D9E785 /* UIView+frame.m in Sources */,

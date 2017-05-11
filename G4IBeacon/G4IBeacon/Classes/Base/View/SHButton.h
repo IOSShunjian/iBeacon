@@ -68,9 +68,6 @@ typedef enum  {
 @property (assign, nonatomic) Byte buttonPara6;
 
 
-/// 按钮的保存区域
-@property (assign,nonatomic)CGRect buttonRectSaved;
-
 /// 字典转换为模型
 + (instancetype)buttonWithDictionary:(NSDictionary *)dictionary;
 

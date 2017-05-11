@@ -9,7 +9,7 @@
  
 #import "SHEnterAreaViewController.h"
 #import "SHExitAreaViewController.h"
-#import "SHSettingDeviceViewController.h"
+#import "SHSettingViewController.h"
 #import "SHAreaTaskTableViewCell.h"
 
 
@@ -103,9 +103,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    SHSettingDeviceViewController *setDeviceViewController = [[SHSettingDeviceViewController alloc] init];
-
-    [self.navigationController pushViewController:setDeviceViewController animated:YES];
+    SHSettingViewController *settingViewController = [[UIStoryboard storyboardWithName:NSStringFromClass([SHSettingViewController class]) bundle:nil] instantiateInitialViewController];
+    
+    // 设置长按的按钮
+    settingViewController.settingButton = self.tasks[indexPath.row];
+    
+    [self.navigationController pushViewController:settingViewController animated:YES];
 }
 
 // MARK: - 数据源
