@@ -40,7 +40,7 @@
     btn.deviceID = [[dictionary objectForKey:@"deviceID"] integerValue];
  
     
-    btn.zoneID = [[dictionary objectForKey:@"zoneID"] integerValue];
+    btn.iBeaconID = [[dictionary objectForKey:@"iBeaconID"] integerValue];
     btn.buttonID = [[dictionary objectForKey:@"buttonID"] integerValue];
  
     btn.buttonKind = (ButtonKind)[dictionary[@"buttonKind"] integerValue];

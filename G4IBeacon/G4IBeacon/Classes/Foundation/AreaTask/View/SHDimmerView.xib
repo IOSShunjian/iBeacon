@@ -43,6 +43,7 @@
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="slider" destination="NDR-To-spC" id="9pM-gN-rer"/>
                 <outlet property="valueLabel" destination="28T-Hc-gjq" id="yFe-1u-7ZL"/>
             </connections>
             <point key="canvasLocation" x="76" y="-239"/>

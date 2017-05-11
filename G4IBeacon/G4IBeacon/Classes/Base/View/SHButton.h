@@ -39,7 +39,7 @@ typedef enum  {
 @interface SHButton : UIButton
 
 /// 按钮区域ID
-@property (assign,nonatomic)NSUInteger zoneID;
+@property (assign,nonatomic)NSUInteger iBeaconID;
 
 /// 按钮ID
 @property (assign,nonatomic)NSUInteger buttonID;

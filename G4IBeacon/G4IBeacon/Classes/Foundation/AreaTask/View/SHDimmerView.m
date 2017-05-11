@@ -13,6 +13,9 @@
 /// 灯光值
 @property (weak, nonatomic) IBOutlet UILabel *valueLabel;
 
+/// 调整值
+@property (weak, nonatomic) IBOutlet UISlider *slider;
+
 
 @end
 
@@ -20,12 +23,12 @@
 
 - (void)willMoveToWindow:(UIWindow *)newWindow {
     
-    self.valueLabel.text = [NSString stringWithFormat:@"50"];
+    [self slideChange:self.slider];
 }
 
 - (IBAction)slideChange:(UISlider *)sender {
     
-    self.valueLabel.text = [NSString stringWithFormat:@"%zd", (NSUInteger)sender.value];
+    self.valueLabel.text = [NSString stringWithFormat:@"%zd", (NSUInteger)self.slider.value];
 }
 
 

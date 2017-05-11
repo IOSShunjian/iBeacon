@@ -24,6 +24,13 @@
 
 @implementation SHSQLiteManager
 
+// MARK: - 每个iBeacon中所有的设备操作
+
+
+
+
+// MARK: - iBeacon区域模块的操作
+
 /// 搜索所有的iBeacon
 - (NSMutableArray *)searchiBeacons {
     
@@ -51,7 +58,7 @@
 /// 这个iBeacon是否存在
 - (BOOL)isiBeaconExist:(SHIBeacon *)iBeacon {
 
-    NSString *existSql = [NSString stringWithFormat:@"select name from iBeaconList where iBeaonID = %zd;", iBeacon.iBeaonID];
+    NSString *existSql = [NSString stringWithFormat:@"select name from iBeaconList where iBeaconID = %zd;", iBeacon.iBeaconID];
     
     return [[self selectProprty:existSql] count];
 }
@@ -74,7 +81,7 @@
     }
     
     // 如果存在就直接删除
-    NSString *deleteSql = [NSString stringWithFormat:@"DELETE FROM iBeaconList WHERE iBeaonID = %zd", iBeacon.iBeaonID];
+    NSString *deleteSql = [NSString stringWithFormat:@"DELETE FROM iBeaconList WHERE iBeaconID = %zd", iBeacon.iBeaconID];
     
     return [self insetData:deleteSql];
 }
@@ -93,11 +100,11 @@
     // 判断这个iBeaonID是否存在，如果存在更新，否则插入
     if ([self isiBeaconExist:iBeacon]) { // 更新
         
-        inserSql = [NSString stringWithFormat:@"UPDATE iBeaconList SET name = '%@', uuidString = '%@', majorValue = %zd, minorValue = %zd, rssiValue = %zd, rssiBufValue = %zd WHERE iBeaonID = %zd", iBeacon.name, iBeacon.uuidString, iBeacon.majorValue, iBeacon.minorValue, iBeacon.rssiValue, iBeacon.rssiBufValue, iBeacon.iBeaonID];
+        inserSql = [NSString stringWithFormat:@"UPDATE iBeaconList SET name = '%@', uuidString = '%@', majorValue = %zd, minorValue = %zd, rssiValue = %zd, rssiBufValue = %zd WHERE iBeaconID = %zd", iBeacon.name, iBeacon.uuidString, iBeacon.majorValue, iBeacon.minorValue, iBeacon.rssiValue, iBeacon.rssiBufValue, iBeacon.iBeaconID];
         
     } else {  // 直接插入
        
-        inserSql = [NSString stringWithFormat:@"INSERT  INTO iBeaconList(iBeaonID, name, uuidString, majorValue, minorValue, rssiValue, rssiBufValue) VALUES(%zd, '%@', '%@', %zd, %zd, %zd, %zd);", iBeacon.iBeaonID, iBeacon.name, iBeacon.uuidString, iBeacon.majorValue, iBeacon.minorValue, iBeacon.rssiValue, iBeacon.rssiBufValue];
+        inserSql = [NSString stringWithFormat:@"INSERT  INTO iBeaconList(iBeaconID, name, uuidString, majorValue, minorValue, rssiValue, rssiBufValue) VALUES(%zd, '%@', '%@', %zd, %zd, %zd, %zd);", iBeacon.iBeaconID, iBeacon.name, iBeacon.uuidString, iBeacon.majorValue, iBeacon.minorValue, iBeacon.rssiValue, iBeacon.rssiBufValue];
     }
     
     return [self insetData:inserSql];
@@ -105,6 +112,45 @@
 
 // MARK: - 创建表格
 
+/// 创建当前区域的设备按钮表格
+- (void)crateDeviceButtonForiBeacon {
+    
+    /*
+     'zoneID' 			区域ID
+     'buttonID' 		按钮ID
+     'subnetID' 	按钮子网ID
+     'deviceID' 	按钮设备ID
+     'buttonKind'   按钮的类型
+     
+     'buttonPara1' 	 	不同设备的参数1
+     'buttonPara2' 	 	不同设备的参数2
+     'buttonPara3'      不同设备的参数3
+     'buttonPara4' 	 	不同设备的参数4
+     'buttonPara5' 	 	不同设备的参数5
+     'buttonPara6'      不同设备的参数6
+     */
+    NSString *buttonSql = @"CREATE TABLE IF NOT EXISTS 'DeviceButtonForZone' (\
+    'zoneID' INTEGER NOT NULL DEFAULT (0),\
+    'buttonID' INTEGER PRIMARY KEY NOT NULL DEFAULT (1),\
+    'subnetID' INTEGER NOT NULL DEFAULT (1),\
+    'deviceID' INTEGER NOT NULL DEFAULT (0),\
+    'buttonKind' INTEGER NOT NULL DEFAULT (0), \
+                                               \
+    'buttonPara1' INTEGER NOT NULL DEFAULT (0),\
+    'buttonPara2' INTEGER NOT NULL DEFAULT (0),\
+    'buttonPara3' INTEGER NOT NULL DEFAULT (0),\
+    'buttonPara4' INTEGER NOT NULL DEFAULT (0),\
+    'buttonPara5' INTEGER NOT NULL DEFAULT (0),\
+    'buttonPara6' INTEGER NOT NULL DEFAULT (0)\
+    );";
+    
+    [self.queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        
+        if ([db executeStatements:buttonSql]) {
+            SHLog(@"创建操作设备");
+        }
+    }];
+}
 
 
 /// 创建iBeacon列表
@@ -123,7 +169,7 @@
     [self.queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
         
         if ([db executeStatements:buttonSql]) {
-            SHLog(@"iBeaon表格创建成功");
+            SHLog(@"iBeacon表格创建成功");
         }
     }];
 }
@@ -136,6 +182,8 @@
     // 创建一张iBeacon的列表
     [self createiBeacons];
   
+    // 创建区域中的设备列表
+    [self crateDeviceButtonForiBeacon];
 }
 
 /// 执行语句
