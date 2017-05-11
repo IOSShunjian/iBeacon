@@ -12,4 +12,7 @@
 
 + (instancetype)curtainView;
 
+/// cell对应的按钮
+@property (nonatomic, strong) SHButton *deviceButton;
+
 @end

@@ -13,4 +13,7 @@
 /// 实现化调节器
 + (instancetype)dimmerView;
 
+/// cell对应的按钮
+@property (nonatomic, strong) SHButton *deviceButton;
+
 @end

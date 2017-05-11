@@ -23,12 +23,19 @@
 
 - (void)willMoveToWindow:(UIWindow *)newWindow {
     
-    [self slideChange:self.slider];
+//    self.slider.value = self.deviceButton.buttonPara2;
+//    [self slideChange:self.slider];
 }
 
 - (IBAction)slideChange:(UISlider *)sender {
     
-    self.valueLabel.text = [NSString stringWithFormat:@"%zd", (NSUInteger)self.slider.value];
+    // 获得它的值
+    Byte lightValue = (NSUInteger)self.slider.value;
+    
+    self.valueLabel.text = [NSString stringWithFormat:@"%zd", lightValue];
+    
+    // 设置保存的亮度值
+    self.deviceButton.buttonPara2 = lightValue;
 }
 
 
@@ -36,5 +43,7 @@
  
     return [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:nil options:nil] lastObject];
 }
+
+
 
 @end

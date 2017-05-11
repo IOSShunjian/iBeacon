@@ -56,10 +56,10 @@ typedef enum  {
 
 #pragma mark - 不同的参数(不同设备不同)
 
-/// 参数一:[Dim: 通道, Curtain: Open通道]
+/// 参数一:[Dimmer: 通道, Curtain: Open通道]
 @property (assign, nonatomic) Byte buttonPara1;
 
-/// 参数二: [Curtain:  Close 通道];
+/// 参数二: [Dimmmer: 亮度值, Curtain:  Close 通道];
 @property (assign, nonatomic) Byte buttonPara2;
 
 @property (assign, nonatomic) Byte buttonPara3;

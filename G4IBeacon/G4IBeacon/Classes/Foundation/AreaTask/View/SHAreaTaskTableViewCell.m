@@ -25,6 +25,9 @@
 /// 灯光调节器
 @property (strong, nonatomic) SHDimmerView *lightView;
 
+/// 窗帘
+@property (strong, nonatomic) SHCurtainView *curtainView;
+
 @end
 
 @implementation SHAreaTaskTableViewCell
@@ -51,31 +54,37 @@
         case ButtonKindLight: { // 调光器
             
             [self.diferentView addSubview:self.lightView];
-            SHLog(@"%zd", self.diferentView.subviews.count);
+            self.lightView.deviceButton = deviceButton;
             self.lightView.frame = self.diferentView.bounds;
         }
             break;
             
         case ButtonKindCurtain: {
             
-            SHCurtainView *curtainView = [SHCurtainView  curtainView];
-            
-            [self.diferentView addSubview:curtainView];
-            
-            curtainView.frame = self.diferentView.bounds;
+            [self.diferentView addSubview:self.curtainView];
+            self.curtainView.deviceButton = deviceButton;
+            self.curtainView.frame = self.diferentView.bounds;
         }
             break;
             
         default:
             break;
     }
-
 }
-
 
 + (CGFloat)cellRowHeight {
     
     return 85;
+}
+
+// MARK: - getter && setter
+
+- (SHCurtainView *)curtainView {
+    
+    if (!_curtainView) {
+        _curtainView = [SHCurtainView curtainView];
+    }
+    return _curtainView;
 }
 
 - (SHDimmerView *)lightView {
