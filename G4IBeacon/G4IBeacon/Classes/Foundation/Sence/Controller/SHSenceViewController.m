@@ -58,12 +58,16 @@
     
     SHEnterAreaViewController *areaViewController = [[SHEnterAreaViewController alloc] init];
     
+    areaViewController.iBeacon = self.iBeacon;
+    
     [self.navigationController pushViewController:areaViewController animated:YES];
 }
 
 /// 设置离开区域的任务
 - (void)seUpExitTasks {
     SHExitAreaViewController *areaViewController = [[SHExitAreaViewController alloc] init];
+    
+    areaViewController.iBeacon = self.iBeacon;
     
     [self.navigationController pushViewController:areaViewController animated:YES];
 }
