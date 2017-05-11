@@ -47,7 +47,7 @@
     self.iconView.image = [UIImage imageNamed:self.nameLabel.text];
     
     switch (button.buttonKind) {
-        case SHButtonTypeDimmer: { // 调光器
+        case ButtonKindLight: { // 调光器
             
             SHDimmerView *dimmerView = [SHDimmerView dimmerView];
                 [self.diferentView addSubview:dimmerView];
@@ -55,7 +55,7 @@
         }
             break;
             
-        case SHButtonTypeCurtain: {
+        case ButtonKindCurtain: {
         
             SHCurtainView *curtainView = [SHCurtainView  curtainView];
             

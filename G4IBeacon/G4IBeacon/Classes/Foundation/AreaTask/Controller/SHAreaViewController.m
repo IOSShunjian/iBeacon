@@ -11,7 +11,7 @@
 #import "SHExitAreaViewController.h"
 #import "SHSettingDeviceViewController.h"
 #import "SHAreaTaskTableViewCell.h"
-#import "SHAreaTask.h"
+
 
 @interface SHAreaViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -92,22 +92,11 @@
 /// 按钮点击
 - (void)selectDeviceTouched:(SHButton *)button {
     
-    SHAreaTask *task = [[SHAreaTask alloc] init];
-    task.taskType = button.buttonKind;
-    task.isEnter = YES;
-    task.iBeaconID = self.iBeacon.iBeaonID;
-    task.subNetID = 1;
-    task.deviceID = 1;
-    task.dimmerChannelNumber = 8;
-    task.dimmerBrightness  = 100;
-    
     // 添加到所任务队列中去
-    [self.tasks addObject:task];
+    [self.tasks addObject:button];
     
     // TODO: 保存到数据库中去
-    
-  
-//    [self.taskView reloadData];
+    [self.taskView reloadData];
 }
 
 // MARK: - 代理
@@ -130,9 +119,7 @@
     SHAreaTaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([SHAreaTaskTableViewCell class]) forIndexPath:indexPath];
     
     // 获得按钮
-    SHButton *button = self.tasks[indexPath.row];
-
-    cell.button = button;
+    cell.button = self.tasks[indexPath.row];
     
     return cell;
 }
@@ -150,7 +137,7 @@
 
         
         // 添加按钮
-        NSArray *selectNames = @[@"Dimmer", @"AC", @"Audio", @"Curtain", @"LED"];
+        NSArray *selectNames = @[@"Light", @"AC", @"Audio", @"Curtain", @"LED"];
         self.selectNames = selectNames;
         
         _selectDeviceButtonScrollView.contentSize = CGSizeMake(0, selectNames.count * SHTabBarHeight);
@@ -173,23 +160,23 @@
             
             switch (i) {
                 case 0:
-                    button.buttonKind = SHButtonTypeDimmer;
+                    button.buttonKind = ButtonKindLight;
                     break;
                     
                 case 1:
-                    button.buttonKind = SHButtonTypeAc;
+                    button.buttonKind = ButtonKindAC;
                     break;
                     
                 case 2:
-                    button.buttonKind = SHButtonTypeAudio;
+                    button.buttonKind = ButtonKindMusic;
                     break;
                     
                 case 3:
-                    button.buttonKind = SHButtonTypeCurtain;
+                    button.buttonKind = ButtonKindCurtain;
                     break;
                     
                 case 4:
-                    button.buttonKind = SHButtonTypeLed;
+                    button.buttonKind = ButtonKindLed;
                     break;
                     
                 default:
