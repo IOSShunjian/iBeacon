@@ -18,6 +18,11 @@
 
 @implementation SHDimmerView
 
+- (void)willMoveToWindow:(UIWindow *)newWindow {
+    
+    self.valueLabel.text = [NSString stringWithFormat:@"50"];
+}
+
 - (IBAction)slideChange:(UISlider *)sender {
     
     self.valueLabel.text = [NSString stringWithFormat:@"%zd", (NSUInteger)sender.value];

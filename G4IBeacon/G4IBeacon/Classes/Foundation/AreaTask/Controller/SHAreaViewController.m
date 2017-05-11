@@ -11,7 +11,7 @@
 #import "SHExitAreaViewController.h"
 #import "SHSettingDeviceViewController.h"
 #import "SHAreaTaskTableViewCell.h"
-
+#import "SHAreaTask.h"
 
 @interface SHAreaViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -73,7 +73,7 @@
     
     //    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveAreaTask)];
     
-    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(addNewTask)];
+    UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewTask)];
     
     self.navigationItem.rightBarButtonItems = @[addItem];
 }
@@ -92,9 +92,22 @@
 /// 按钮点击
 - (void)selectDeviceTouched:(SHButton *)button {
     
-    [self.tasks addObject:button];
+    SHAreaTask *task = [[SHAreaTask alloc] init];
+    task.taskType = button.buttonKind;
+    task.isEnter = YES;
+    task.iBeaconID = self.iBeacon.iBeaonID;
+    task.subNetID = 1;
+    task.deviceID = 1;
+    task.dimmerChannelNumber = 8;
+    task.dimmerBrightness  = 100;
     
-    [self.taskView reloadData];
+    // 添加到所任务队列中去
+    [self.tasks addObject:task];
+    
+    // TODO: 保存到数据库中去
+    
+  
+//    [self.taskView reloadData];
 }
 
 // MARK: - 代理
@@ -102,11 +115,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     SHSettingDeviceViewController *setDeviceViewController = [[SHSettingDeviceViewController alloc] init];
-    
 
     [self.navigationController pushViewController:setDeviceViewController animated:YES];
 }
-
 
 // MARK: - 数据源
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -123,9 +134,7 @@
 
     cell.button = button;
     
-    
     return cell;
-    
 }
 
 // MARK: - getter && setter
@@ -190,8 +199,6 @@
     }
     return _selectDeviceButtonScrollView;
 }
-
-
 
 /// 任务列表
 - (UITableView *)taskView {

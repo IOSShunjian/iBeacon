@@ -105,6 +105,28 @@
 
 // MARK: - 创建表格
 
+/// 创建区域任务表
+- (void)createAreaTasks {
+
+    NSString *buttonSql = @"CREATE TABLE IF NOT EXISTS 'areaTasks' (\
+    'iBeaonID' INTEGER PRIMARY KEY DEFAULT (0),\
+    'subNetID' INTEGER NOT NULL DEFAULT (1),\
+    'deviceID' INTEGER NOT NULL DEFAULT (0),\
+    'dimmerChannelNumber' INTEGER NOT NULL DEFAULT (0), \
+    'dimmerBrightness' INTEGER NOT NULL DEFAULT (0),\
+    'taskType' INTEGER NOT NULL DEFAULT (0), \
+    'isEnter' BOOL NOT NULL \
+    );";
+    
+    [self.queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
+        
+        if ([db executeStatements:buttonSql]) {
+            SHLog(@"区域任务表格");
+        }
+    }];
+
+}
+
 /// 创建iBeacon列表
 - (void)createiBeacons {
 
@@ -121,7 +143,7 @@
     [self.queue inTransaction:^(FMDatabase *db, BOOL *rollback) {
         
         if ([db executeStatements:buttonSql]) {
-            NSLog(@"iBeaon表格创建成功");
+            SHLog(@"iBeaon表格创建成功");
         }
     }];
 }
@@ -133,6 +155,9 @@
     
     // 创建一张iBeacon的列表
     [self createiBeacons];
+    
+    // 创建一张任务表
+    [self createAreaTasks];
 }
 
 /// 执行语句

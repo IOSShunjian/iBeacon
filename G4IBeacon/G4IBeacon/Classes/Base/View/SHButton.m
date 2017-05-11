@@ -17,11 +17,7 @@
 
 @implementation SHButton
 
-- (void)setFrame:(CGRect)frame {
-    
-    frame.size.height -= SHButtonMaign;
-    [super setFrame:frame];
-}
+
 
 - (instancetype)initWithFrame:(CGRect)frame {
     

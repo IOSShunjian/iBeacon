@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationItem.title = @"Setting Device";
+    [self setNavigationBar];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -25,14 +25,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)setNavigationBar {
+    
+    self.navigationItem.title = @"Setting Device";
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveArgs)];
 }
-*/
+
+/// 保存参数
+- (void)saveArgs {
+
+    
+}
 
 @end

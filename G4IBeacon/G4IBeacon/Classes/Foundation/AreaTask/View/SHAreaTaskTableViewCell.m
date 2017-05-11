@@ -34,8 +34,10 @@
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
     
-    // Configure the view for the selected state
+     
 }
+
+
 
 - (void)setButton:(SHButton *)button {
     _button = button;
@@ -48,11 +50,8 @@
         case SHButtonTypeDimmer: { // 调光器
             
             SHDimmerView *dimmerView = [SHDimmerView dimmerView];
-            
-            [self.diferentView addSubview:dimmerView];
-            
-            dimmerView.frame = self.diferentView.bounds;
-            
+                [self.diferentView addSubview:dimmerView];
+                dimmerView.frame = self.diferentView.bounds;
         }
             break;
             

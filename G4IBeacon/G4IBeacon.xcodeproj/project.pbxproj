@@ -14,6 +14,7 @@
 		8B53DBFC1EC3F2EA00ED5334 /* SHCurtainView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B53DBF51EC3F2EA00ED5334 /* SHCurtainView.xib */; };
 		8B53DBFD1EC3F2EA00ED5334 /* SHDimmerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B53DBF71EC3F2EA00ED5334 /* SHDimmerView.m */; };
 		8B53DBFE1EC3F2EA00ED5334 /* SHDimmerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B53DBF81EC3F2EA00ED5334 /* SHDimmerView.xib */; };
+		8B53DC021EC4026300ED5334 /* SHAreaTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B53DC011EC4026300ED5334 /* SHAreaTask.m */; };
 		8B75AFBD1EC15CDD009F7D33 /* UIBarButtonItem+init.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B75AFBA1EC15CDD009F7D33 /* UIBarButtonItem+init.m */; };
 		8B75AFBE1EC15CDD009F7D33 /* UIButton+init.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B75AFBC1EC15CDD009F7D33 /* UIButton+init.m */; };
 		8B75AFD91EC17517009F7D33 /* SHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B75AFD81EC17517009F7D33 /* SHButton.m */; };
@@ -60,6 +61,8 @@
 		8B53DBF61EC3F2EA00ED5334 /* SHDimmerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHDimmerView.h; sourceTree = "<group>"; };
 		8B53DBF71EC3F2EA00ED5334 /* SHDimmerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHDimmerView.m; sourceTree = "<group>"; };
 		8B53DBF81EC3F2EA00ED5334 /* SHDimmerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHDimmerView.xib; sourceTree = "<group>"; };
+		8B53DC001EC4026300ED5334 /* SHAreaTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAreaTask.h; sourceTree = "<group>"; };
+		8B53DC011EC4026300ED5334 /* SHAreaTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAreaTask.m; sourceTree = "<group>"; };
 		8B75AFB91EC15CDD009F7D33 /* UIBarButtonItem+init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+init.h"; sourceTree = "<group>"; };
 		8B75AFBA1EC15CDD009F7D33 /* UIBarButtonItem+init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+init.m"; sourceTree = "<group>"; };
 		8B75AFBB1EC15CDD009F7D33 /* UIButton+init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+init.h"; sourceTree = "<group>"; };
@@ -167,6 +170,15 @@
 				8B53DBF81EC3F2EA00ED5334 /* SHDimmerView.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		8B53DBFF1EC4024E00ED5334 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8B53DC001EC4026300ED5334 /* SHAreaTask.h */,
+				8B53DC011EC4026300ED5334 /* SHAreaTask.m */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 		8B9E8B5C1EBC5E070037FAF1 /* Task */ = {
@@ -444,6 +456,7 @@
 		8BF61A181EC2C467009030CD /* AreaTask */ = {
 			isa = PBXGroup;
 			children = (
+				8B53DBFF1EC4024E00ED5334 /* Model */,
 				8B53DBEF1EC3F2EA00ED5334 /* View */,
 				8BF61A191EC2C467009030CD /* Controller */,
 			);
@@ -618,6 +631,7 @@
 				8BADAE6C1EBC48A700D9E785 /* UIView+frame.m in Sources */,
 				8BADAE681EBC489200D9E785 /* UIColor+set.m in Sources */,
 				8BF61A291EC2C7B0009030CD /* SHEnterAreaViewController.m in Sources */,
+				8B53DC021EC4026300ED5334 /* SHAreaTask.m in Sources */,
 				8BADAE331EBC2FA200D9E785 /* main.m in Sources */,
 				8B53DBFD1EC3F2EA00ED5334 /* SHDimmerView.m in Sources */,
 				8B9E8B601EBC5E140037FAF1 /* SHTaskViewController.m in Sources */,
