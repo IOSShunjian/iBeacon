@@ -26,6 +26,22 @@
 
 // MARK: - 每个iBeacon中所有的设备操作
 
+/// 存储当前的区域
+- (void)saveCurrentZonesButtons:(SHIBeacon *)iBeacon {
+    
+    // 更新所有的按钮
+    for (SHButton *button in iBeacon.allDeviceButtonInCurrentZone) {
+        
+        // 由于按钮已经保存过，此时就更新一下就可以了
+        NSString * sql = [NSString stringWithFormat:@"UPDATE DeviceButtonForZone SET subnetID = %d, deviceID = %d, buttonPara1 = %d, buttonPara2 = %d, buttonPara3 = %d, buttonPara4 = %d, buttonPara5 = %d, buttonPara6 = %d WHERE iBeaconID = %lu AND buttonID = %lu ;", button.subNetID, button.deviceID, button.buttonPara1, button.buttonPara2, button.buttonPara3, button.buttonPara4, button.buttonPara5, button.buttonPara6,  (unsigned long)button.iBeaconID, (unsigned long)button.buttonID];
+        
+        // 执行SQL
+        [self insetData:sql];
+        
+    }
+}
+
+
 /// 删除已经存在按钮
 - (void)deleteButton:(SHButton *)button {
     

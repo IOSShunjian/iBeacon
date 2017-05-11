@@ -52,9 +52,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    // 显示已经存在的任务
-    self.iBeacon.allDeviceButtonInCurrentZone = [[SHSQLiteManager shareSHSQLiteManager] getAllButtonsForCurrentZone:self.iBeacon];
-    
     // 刷新
     [self.taskView reloadData];
 }
@@ -72,6 +69,8 @@
     [self.view addSubview:self.selectDeviceButtonScrollView];
     self.selectDeviceButtonScrollView.hidden = YES;
     
+    // 显示已经存在的任务
+    self.iBeacon.allDeviceButtonInCurrentZone = [[SHSQLiteManager shareSHSQLiteManager] getAllButtonsForCurrentZone:self.iBeacon];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -84,16 +83,19 @@
     
     self.navigationItem.title = [self isKindOfClass:[SHEnterAreaViewController class]] ? @"Enter Area" : @"Exit Area";
     
-    //    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveAreaTask)];
+    UIBarButtonItem *saveItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(saveAreaTask)];
     
     UIBarButtonItem *addItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd target:self action:@selector(addNewTask)];
     
-    self.navigationItem.rightBarButtonItems = @[addItem];
+    self.navigationItem.rightBarButtonItems = @[addItem, saveItem];
 }
 
 /// 保存区域任务
 - (void)saveAreaTask {
     
+    [[SHSQLiteManager shareSHSQLiteManager] saveCurrentZonesButtons:self.iBeacon];
+    
+    [SVProgressHUD showSuccessWithStatus:@"save success"];
 }
 
 /// 新增任务
@@ -127,6 +129,8 @@
     
     // 设置长按的按钮
     settingViewController.settingButton = self.iBeacon.allDeviceButtonInCurrentZone[indexPath.row];
+    
+    settingViewController.sourceViewController = self;
     
     [self.navigationController pushViewController:settingViewController animated:YES];
 }

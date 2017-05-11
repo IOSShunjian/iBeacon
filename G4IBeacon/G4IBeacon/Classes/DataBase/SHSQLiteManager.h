@@ -15,6 +15,9 @@
 
 // MARK: - 区域内部操作
 
+/// 存储当前的区域
+- (void)saveCurrentZonesButtons:(SHIBeacon *)iBeacon;
+
 /// 删除已经存在按钮
 - (void)deleteButton:(SHButton *)button;
 
