@@ -141,7 +141,7 @@
     SHAreaTaskTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([SHAreaTaskTableViewCell class]) forIndexPath:indexPath];
     
     // 获得按钮
-    cell.button = self.iBeacon.allDeviceButtonInCurrentZone[indexPath.row];
+    cell.deviceButton = self.iBeacon.allDeviceButtonInCurrentZone[indexPath.row];
     
     return cell;
 }

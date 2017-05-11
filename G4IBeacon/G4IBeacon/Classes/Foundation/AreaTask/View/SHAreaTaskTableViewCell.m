@@ -22,6 +22,9 @@
 /// 匹配不同的view
 @property (weak, nonatomic) IBOutlet UIView *diferentView;
 
+/// 灯光调节器
+@property (strong, nonatomic) SHDimmerView *lightView;
+
 @end
 
 @implementation SHAreaTaskTableViewCell
@@ -37,25 +40,24 @@
      
 }
 
-
-- (void)setButton:(SHButton *)button {
-    _button = button;
+- (void)setDeviceButton:(SHButton *)deviceButton {
     
-    self.nameLabel.text = [SHButton buttonDefaultTitleFromKind:button];
+    _deviceButton = deviceButton;
+    self.nameLabel.text = [SHButton buttonDefaultTitleFromKind:deviceButton];
     
     self.iconView.image = [UIImage imageNamed:self.nameLabel.text];
     
-    switch (button.buttonKind) {
+    switch (deviceButton.buttonKind) {
         case ButtonKindLight: { // 调光器
             
-            SHDimmerView *dimmerView = [SHDimmerView dimmerView];
-                [self.diferentView addSubview:dimmerView];
-                dimmerView.frame = self.diferentView.bounds;
+            [self.diferentView addSubview:self.lightView];
+            SHLog(@"%zd", self.diferentView.subviews.count);
+            self.lightView.frame = self.diferentView.bounds;
         }
             break;
             
         case ButtonKindCurtain: {
-        
+            
             SHCurtainView *curtainView = [SHCurtainView  curtainView];
             
             [self.diferentView addSubview:curtainView];
@@ -67,12 +69,21 @@
         default:
             break;
     }
+
 }
+
 
 + (CGFloat)cellRowHeight {
     
     return 85;
 }
 
+- (SHDimmerView *)lightView {
+    
+    if (!_lightView) {
+        _lightView = [SHDimmerView dimmerView];
+    }
+    return _lightView;
+}
 
 @end
