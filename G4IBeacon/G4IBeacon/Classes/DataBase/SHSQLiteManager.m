@@ -35,7 +35,7 @@
 - (NSMutableArray *)searchiBeacons {
     
     // 获得字典数组
-    NSArray *resultiBeacons = [self selectProprty:@"select iBeaonID, name, uuidString, majorValue, minorValue, rssiValue, rssiBufValue from iBeaconList order by iBeaonID;"];
+    NSArray *resultiBeacons = [self selectProprty:@"select iBeaconID, name, uuidString, majorValue, minorValue, rssiValue, rssiBufValue from iBeaconList order by iBeaconID;"];
     
     // 将字典数组转换成模型
     NSMutableArray *alliBeacons = [NSMutableArray arrayWithCapacity:resultiBeacons.count];
@@ -51,7 +51,7 @@
 - (NSUInteger)getMaxiBeaconID {
     
     // 获得结果ID
-    id resID = [[[self selectProprty:@"select max(iBeaonID) from iBeaconList;"] lastObject] objectForKey:@"max(iBeaonID)"];
+    id resID = [[[self selectProprty:@"select max(iBeaconID) from iBeaconList;"] lastObject] objectForKey:@"max(iBeaconID)"];
     return (resID == [NSNull null]) ? 0 : [resID integerValue];
 }
 
@@ -157,7 +157,7 @@
 - (void)createiBeacons {
 
     NSString *buttonSql = @"CREATE TABLE IF NOT EXISTS 'iBeaconList' (\
-    'iBeaonID' INTEGER PRIMARY KEY DEFAULT (0),\
+    'iBeaconID' INTEGER PRIMARY KEY DEFAULT (0),\
     'name' TEXT  NOT NULL ,\
     'uuidString' TEXT NOT NULL,\
     'majorValue' INTEGER NOT NULL DEFAULT (0),\
