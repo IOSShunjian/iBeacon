@@ -27,18 +27,10 @@
 /// 定位管理器
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
-/// 后台任务标记
-@property (nonatomic, assign) UIBackgroundTaskIdentifier task;
-
 @end
 
 @implementation SHTaskViewController
 
-
-- (void)dealloc {
-    
-    [[UIApplication sharedApplication] endBackgroundTask:self.task];
-}
 
 // MARK: - 定位
 
@@ -56,12 +48,9 @@
         [self.locationManager stopRangingBeaconsInRegion:region];
     }
     
-    // 后台也要执行
-    self.task = [[UIApplication sharedApplication]beginBackgroundTaskWithExpirationHandler:nil];
-    
     for (CLBeacon *beacon in beacons) {
         
-        NSLog(@"我要不断的执行任务： %@", beacon);
+        SHLog(@"我要不断的执行任务： %@", beacon);
 
         // TODO: 从数据库中获取数据执行任务
     }
@@ -75,7 +64,7 @@
     }
     
     if (state == CLRegionStateInside) {
-        NSLog(@"进入区域");
+        SHLog(@"进入区域");
   
         // 获得详细信息
         for (CLBeaconRegion *region in self.allBeaconRegions) {
@@ -84,7 +73,7 @@
         }
         
     } else if (state == CLRegionStateOutside) {
-        NSLog(@"离开区域");
+        SHLog(@"离开区域");
         // 获得详细信息
         for (CLBeaconRegion *region in self.allBeaconRegions) {
             
