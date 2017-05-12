@@ -54,7 +54,7 @@ typedef enum  {
 @property (assign,nonatomic ) ButtonKind buttonKind;
 
 
-#pragma mark - 不同的参数(不同设备不同)
+// MARK: - 不同的参数(不同设备不同)
 
 /// 参数一:[Dimmer: 通道, Curtain: Open通道]
 @property (assign, nonatomic) Byte buttonPara1;
@@ -62,6 +62,7 @@ typedef enum  {
 /// 参数二: [Dimmmer: 亮度值, Curtain:  Close 通道];
 @property (assign, nonatomic) Byte buttonPara2;
 
+/// 参数三: [Curtain: 窗帘的状态(开或关)]
 @property (assign, nonatomic) Byte buttonPara3;
 @property (assign, nonatomic) Byte buttonPara4;
 @property (assign, nonatomic) Byte buttonPara5;

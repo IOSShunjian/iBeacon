@@ -21,19 +21,7 @@
 
 @implementation SHDimmerView
 
-- (void)willMoveToWindow:(UIWindow *)newWindow {
-    
-//    self.slider.value = self.deviceButton.buttonPara2;
-    
-    Byte lightValue = self.deviceButton.buttonPara2;
-    
-//    [self slideChange:self.slider];
-    
-//    if (deviceButton.buttonKind == ButtonKindLight) {
-//        SHLog(@"%d - %d", self.deviceButton.buttonPara1, self.deviceButton.buttonPara2);
-//    }
-}
-
+/// 设定值
 - (void)setDeviceButton:(SHButton *)deviceButton {
     _deviceButton = deviceButton;
     

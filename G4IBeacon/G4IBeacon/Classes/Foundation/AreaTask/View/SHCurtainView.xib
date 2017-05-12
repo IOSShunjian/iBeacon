@@ -18,7 +18,7 @@
                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gNc-RK-4R1">
                     <rect key="frame" x="112" y="30.5" width="51" height="31"/>
                     <connections>
-                        <action selector="trunOnOrOff:" destination="iN0-l3-epB" eventType="valueChanged" id="j5K-MV-5rF"/>
+                        <action selector="trunOnOrOff:" destination="iN0-l3-epB" eventType="valueChanged" id="2Th-yo-69m"/>
                     </connections>
                 </switch>
             </subviews>
@@ -29,6 +29,9 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="curtainSwitch" destination="gNc-RK-4R1" id="ggg-CL-gxV"/>
+            </connections>
             <point key="canvasLocation" x="66" y="118"/>
         </view>
     </objects>

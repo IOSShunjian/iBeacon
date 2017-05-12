@@ -10,21 +10,26 @@
 
 @interface SHCurtainView()
 
-
+/// 窗帘开关
+@property (weak, nonatomic) IBOutlet UISwitch *curtainSwitch;
 
 @end
 
 @implementation SHCurtainView
 
-- (IBAction)trunOnOrOff:(UISwitch *)sender {
+- (void)setDeviceButton:(SHButton *)deviceButton {
+    _deviceButton = deviceButton;
     
-    if (sender.on) {
-        NSLog(@"打开");
-    } else {
-        NSLog(@"关闭");
-    }
+    self.curtainSwitch.on = deviceButton.buttonPara3;
+    
+    [self trunOnOrOff:self.curtainSwitch];
 }
 
+- (IBAction)trunOnOrOff:(UISwitch *)sender {
+    
+    // 保存状态
+    self.deviceButton.buttonPara3 = sender.on;
+}
 
 + (instancetype)curtainView {
     
