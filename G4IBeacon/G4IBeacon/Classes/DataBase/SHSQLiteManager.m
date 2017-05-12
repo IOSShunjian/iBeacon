@@ -33,11 +33,10 @@
     for (SHButton *button in iBeacon.allDeviceButtonInCurrentZone) {
         
         // 由于按钮已经保存过，此时就更新一下就可以了
-        NSString * sql = [NSString stringWithFormat:@"UPDATE DeviceButtonForZone SET subnetID = %d, deviceID = %d, buttonPara1 = %d, buttonPara2 = %d, buttonPara3 = %d, buttonPara4 = %d, buttonPara5 = %d, buttonPara6 = %d WHERE iBeaconID = %lu AND buttonID = %lu ;", button.subNetID, button.deviceID, button.buttonPara1, button.buttonPara2, button.buttonPara3, button.buttonPara4, button.buttonPara5, button.buttonPara6,  (unsigned long)button.iBeaconID, (unsigned long)button.buttonID];
+        NSString * sql = [NSString stringWithFormat:@"UPDATE DeviceButtonForZone SET subnetID = %d, deviceID = %d, isEnterAreaTask = %d, buttonPara1 = %d, buttonPara2 = %d, buttonPara3 = %d, buttonPara4 = %d, buttonPara5 = %d, buttonPara6 = %d WHERE iBeaconID = %lu AND buttonID = %lu ;", button.subNetID, button.deviceID, button.isEnterAreaTask,button.buttonPara1, button.buttonPara2, button.buttonPara3, button.buttonPara4, button.buttonPara5, button.buttonPara6,  (unsigned long)button.iBeaconID, (unsigned long)button.buttonID];
         
         // 执行SQL
         [self insetData:sql];
-        
     }
 }
 
@@ -55,7 +54,7 @@
 /// 获得当前区域的所有按钮
 - (NSMutableArray *)getAllButtonsForCurrentZone:(SHIBeacon *)iBeacon {
     
-    NSString *selectSql = [NSString stringWithFormat:@"SELECT iBeaconID, buttonID, subnetID, deviceID, buttonKind, buttonPara1, buttonPara2, buttonPara3, buttonPara4, buttonPara5, buttonPara6 FROM DeviceButtonForZone WHERE iBeaconID = %zd;", iBeacon.iBeaconID];
+    NSString *selectSql = [NSString stringWithFormat:@"SELECT iBeaconID, buttonID, subnetID, deviceID, buttonKind, isEnterAreaTask, buttonPara1, buttonPara2, buttonPara3, buttonPara4, buttonPara5, buttonPara6 FROM DeviceButtonForZone WHERE iBeaconID = %zd;", iBeacon.iBeaconID];
     
     NSMutableArray *resArr = [self selectProprty:selectSql];
     NSMutableArray *allButtons = [NSMutableArray arrayWithCapacity:resArr.count];
@@ -79,7 +78,7 @@
 /// 将新创建的按钮保存在数据库中
 - (void)inserNewButton:(SHButton *)button {
     
-    NSString * sql = [NSString stringWithFormat:@"INSERT INTO DeviceButtonForZone (iBeaconID, buttonID, subnetID, deviceID, buttonKind, buttonPara1, buttonPara2, buttonPara3, buttonPara4, buttonPara5, buttonPara6) VALUES (%zd, %zd, %d, %d, %d, %d, %d, %d, %d, %d, %d);",  button.iBeaconID, button.buttonID, button.subNetID, button.deviceID, button.buttonKind, button.buttonPara1, button.buttonPara2, button.buttonPara3, button.buttonPara4, button.buttonPara5, button.buttonPara6];
+    NSString * sql = [NSString stringWithFormat:@"INSERT INTO DeviceButtonForZone (iBeaconID, buttonID, subnetID, deviceID, buttonKind, isEnterAreaTask,buttonPara1, buttonPara2, buttonPara3, buttonPara4, buttonPara5, buttonPara6) VALUES (%zd, %zd, %d, %d, %d, %d, %d, %d, %d, %d, %d, %d);",  button.iBeaconID, button.buttonID, button.subNetID, button.deviceID, button.buttonKind, button.isEnterAreaTask, button.buttonPara1, button.buttonPara2, button.buttonPara3, button.buttonPara4, button.buttonPara5, button.buttonPara6];
     
     // 执行SQL
     [self insetData:sql];
@@ -192,7 +191,7 @@
     'subnetID' INTEGER NOT NULL DEFAULT (1),\
     'deviceID' INTEGER NOT NULL DEFAULT (0),\
     'buttonKind' INTEGER NOT NULL DEFAULT (0), \
-                                               \
+    'isEnterAreaTask' BOOL NOT NULL DEFAULT (0),\
     'buttonPara1' INTEGER NOT NULL DEFAULT (0),\
     'buttonPara2' INTEGER NOT NULL DEFAULT (0),\
     'buttonPara3' INTEGER NOT NULL DEFAULT (0),\

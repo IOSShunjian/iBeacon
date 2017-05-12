@@ -45,6 +45,7 @@
     
     btn.buttonKind = (ButtonKind)[dictionary[@"buttonKind"] integerValue];
     
+    btn.isEnterAreaTask = [dictionary[@"isEnterAreaTask"] integerValue];
     
     btn.buttonPara1 = [dictionary[@"buttonPara1"] integerValue];
     btn.buttonPara2 = [dictionary[@"buttonPara2"] integerValue];

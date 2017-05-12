@@ -12,7 +12,6 @@
 #import "SHSettingViewController.h"
 #import "SHAreaTaskTableViewCell.h"
 
-
 @interface SHAreaViewController () <UITableViewDelegate, UITableViewDataSource>
 
 /// 选择不同的设备列表
@@ -26,8 +25,6 @@
 
 /// 显示任务的tableView
 @property (strong, nonatomic) UITableView *taskView;
-
-
 
 @end
 
@@ -108,6 +105,13 @@
     deviceButton.buttonKind = button.buttonKind;
     deviceButton.iBeaconID = self.iBeacon.iBeaconID;
     deviceButton.subNetID = 1; // 默认都是1
+    
+    // 当前的任务类型是进入还是离开
+    if ([self isKindOfClass:[SHEnterAreaViewController class]]) {
+        SHLog(@"这是进入区域任务");
+    } else {
+        SHLog(@"这是离开区域任务");
+    }
     
     [self.iBeacon.allDeviceButtonInCurrentZone addObject:deviceButton];
     [self.taskView reloadData];

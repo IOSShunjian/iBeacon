@@ -53,6 +53,9 @@ typedef enum  {
 /// 按钮类型
 @property (assign,nonatomic ) ButtonKind buttonKind;
 
+/// 区域任务类型(YES: 进入区域 NO: 离开区域)
+@property (nonatomic, assign) BOOL isEnterAreaTask;
+
 
 // MARK: - 不同的参数(不同设备不同)
 
