@@ -67,8 +67,6 @@
         [allButtons addObject:button];
     }
     
-    SHLog(@"%@", allButtons);
-    
     return allButtons;
 }
 

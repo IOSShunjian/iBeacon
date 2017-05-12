@@ -12,8 +12,8 @@
 #import "SHAddViewController.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface SHTaskViewController () <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate>
 
+@interface SHTaskViewController () <UICollectionViewDelegate, UICollectionViewDataSource, CLLocationManagerDelegate>
 
 /// 显示所有场景的视图
 @property (nonatomic, strong) UICollectionView* listView;
@@ -31,6 +31,58 @@
 
 @implementation SHTaskViewController
 
+// MARK: - 任务
+
+/// 执行进入区域的任务
+- (void)executeEnterAreaTask:(SHIBeacon *)iBeacon {
+    
+    // 取出任务
+   NSMutableArray *enterTask = [[SHSQLiteManager shareSHSQLiteManager] getButtonsFor:iBeacon isEnter:YES];
+
+    for (SHButton *button in enterTask) {
+        
+        switch (button.buttonKind) {
+            case ButtonKindLight:
+                [SHSendDeviceData setDimmer:button];
+                break;
+                
+            default:
+                break;
+        }
+    }
+}
+
+/// 执行离开区域的任务
+- (void)executeExitAreaTask:(SHIBeacon *)iBeacon {
+
+    // 取出任务
+    NSMutableArray *exitTask = [[SHSQLiteManager shareSHSQLiteManager] getButtonsFor:iBeacon isEnter:YES];
+    
+    for (SHButton *button in exitTask) {
+        
+        switch (button.buttonKind) {
+            case ButtonKindLight:
+                [SHSendDeviceData setDimmer:button];
+                break;
+                
+            default:
+                break;
+        }
+        
+    }
+}
+
+/// 找到与iBeacon匹配的模型
+- (SHIBeacon* )searchSuitTask:(CLBeacon *)beacon {
+    
+    for (SHIBeacon *iBeacon in self.alliBeacons) {
+        
+        if (([iBeacon.uuidString isEqualToString:beacon.proximityUUID.UUIDString]) && (beacon.major.integerValue == iBeacon.majorValue) && (beacon.minor.integerValue == iBeacon.minorValue)) {
+            return iBeacon;
+        }
+    }
+    return nil;
+}
 
 // MARK: - 定位
 
@@ -50,9 +102,17 @@
     
     for (CLBeacon *beacon in beacons) {
         
-        SHLog(@"我要不断的执行任务： %@", beacon);
-
-        // TODO: 从数据库中获取数据执行任务
+        // 1.先找到对应的模型
+        SHIBeacon *iBeacon = [self searchSuitTask:beacon];
+        
+        if (beacon.minor.integerValue <= iBeacon.rssiValue) {
+            
+            [self executeEnterAreaTask: iBeacon];
+            
+        } else if (beacon.minor.integerValue > iBeacon.rssiBufValue + iBeacon.rssiBufValue) {
+            
+            [self executeExitAreaTask: iBeacon];
+        }
     }
 }
 
@@ -95,6 +155,8 @@
     [self setUpNavigationBar];
     
     [self.view addSubview:self.listView];
+    
+
 }
 
 // MARK: - 本地通知
@@ -282,4 +344,5 @@
     }
     return _allBeaconRegions;
 }
+
 @end

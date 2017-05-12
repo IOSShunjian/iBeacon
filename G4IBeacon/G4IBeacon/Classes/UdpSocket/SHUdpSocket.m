@@ -92,7 +92,7 @@ void pack_crc(Byte *ptr, unichar len);
  */
 - (void)udpSocketDidClose:(GCDAsyncUdpSocket *)sock withError:(NSError *)error {
     
-    SHLog(@"socket关闭");
+    SHLog(@"socket关闭: %@", error);
     [self.socket close];
     self.socket = nil;
 }

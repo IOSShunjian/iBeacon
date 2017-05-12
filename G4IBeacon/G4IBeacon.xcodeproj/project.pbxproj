@@ -49,6 +49,7 @@
 		8BFDBC251EC5668000801D7B /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BFDBC1E1EC5668000801D7B /* GCDAsyncUdpSocket.m */; };
 		8BFDBC261EC5668000801D7B /* SHUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BFDBC201EC5668000801D7B /* SHUdpSocket.m */; };
 		8BFDBC271EC5668000801D7B /* UIDevice+IPAddresses.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BFDBC241EC5668000801D7B /* UIDevice+IPAddresses.m */; };
+		8BFDBC2B1EC597CA00801D7B /* SHSendDeviceData.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BFDBC2A1EC597CA00801D7B /* SHSendDeviceData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +132,8 @@
 		8BFDBC211EC5668000801D7B /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
 		8BFDBC231EC5668000801D7B /* UIDevice+IPAddresses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IPAddresses.h"; sourceTree = "<group>"; };
 		8BFDBC241EC5668000801D7B /* UIDevice+IPAddresses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IPAddresses.m"; sourceTree = "<group>"; };
+		8BFDBC291EC597CA00801D7B /* SHSendDeviceData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSendDeviceData.h; sourceTree = "<group>"; };
+		8BFDBC2A1EC597CA00801D7B /* SHSendDeviceData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSendDeviceData.m; sourceTree = "<group>"; };
 		B2D96B020A18AD43F966AEC4 /* Pods-G4IBeacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-G4IBeacon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-G4IBeacon/Pods-G4IBeacon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -189,6 +192,7 @@
 		8B9E8B5C1EBC5E070037FAF1 /* Task */ = {
 			isa = PBXGroup;
 			children = (
+				8BFDBC281EC597B800801D7B /* Order */,
 				8B9E8B761EBC71FF0037FAF1 /* Model */,
 				8B9E8B611EBC600F0037FAF1 /* View */,
 				8B9E8B5D1EBC5E070037FAF1 /* Controller */,
@@ -512,6 +516,15 @@
 			path = "UIDevice+IPAddresses";
 			sourceTree = "<group>";
 		};
+		8BFDBC281EC597B800801D7B /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				8BFDBC291EC597CA00801D7B /* SHSendDeviceData.h */,
+				8BFDBC2A1EC597CA00801D7B /* SHSendDeviceData.m */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -671,6 +684,7 @@
 				8BADAE331EBC2FA200D9E785 /* main.m in Sources */,
 				8BFDBC261EC5668000801D7B /* SHUdpSocket.m in Sources */,
 				8B53DC081EC42D5300ED5334 /* SHButton.m in Sources */,
+				8BFDBC2B1EC597CA00801D7B /* SHSendDeviceData.m in Sources */,
 				8B53DBFD1EC3F2EA00ED5334 /* SHDimmerView.m in Sources */,
 				8B9E8B601EBC5E140037FAF1 /* SHTaskViewController.m in Sources */,
 				8B53DBFB1EC3F2EA00ED5334 /* SHCurtainView.m in Sources */,

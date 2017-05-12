@@ -34,8 +34,6 @@
     
     SHButton *btn = [[self alloc] init];
     
-    // 设置每个属性
-    
     btn.subNetID = [[dictionary objectForKey:@"subnetID"] integerValue];
     btn.deviceID = [[dictionary objectForKey:@"deviceID"] integerValue];
     
