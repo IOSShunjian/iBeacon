@@ -74,7 +74,7 @@
     self.selectDeviceButtonScrollView.hidden = YES;
     
     // 显示已经存在的任务
-    self.iBeacon.allDeviceButtonInCurrentZone = [[SHSQLiteManager shareSHSQLiteManager] getAllButtonsForCurrentZone:self.iBeacon];
+    self.iBeacon.allDeviceButtonInCurrentZone = [[SHSQLiteManager shareSHSQLiteManager] getButtonsFor:self.iBeacon isEnter:[self isKindOfClass:[SHEnterAreaViewController class]]];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -106,12 +106,8 @@
     deviceButton.iBeaconID = self.iBeacon.iBeaconID;
     deviceButton.subNetID = 1; // 默认都是1
     
-    // 当前的任务类型是进入还是离开
-    if ([self isKindOfClass:[SHEnterAreaViewController class]]) {
-        SHLog(@"这是进入区域任务");
-    } else {
-        SHLog(@"这是离开区域任务");
-    }
+    // 当前的任务类型是进入还是离开(设置任务类型)
+    deviceButton.isEnterAreaTask = [self isKindOfClass:[SHEnterAreaViewController class]];
     
     [self.iBeacon.allDeviceButtonInCurrentZone addObject:deviceButton];
     [self.taskView reloadData];

@@ -51,6 +51,27 @@
     [self insetData:sql];
 }
 
+
+/// 获得进入当前区域的任务按钮
+
+/// 获得当进入或者离开区域的任务
+- (NSMutableArray *)getButtonsFor:(SHIBeacon *)iBeacon isEnter:(BOOL)isEnter {
+    
+    NSString *selectSql = [NSString stringWithFormat:@"SELECT iBeaconID, buttonID, subnetID, deviceID, buttonKind, isEnterAreaTask, buttonPara1, buttonPara2, buttonPara3, buttonPara4, buttonPara5, buttonPara6 FROM DeviceButtonForZone WHERE iBeaconID = %zd AND isEnterAreaTask = %d;", iBeacon.iBeaconID, isEnter];
+    
+    NSMutableArray *resArr = [self selectProprty:selectSql];
+    NSMutableArray *allButtons = [NSMutableArray arrayWithCapacity:resArr.count];
+    
+    for (NSDictionary *dict in resArr) {
+        SHButton *button = [SHButton buttonWithDictionary:dict];
+        [allButtons addObject:button];
+    }
+    
+    SHLog(@"%@", allButtons);
+    
+    return allButtons;
+}
+
 /// 获得当前区域的所有按钮
 - (NSMutableArray *)getAllButtonsForCurrentZone:(SHIBeacon *)iBeacon {
     

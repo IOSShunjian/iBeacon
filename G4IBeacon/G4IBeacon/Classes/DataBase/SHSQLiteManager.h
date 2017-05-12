@@ -22,7 +22,10 @@
 - (void)deleteButton:(SHButton *)button;
 
 /// 获得当前区域的所有按钮
-- (NSMutableArray *)getAllButtonsForCurrentZone:(SHIBeacon *)iBeacon;
+//- (NSMutableArray *)getAllButtonsForCurrentZone:(SHIBeacon *)iBeacon;
+
+/// 获得当进入或者离开区域的任务
+- (NSMutableArray *)getButtonsFor:(SHIBeacon *)iBeacon isEnter:(BOOL)isEnter;
 
 /// 获得最大的按钮ID
 - (NSUInteger)getMaxButtonID;
