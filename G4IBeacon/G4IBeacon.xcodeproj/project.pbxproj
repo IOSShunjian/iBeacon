@@ -46,6 +46,9 @@
 		8BF61A281EC2C7B0009030CD /* SHAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF61A231EC2C7B0009030CD /* SHAreaViewController.m */; };
 		8BF61A291EC2C7B0009030CD /* SHEnterAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF61A251EC2C7B0009030CD /* SHEnterAreaViewController.m */; };
 		8BF61A2A1EC2C7B1009030CD /* SHExitAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF61A271EC2C7B0009030CD /* SHExitAreaViewController.m */; };
+		8BFDBC251EC5668000801D7B /* GCDAsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BFDBC1E1EC5668000801D7B /* GCDAsyncUdpSocket.m */; };
+		8BFDBC261EC5668000801D7B /* SHUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BFDBC201EC5668000801D7B /* SHUdpSocket.m */; };
+		8BFDBC271EC5668000801D7B /* UIDevice+IPAddresses.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BFDBC241EC5668000801D7B /* UIDevice+IPAddresses.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +124,13 @@
 		8BF61A251EC2C7B0009030CD /* SHEnterAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHEnterAreaViewController.m; sourceTree = "<group>"; };
 		8BF61A261EC2C7B0009030CD /* SHExitAreaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHExitAreaViewController.h; sourceTree = "<group>"; };
 		8BF61A271EC2C7B0009030CD /* SHExitAreaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHExitAreaViewController.m; sourceTree = "<group>"; };
+		8BFDBC1D1EC5668000801D7B /* GCDAsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncUdpSocket.h; sourceTree = "<group>"; };
+		8BFDBC1E1EC5668000801D7B /* GCDAsyncUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncUdpSocket.m; sourceTree = "<group>"; };
+		8BFDBC1F1EC5668000801D7B /* SHUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHUdpSocket.h; sourceTree = "<group>"; };
+		8BFDBC201EC5668000801D7B /* SHUdpSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHUdpSocket.m; sourceTree = "<group>"; };
+		8BFDBC211EC5668000801D7B /* Singleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		8BFDBC231EC5668000801D7B /* UIDevice+IPAddresses.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IPAddresses.h"; sourceTree = "<group>"; };
+		8BFDBC241EC5668000801D7B /* UIDevice+IPAddresses.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IPAddresses.m"; sourceTree = "<group>"; };
 		B2D96B020A18AD43F966AEC4 /* Pods-G4IBeacon.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-G4IBeacon.debug.xcconfig"; path = "Pods/Target Support Files/Pods-G4IBeacon/Pods-G4IBeacon.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -340,6 +350,7 @@
 		8BADAE551EBC454500D9E785 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				8BFDBC1B1EC5668000801D7B /* UdpSocket */,
 				8B9E8B7A1EBC75A60037FAF1 /* DataBase */,
 				8BADAE621EBC480200D9E785 /* Foundation */,
 				8BADAE561EBC454500D9E785 /* Base */,
@@ -469,6 +480,36 @@
 				8BF61A271EC2C7B0009030CD /* SHExitAreaViewController.m */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		8BFDBC1B1EC5668000801D7B /* UdpSocket */ = {
+			isa = PBXGroup;
+			children = (
+				8BFDBC1C1EC5668000801D7B /* GCDAsyncUDPSocket */,
+				8BFDBC1F1EC5668000801D7B /* SHUdpSocket.h */,
+				8BFDBC201EC5668000801D7B /* SHUdpSocket.m */,
+				8BFDBC211EC5668000801D7B /* Singleton.h */,
+				8BFDBC221EC5668000801D7B /* UIDevice+IPAddresses */,
+			);
+			path = UdpSocket;
+			sourceTree = "<group>";
+		};
+		8BFDBC1C1EC5668000801D7B /* GCDAsyncUDPSocket */ = {
+			isa = PBXGroup;
+			children = (
+				8BFDBC1D1EC5668000801D7B /* GCDAsyncUdpSocket.h */,
+				8BFDBC1E1EC5668000801D7B /* GCDAsyncUdpSocket.m */,
+			);
+			path = GCDAsyncUDPSocket;
+			sourceTree = "<group>";
+		};
+		8BFDBC221EC5668000801D7B /* UIDevice+IPAddresses */ = {
+			isa = PBXGroup;
+			children = (
+				8BFDBC231EC5668000801D7B /* UIDevice+IPAddresses.h */,
+				8BFDBC241EC5668000801D7B /* UIDevice+IPAddresses.m */,
+			);
+			path = "UIDevice+IPAddresses";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -604,6 +645,7 @@
 			files = (
 				8BADAE791EBC4D4D00D9E785 /* SHAllTableViewCell.m in Sources */,
 				8BADAE5E1EBC457400D9E785 /* SHNavigationController.m in Sources */,
+				8BFDBC251EC5668000801D7B /* GCDAsyncUdpSocket.m in Sources */,
 				8B9E8B791EBC72120037FAF1 /* SHIBeacon.m in Sources */,
 				8B75AFBE1EC15CDD009F7D33 /* UIButton+init.m in Sources */,
 				8BADAE611EBC458000D9E785 /* SHViewController.m in Sources */,
@@ -620,12 +662,14 @@
 				8B9E8B7D1EBC75C90037FAF1 /* SHSQLiteManager.m in Sources */,
 				8B9E8B741EBC6A850037FAF1 /* SHAddViewController.m in Sources */,
 				8B75AFBD1EC15CDD009F7D33 /* UIBarButtonItem+init.m in Sources */,
+				8BFDBC271EC5668000801D7B /* UIDevice+IPAddresses.m in Sources */,
 				8BADAE6F1EBC4A4A00D9E785 /* SHTableViewController.m in Sources */,
 				8BF61A2A1EC2C7B1009030CD /* SHExitAreaViewController.m in Sources */,
 				8BADAE6C1EBC48A700D9E785 /* UIView+frame.m in Sources */,
 				8BADAE681EBC489200D9E785 /* UIColor+set.m in Sources */,
 				8BF61A291EC2C7B0009030CD /* SHEnterAreaViewController.m in Sources */,
 				8BADAE331EBC2FA200D9E785 /* main.m in Sources */,
+				8BFDBC261EC5668000801D7B /* SHUdpSocket.m in Sources */,
 				8B53DC081EC42D5300ED5334 /* SHButton.m in Sources */,
 				8B53DBFD1EC3F2EA00ED5334 /* SHDimmerView.m in Sources */,
 				8B9E8B601EBC5E140037FAF1 /* SHTaskViewController.m in Sources */,
