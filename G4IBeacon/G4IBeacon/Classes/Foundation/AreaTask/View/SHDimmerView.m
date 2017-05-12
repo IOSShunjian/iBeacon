@@ -24,7 +24,24 @@
 - (void)willMoveToWindow:(UIWindow *)newWindow {
     
 //    self.slider.value = self.deviceButton.buttonPara2;
+    
+    Byte lightValue = self.deviceButton.buttonPara2;
+    
 //    [self slideChange:self.slider];
+    
+//    if (deviceButton.buttonKind == ButtonKindLight) {
+//        SHLog(@"%d - %d", self.deviceButton.buttonPara1, self.deviceButton.buttonPara2);
+//    }
+}
+
+- (void)setDeviceButton:(SHButton *)deviceButton {
+    _deviceButton = deviceButton;
+    
+    Byte lightValue = deviceButton.buttonPara2;
+    
+    self.slider.value = lightValue;
+    
+    [self slideChange:self.slider];
 }
 
 - (IBAction)slideChange:(UISlider *)sender {

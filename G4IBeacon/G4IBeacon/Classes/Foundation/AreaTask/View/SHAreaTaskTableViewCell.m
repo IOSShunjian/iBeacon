@@ -43,6 +43,7 @@
      
 }
 
+/// 设置模型
 - (void)setDeviceButton:(SHButton *)deviceButton {
     
     _deviceButton = deviceButton;
@@ -55,6 +56,7 @@
             
             [self.diferentView addSubview:self.lightView];
             self.lightView.deviceButton = deviceButton;
+            
             self.lightView.frame = self.diferentView.bounds;
         }
             break;

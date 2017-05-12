@@ -59,14 +59,6 @@
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
     
-    for (SHButton *button in self.iBeacon.allDeviceButtonInCurrentZone) {
-        
-        if (button.buttonKind == ButtonKindLight) {
-            SHLog(@"%d", button.buttonPara2);
-        }
-        
-    }
-    
     // 刷新
     [self.taskView reloadData];
 }
