@@ -38,6 +38,8 @@
     
     // 取出任务
    NSMutableArray *enterTask = [[SHSQLiteManager shareSHSQLiteManager] getButtonsFor:iBeacon isEnter:YES];
+    
+    
 
     for (SHButton *button in enterTask) {
         
@@ -142,6 +144,21 @@
     }
 }
 
+/// 开始定位扫描
+- (void)startScanDevice {
+    
+    if (![CLLocationManager locationServicesEnabled]) {
+        return;
+    }
+    
+    if (![CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]]) {
+        return;
+    }
+    
+    // 申请手动授权
+    [self.locationManager requestAlwaysAuthorization];
+}
+
 // MARK: - UI
 
 - (void)viewDidLoad {
@@ -156,7 +173,7 @@
     
     [self.view addSubview:self.listView];
     
-
+    [self startScanDevice];
 }
 
 // MARK: - 本地通知
@@ -291,8 +308,8 @@
     if (!_locationManager) {
         _locationManager = [[CLLocationManager alloc] init];
         _locationManager.delegate = self;
-        
         _locationManager.distanceFilter = kCLDistanceFilterNone;
+    
     }
     return _locationManager;
 }
