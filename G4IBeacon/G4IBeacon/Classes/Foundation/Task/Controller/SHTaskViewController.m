@@ -33,6 +33,30 @@
 
 // MARK: - 任务
 
+/// 执行任务
+- (void)executeTask:(CLBeacon *)beacon {
+
+    // 先找到对应的模型
+    SHIBeacon *iBeacon = [self searchSuitTask:beacon];
+    
+    // 一定要先过滤
+    if ((ABS(beacon.rssi) > iBeacon.rssiValue + iBeacon.rssiBufValue) || (!beacon.rssi)) {
+        
+        SHLog(@"执行【离开】区域的任务 - %d", ABS(beacon.rssi));
+        [self executeExitAreaTask: iBeacon];
+        
+    } else if (ABS(beacon.rssi) <= iBeacon.rssiValue - iBeacon.rssiBufValue) {
+        
+        SHLog(@"执行【来到】区域的任务 - %d", ABS(beacon.rssi));
+        [self executeEnterAreaTask: iBeacon];
+        
+    } else {
+        
+        SHLog(@"中间状态: %d", ABS(beacon.rssi));
+    }
+
+}
+
 /// 执行进入区域的任务
 - (void)executeEnterAreaTask:(SHIBeacon *)iBeacon {
     
@@ -96,27 +120,8 @@
     }
     
     for (CLBeacon *beacon in beacons) {
-        
-        // 1.先找到对应的模型
-        SHIBeacon *iBeacon = [self searchSuitTask:beacon];
-        
-//        SHLog(@"%d %d", ABS(beacon.rssi), beacon.rssi);
-        
-        // 一定要先过滤
-        if ((ABS(beacon.rssi) > iBeacon.rssiValue + iBeacon.rssiBufValue) || (!beacon.rssi)) {
-            SHLog(@"执行【离开】区域的任务 - %d", ABS(beacon.rssi));
-            
-            [self executeExitAreaTask: iBeacon];
-
-        } else if (ABS(beacon.rssi) <= iBeacon.rssiValue - iBeacon.rssiBufValue) {
-            SHLog(@"执行【来到】区域的任务 - %d", ABS(beacon.rssi));
-
-            [self executeEnterAreaTask: iBeacon];
-
-        } else {
-         
-            SHLog(@"中间状态: %d", ABS(beacon.rssi));
-        }
+        // 执行任务
+        [self executeTask:beacon];
     }
 }
 
@@ -139,7 +144,7 @@
     } else if (state == CLRegionStateOutside) {
         SHLog(@"离开区域");
         
-        // 获得详细信息
+        // 停止获得详细信息
         for (CLBeaconRegion *region in self.allBeaconRegions) {
             
             [self.locationManager stopRangingBeaconsInRegion:region];
