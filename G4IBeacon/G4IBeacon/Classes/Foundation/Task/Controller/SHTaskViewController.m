@@ -55,7 +55,6 @@
         iBeacon.isEnterArea = !iBeacon.isExiteArea;
         SHLog(@"执行【离开】区域的任务 - %d", ABS(beacon.rssi));
         
-//        [self executeExitAreaTask:iBeacon];
         [self executeAreaTask:iBeacon];
         
     } else if (ABS(beacon.rssi) <= iBeacon.rssiValue - iBeacon.rssiBufValue) {
@@ -82,24 +81,25 @@
 
 /// 执行区域任务
 - (void)executeAreaTask:(SHIBeacon *)iBeacon {
-
-    if (iBeacon.isEnterArea) {
-        SHLog(@"执行进入区域");
-    }
     
     NSMutableArray *task = iBeacon.isEnterArea ? iBeacon.enterAreaTasks : iBeacon.exitAreaTasks;
     
     for (SHButton *button in task) {
         
         switch (button.buttonKind) {
-            case ButtonKindLight:
-                [SHSendDeviceData setDimmer:button];
+                
+            case ButtonKindLight: {
+                
+                // 延时执行
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [SHSendDeviceData setDimmer:button];
+                });
+            }
                 break;
                 
             default:
                 break;
         }
-
     }
 }
 
