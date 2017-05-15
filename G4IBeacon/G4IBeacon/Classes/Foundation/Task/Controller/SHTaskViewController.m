@@ -55,6 +55,9 @@
         iBeacon.isEnterArea = !iBeacon.isExiteArea;
         SHLog(@"执行【离开】区域的任务 - %d", ABS(beacon.rssi));
         
+        // 发出离开通知
+        [self sendExitNotification];
+        
         [self executeAreaTask:iBeacon];
         
     } else if (ABS(beacon.rssi) <= iBeacon.rssiValue - iBeacon.rssiBufValue) {
@@ -70,6 +73,10 @@
         iBeacon.isExiteArea = !iBeacon.isEnterArea;
         
         SHLog(@"执行【来到】区域的任务 - %d", ABS(beacon.rssi));
+        
+        // 发出进入区域
+        [self sendEnterNotification];
+        
         [self executeAreaTask:iBeacon];
         
     } else {
@@ -220,19 +227,19 @@
 /// 进入区域
 - (void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region {
     
-    if ([region isKindOfClass:[CLBeaconRegion class]]) {
-        
-        [self sendEnterNotification];
-    }
+//    if ([region isKindOfClass:[CLBeaconRegion class]]) {
+//        
+//        [self sendEnterNotification];
+//    }
 }
 
 // 离开区域
 - (void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region {
     
-    if ([region isKindOfClass:[CLBeaconRegion class]]) {
-        
-        [self sendExitNotification];
-    }
+//    if ([region isKindOfClass:[CLBeaconRegion class]]) {
+//        
+//        [self sendExitNotification];
+//    }
 }
 
 - (void)viewDidAppear:(BOOL)animated {

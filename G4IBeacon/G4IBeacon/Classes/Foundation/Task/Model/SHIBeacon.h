@@ -49,4 +49,7 @@
 /// 是否离开区域
 @property (assign, nonatomic) BOOL isExiteArea;
 
+/// 区域成员数量
+@property (nonatomic, assign) NSUInteger memberCount;
+
 @end
