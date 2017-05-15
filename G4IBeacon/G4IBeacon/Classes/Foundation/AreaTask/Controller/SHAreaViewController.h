@@ -6,10 +6,10 @@
 //  Copyright © 2017年 SmartHomeGroup. All rights reserved.
 //
 
-#import "SHViewController.h"
+#import "SHTableViewController.h"
 #import "SHIBeacon.h"
 
-@interface SHAreaViewController : SHViewController
+@interface SHAreaViewController :SHTableViewController
 
 /// iBeacon模型
 @property (nonatomic, strong) SHIBeacon *iBeacon;

@@ -24,7 +24,7 @@
 @property (assign, nonatomic) NSUInteger deviceKindCount;
 
 /// 显示任务的tableView
-@property (strong, nonatomic) UITableView *taskView;
+//@property (strong, nonatomic) UITableView *taskView;
 
 @end
 
@@ -42,8 +42,6 @@
             subView.frame = CGRectMake(0, subView.tag * SHTabBarHeight , self.selectDeviceButtonScrollView.frame_width, SHTabBarHeight);
         }
     }
-    self.taskView.frame = self.view.bounds;
-    
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
@@ -57,7 +55,7 @@
     [super viewDidAppear:animated];
     
     // 刷新
-    [self.taskView reloadData];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {
@@ -65,16 +63,26 @@
    
     self.view.backgroundColor = SHGlobalBackgroundColor;
     
+    [self initTableView];
+    
     // 设置导航
     [self setUpNavigationBar];
-    
-    [self.view addSubview:self.taskView];
     
     [self.view addSubview:self.selectDeviceButtonScrollView];
     self.selectDeviceButtonScrollView.hidden = YES;
     
     // 显示已经存在的任务
     self.iBeacon.allDeviceButtonInCurrentZone = [[SHSQLiteManager shareSHSQLiteManager] getButtonsFor:self.iBeacon isEnter:[self isKindOfClass:[SHEnterAreaViewController class]]];
+}
+
+- (void)initTableView {
+    
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.rowHeight = [SHAreaTaskTableViewCell cellRowHeight];
+    
+    self.tableView.backgroundColor = SHGlobalBackgroundColor;
+    
+    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SHAreaTaskTableViewCell class]) bundle:nil] forCellReuseIdentifier: NSStringFromClass([SHAreaTaskTableViewCell class])];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -110,7 +118,7 @@
     deviceButton.isEnterAreaTask = [self isKindOfClass:[SHEnterAreaViewController class]];
     
     [self.iBeacon.allDeviceButtonInCurrentZone addObject:deviceButton];
-    [self.taskView reloadData];
+    [self.tableView reloadData];
     
     // TODO: 保存到数据库中去
     [[SHSQLiteManager shareSHSQLiteManager] inserNewButton:deviceButton];
@@ -206,23 +214,6 @@
         }
     }
     return _selectDeviceButtonScrollView;
-}
-
-/// 任务列表
-- (UITableView *)taskView {
-    
-    if (!_taskView) {
-        _taskView = [[UITableView alloc] init];
-        _taskView.delegate = self;
-        _taskView.dataSource = self;
-        _taskView.separatorStyle = UITableViewCellSeparatorStyleNone;
-        _taskView.rowHeight = [SHAreaTaskTableViewCell cellRowHeight];
-        
-        _taskView.backgroundColor = SHGlobalBackgroundColor;
-        
-        [_taskView registerNib:[UINib nibWithNibName:NSStringFromClass([SHAreaTaskTableViewCell class]) bundle:nil] forCellReuseIdentifier: NSStringFromClass([SHAreaTaskTableViewCell class])];
-    }
-    return _taskView;
 }
 
 @end
