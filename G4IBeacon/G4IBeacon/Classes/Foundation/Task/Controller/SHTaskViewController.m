@@ -37,11 +37,7 @@
 - (void)executeEnterAreaTask:(SHIBeacon *)iBeacon {
     
     // 取出任务
-   NSMutableArray *enterTask = [[SHSQLiteManager shareSHSQLiteManager] getButtonsFor:iBeacon isEnter:YES];
-    
-    
-
-    for (SHButton *button in enterTask) {
+    for (SHButton *button in iBeacon.enterAreaTasks) {
         
         switch (button.buttonKind) {
             case ButtonKindLight:
@@ -56,11 +52,8 @@
 
 /// 执行离开区域的任务
 - (void)executeExitAreaTask:(SHIBeacon *)iBeacon {
-
-    // 取出任务
-    NSMutableArray *exitTask = [[SHSQLiteManager shareSHSQLiteManager] getButtonsFor:iBeacon isEnter:YES];
     
-    for (SHButton *button in exitTask) {
+    for (SHButton *button in iBeacon.exitAreaTasks) {
         
         switch (button.buttonKind) {
             case ButtonKindLight:
@@ -107,13 +100,22 @@
         // 1.先找到对应的模型
         SHIBeacon *iBeacon = [self searchSuitTask:beacon];
         
-        if (beacon.minor.integerValue <= iBeacon.rssiValue) {
-            
-            [self executeEnterAreaTask: iBeacon];
-            
-        } else if (beacon.minor.integerValue > iBeacon.rssiBufValue + iBeacon.rssiBufValue) {
+//        SHLog(@"%d %d", ABS(beacon.rssi), beacon.rssi);
+        
+        // 一定要先过滤无信息
+        if ((ABS(beacon.rssi) > iBeacon.rssiValue + iBeacon.rssiBufValue) || (!beacon.rssi)) {
+            SHLog(@"执行【离开】区域的任务 - %d", ABS(beacon.rssi));
             
             [self executeExitAreaTask: iBeacon];
+
+        } else if (ABS(beacon.rssi) <= iBeacon.rssiValue - iBeacon.rssiBufValue) {
+            SHLog(@"执行【来到】区域的任务 - %d", ABS(beacon.rssi));
+
+            [self executeEnterAreaTask: iBeacon];
+
+        } else {
+         
+            SHLog(@"中间状态: %d", ABS(beacon.rssi));
         }
     }
 }
@@ -136,6 +138,7 @@
         
     } else if (state == CLRegionStateOutside) {
         SHLog(@"离开区域");
+        
         // 获得详细信息
         for (CLBeaconRegion *region in self.allBeaconRegions) {
             
@@ -223,10 +226,16 @@
     self.alliBeacons = [[SHSQLiteManager shareSHSQLiteManager] searchiBeacons];
     
     for (SHIBeacon *iBeacon in self.alliBeacons) {
+        
+        // 建立相应的区域模型
         CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:iBeacon.uuidString] major:iBeacon.majorValue minor:iBeacon.minorValue identifier:@"iBeacon"];
         region.notifyOnEntry = YES;
         region.notifyOnExit = YES;
         region.notifyEntryStateOnDisplay = YES;
+        
+        // 将每个iBeacon的区域任务取出
+        iBeacon.exitAreaTasks = [[SHSQLiteManager shareSHSQLiteManager] getButtonsFor:iBeacon isEnter:NO];
+        iBeacon.enterAreaTasks = [[SHSQLiteManager shareSHSQLiteManager] getButtonsFor:iBeacon isEnter:YES];
         
         [self.allBeaconRegions addObject:region];
     }
