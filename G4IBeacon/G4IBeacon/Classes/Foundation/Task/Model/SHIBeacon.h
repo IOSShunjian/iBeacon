@@ -43,4 +43,10 @@
 /// 离开区域的任务
 @property (nonatomic, strong) NSMutableArray *exitAreaTasks;
 
+/// 是否进入区域
+@property (assign, nonatomic) BOOL isEnterArea;
+
+/// 是否离开区域
+@property (assign, nonatomic) BOOL isExiteArea;
+
 @end
