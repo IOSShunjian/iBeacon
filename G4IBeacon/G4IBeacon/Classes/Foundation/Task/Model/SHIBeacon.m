@@ -20,13 +20,30 @@
     return obj;
 }
 
-/// 保证外界访问时有值
+// MARK: - getter
+
 - (NSMutableArray *)allDeviceButtonInCurrentZone {
     
     if (!_allDeviceButtonInCurrentZone) {
         _allDeviceButtonInCurrentZone = [NSMutableArray array];
     }
     return _allDeviceButtonInCurrentZone;
+}
+
+- (NSMutableArray *)enterAreaTasks {
+    
+    if (!_enterAreaTasks) {
+        _enterAreaTasks = [NSMutableArray array];
+    }
+    return _enterAreaTasks;
+}
+
+- (NSMutableArray *)exitAreaTasks {
+    
+    if (!_exitAreaTasks) {
+        _exitAreaTasks = [NSMutableArray array];
+    }
+    return _exitAreaTasks;
 }
 
 @end

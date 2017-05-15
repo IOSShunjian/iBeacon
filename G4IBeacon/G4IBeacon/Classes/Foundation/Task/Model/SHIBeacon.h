@@ -37,4 +37,10 @@
 /// 当前所有的设备按钮
 @property (nonatomic, strong) NSMutableArray *allDeviceButtonInCurrentZone;
 
+/// 进入区域的任务
+@property (nonatomic, strong) NSMutableArray *enterAreaTasks;
+
+/// 离开区域的任务
+@property (nonatomic, strong) NSMutableArray *exitAreaTasks;
+
 @end
