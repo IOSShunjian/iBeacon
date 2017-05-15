@@ -164,11 +164,14 @@
 /// 插入一个新的iBeacon
 - (BOOL)insertiBeacon:(SHIBeacon *)iBeacon {
     
-    // 先判断是否添加过了
-    if ([self isAleardyAddiBeacon:iBeacon]) {
-        // 什么也不做
-        return NO;
-    }
+    /*
+     分析： 
+        1.如果iBeaconID存在
+            直接更新
+        2.iBeaconID不存在
+            如果相同的iBeacon已经有了 -> 不能7放入
+            如果相同的iBeacon没有-> 直接插入
+     */
     
     NSString *inserSql = @"";
     
@@ -178,8 +181,14 @@
         inserSql = [NSString stringWithFormat:@"UPDATE iBeaconList SET name = '%@', uuidString = '%@', majorValue = %zd, minorValue = %zd, rssiValue = %zd, rssiBufValue = %zd WHERE iBeaconID = %zd", iBeacon.name, iBeacon.uuidString, iBeacon.majorValue, iBeacon.minorValue, iBeacon.rssiValue, iBeacon.rssiBufValue, iBeacon.iBeaconID];
         
     } else {  // 直接插入
-       
-        inserSql = [NSString stringWithFormat:@"INSERT  INTO iBeaconList(iBeaconID, name, uuidString, majorValue, minorValue, rssiValue, rssiBufValue) VALUES(%zd, '%@', '%@', %zd, %zd, %zd, %zd);", iBeacon.iBeaconID, iBeacon.name, iBeacon.uuidString, iBeacon.majorValue, iBeacon.minorValue, iBeacon.rssiValue, iBeacon.rssiBufValue];
+        
+        // 也没有相同的iBeacon
+        if (![self isAleardyAddiBeacon:iBeacon]) {
+            inserSql = [NSString stringWithFormat:@"INSERT  INTO iBeaconList(iBeaconID, name, uuidString, majorValue, minorValue, rssiValue, rssiBufValue) VALUES(%zd, '%@', '%@', %zd, %zd, %zd, %zd);", iBeacon.iBeaconID, iBeacon.name, iBeacon.uuidString, iBeacon.majorValue, iBeacon.minorValue, iBeacon.rssiValue, iBeacon.rssiBufValue];
+        } else {
+            return  NO;
+        }
+        
     }
     
     return [self insetData:inserSql];

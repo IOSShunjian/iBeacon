@@ -102,7 +102,7 @@
         
 //        SHLog(@"%d %d", ABS(beacon.rssi), beacon.rssi);
         
-        // 一定要先过滤无信息
+        // 一定要先过滤
         if ((ABS(beacon.rssi) > iBeacon.rssiValue + iBeacon.rssiBufValue) || (!beacon.rssi)) {
             SHLog(@"执行【离开】区域的任务 - %d", ABS(beacon.rssi));
             
