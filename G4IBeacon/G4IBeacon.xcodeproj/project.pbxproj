@@ -22,6 +22,8 @@
 		8B72CBDE1ECA8BB8008910C2 /* UIImageView+ColorAtPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B72CBDC1ECA8BB8008910C2 /* UIImageView+ColorAtPoint.m */; };
 		8B72CBE61ECAA3BD008910C2 /* SHAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B72CBE51ECAA3BD008910C2 /* SHAudioView.m */; };
 		8B72CBE81ECAA3CA008910C2 /* SHAudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B72CBE71ECAA3CA008910C2 /* SHAudioView.xib */; };
+		8B72CBEB1ECAA550008910C2 /* SHAcView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B72CBEA1ECAA550008910C2 /* SHAcView.m */; };
+		8B72CBED1ECAA55A008910C2 /* SHAcView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B72CBEC1ECAA55A008910C2 /* SHAcView.xib */; };
 		8B75AFBD1EC15CDD009F7D33 /* UIBarButtonItem+init.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B75AFBA1EC15CDD009F7D33 /* UIBarButtonItem+init.m */; };
 		8B75AFBE1EC15CDD009F7D33 /* UIButton+init.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B75AFBC1EC15CDD009F7D33 /* UIButton+init.m */; };
 		8B9E8B601EBC5E140037FAF1 /* SHTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B5F1EBC5E140037FAF1 /* SHTaskViewController.m */; };
@@ -85,6 +87,9 @@
 		8B72CBE41ECAA3BD008910C2 /* SHAudioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAudioView.h; sourceTree = "<group>"; };
 		8B72CBE51ECAA3BD008910C2 /* SHAudioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAudioView.m; sourceTree = "<group>"; };
 		8B72CBE71ECAA3CA008910C2 /* SHAudioView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHAudioView.xib; sourceTree = "<group>"; };
+		8B72CBE91ECAA550008910C2 /* SHAcView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAcView.h; sourceTree = "<group>"; };
+		8B72CBEA1ECAA550008910C2 /* SHAcView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAcView.m; sourceTree = "<group>"; };
+		8B72CBEC1ECAA55A008910C2 /* SHAcView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHAcView.xib; sourceTree = "<group>"; };
 		8B75AFB91EC15CDD009F7D33 /* UIBarButtonItem+init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+init.h"; sourceTree = "<group>"; };
 		8B75AFBA1EC15CDD009F7D33 /* UIBarButtonItem+init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+init.m"; sourceTree = "<group>"; };
 		8B75AFBB1EC15CDD009F7D33 /* UIButton+init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+init.h"; sourceTree = "<group>"; };
@@ -204,6 +209,9 @@
 				8B72CBE41ECAA3BD008910C2 /* SHAudioView.h */,
 				8B72CBE51ECAA3BD008910C2 /* SHAudioView.m */,
 				8B72CBE71ECAA3CA008910C2 /* SHAudioView.xib */,
+				8B72CBE91ECAA550008910C2 /* SHAcView.h */,
+				8B72CBEA1ECAA550008910C2 /* SHAcView.m */,
+				8B72CBEC1ECAA55A008910C2 /* SHAcView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -637,6 +645,7 @@
 			files = (
 				8B72CBE81ECAA3CA008910C2 /* SHAudioView.xib in Resources */,
 				8BAA7E3A1EC0172F003BD713 /* SHSenceViewController.storyboard in Resources */,
+				8B72CBED1ECAA55A008910C2 /* SHAcView.xib in Resources */,
 				8BADAE411EBC2FA200D9E785 /* LaunchScreen.storyboard in Resources */,
 				8B9E8B751EBC6A850037FAF1 /* SHAddViewController.xib in Resources */,
 				8B53DBFC1EC3F2EA00ED5334 /* SHCurtainView.xib in Resources */,
@@ -736,6 +745,7 @@
 				8BADAE681EBC489200D9E785 /* UIColor+set.m in Sources */,
 				8BF61A291EC2C7B0009030CD /* SHEnterAreaViewController.m in Sources */,
 				8BADAE331EBC2FA200D9E785 /* main.m in Sources */,
+				8B72CBEB1ECAA550008910C2 /* SHAcView.m in Sources */,
 				8BFDBC261EC5668000801D7B /* SHUdpSocket.m in Sources */,
 				8B53DC081EC42D5300ED5334 /* SHButton.m in Sources */,
 				8BFDBC2B1EC597CA00801D7B /* SHSendDeviceData.m in Sources */,

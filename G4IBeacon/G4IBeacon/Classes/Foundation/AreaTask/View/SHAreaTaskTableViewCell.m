@@ -12,7 +12,7 @@
 #import "SHCurtainView.h"
 #import "SHLedView.h"
 #import "SHAudioView.h"
-
+#import "SHAcView.h"
 
 @interface SHAreaTaskTableViewCell()
 
@@ -36,6 +36,9 @@
 
 /// 音乐
 @property (strong, nonatomic) SHAudioView *audioView;
+
+/// 空调
+@property (strong, nonatomic) SHAcView *acView;
 
 @end
 
@@ -85,7 +88,9 @@
             break;
             
         case ButtonKindAC: {
-            
+            [self.diferentView addSubview:self.acView];
+            self.acView.deviceButton = deviceButton;
+            self.acView.frame = self.diferentView.bounds;
         }
             break;
             
@@ -139,6 +144,14 @@
         _audioView = [SHAudioView audioView];
     }
     return _audioView;
+}
+
+- (SHAcView *)acView {
+    
+    if (!_acView) {
+        _acView = [SHAcView acView];
+    }
+    return _acView;
 }
 
 @end
