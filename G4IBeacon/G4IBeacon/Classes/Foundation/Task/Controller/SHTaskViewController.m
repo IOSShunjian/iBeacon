@@ -40,20 +40,21 @@
 
     // 先找到对应的模型
     SHIBeacon *iBeacon = [self searchSuitTask:beacon];
+    [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"rssi: %zd", ABS(beacon.rssi)]];
     
     // 要先过滤 0
     if ((ABS(beacon.rssi) > iBeacon.rssiValue + iBeacon.rssiBufValue) || (!beacon.rssi)) {
         
         // 已经离开了这个区域的回调
         if (iBeacon.isExiteArea) {
-            SHLog(@"你已经离开了");
+            
             return;
         }
         
         // 首次离开重新进入这个区域
         iBeacon.isExiteArea = !iBeacon.isExiteArea;
         iBeacon.isEnterArea = !iBeacon.isExiteArea;
-        SHLog(@"执行【离开】区域的任务 - %d", ABS(beacon.rssi));
+ 
         
         // 发出离开通知
         [self sendExitNotification];
@@ -64,7 +65,7 @@
         
         // 已经进入了区域后的回调
         if (iBeacon.isEnterArea) {
-            SHLog(@"已经进来了");
+            
             return;
         }
         
@@ -72,7 +73,7 @@
         iBeacon.isEnterArea = !iBeacon.isEnterArea;
         iBeacon.isExiteArea = !iBeacon.isEnterArea;
         
-        SHLog(@"执行【来到】区域的任务 - %d", ABS(beacon.rssi));
+//        SHLog(@"执行【来到】区域的任务 - %d", ABS(beacon.rssi));
         
         // 发出进入区域
         [self sendEnterNotification];
@@ -81,7 +82,7 @@
         
     } else {
         
-        SHLog(@"中间状态_啥也不干: %d", ABS(beacon.rssi));
+ 
     }
 
 }
@@ -117,6 +118,13 @@
             
                 [SHSendDeviceData acOnAndOff:button];
                 [SHSendDeviceData updateACTempture:button];
+            }
+                break;
+                
+            case ButtonKindMusic: {
+            
+                [SHSendDeviceData musicPlayAndStop:button];
+                [SHSendDeviceData updateAuidoVOL:button];
             }
                 break;
                 

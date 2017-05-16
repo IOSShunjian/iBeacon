@@ -30,10 +30,6 @@
     self.playButton.selected = !self.playButton.selected;
     self.deviceButton.buttonPara1 = self.playButton.selected;
     
-    if (self.playButton.selected) {
-        self.volSlider.enabled = NO;
-    }
-    
     [SHSendDeviceData musicPlayAndStop:self.deviceButton];
     
     
@@ -68,7 +64,7 @@
     
     self.playButton.selected = deviceButton.buttonPara1;
     
-    Byte vol = deviceButton.buttonPara2;
+    Byte vol = self.volSlider.maximumValue - deviceButton.buttonPara2;
     
     self.volumeLabel.text = [NSString stringWithFormat:@"%zd", vol];
     
