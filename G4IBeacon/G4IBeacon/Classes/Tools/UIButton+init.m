@@ -22,8 +22,14 @@
     
     UIButton *button  = [[UIButton alloc] init];
     
-    [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-    [button setImage:[UIImage imageNamed:hightlightedImageName] forState:UIControlStateHighlighted];
+    if (imageName) {
+        [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
+    }
+    
+    if (hightlightedImageName) {
+        [button setImage:[UIImage imageNamed:hightlightedImageName] forState:UIControlStateHighlighted];
+    }
+    
     
     [button addTarget:target action:action forControlEvents:UIControlEventTouchUpInside];
     

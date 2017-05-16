@@ -17,16 +17,11 @@
 /// 显示选取后的颜色
 @property (weak, nonatomic) IBOutlet UIView *showColorView;
 
-
 @end
 
 @implementation SHLedView
 
-- (void)awakeFromNib {
-    [super awakeFromNib];
-    
-    self.showColorView.hidden = YES;
-}
+
 
 /// 设定值
 - (void)setDeviceButton:(SHButton *)deviceButton {
