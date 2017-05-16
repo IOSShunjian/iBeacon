@@ -15,7 +15,7 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="85"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="80" minValue="0.0" maxValue="80" translatesAutoresizingMaskIntoConstraints="NO" id="Zoz-PQ-LOB">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="80" translatesAutoresizingMaskIntoConstraints="NO" id="Zoz-PQ-LOB">
                     <rect key="frame" x="60.5" y="50" width="251.5" height="31"/>
                     <connections>
                         <action selector="changeVolume:" destination="iN0-l3-epB" eventType="valueChanged" id="Rad-YT-xXj"/>
