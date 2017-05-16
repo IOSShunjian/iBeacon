@@ -11,6 +11,7 @@
 #import "SHDimmerView.h"
 #import "SHCurtainView.h"
 #import "SHLedView.h"
+#import "SHAudioView.h"
 
 
 @interface SHAreaTaskTableViewCell()
@@ -33,7 +34,8 @@
 /// LED
 @property (strong, nonatomic) SHLedView *ledView;
 
-
+/// 音乐
+@property (strong, nonatomic) SHAudioView *audioView;
 
 @end
 
@@ -87,6 +89,14 @@
         }
             break;
             
+        case ButtonKindMusic:{
+        
+            [self.diferentView addSubview:self.audioView];
+            self.audioView.deviceButton = deviceButton;
+            self.audioView.frame = self.diferentView.bounds;
+        }
+            break;
+            
         default:
             break;
     }
@@ -123,6 +133,12 @@
     return _ledView;
 }
 
-
+- (SHAudioView *)audioView {
+    
+    if (!_audioView) {
+        _audioView = [SHAudioView audioView];
+    }
+    return _audioView;
+}
 
 @end

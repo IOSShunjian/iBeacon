@@ -20,6 +20,8 @@
 		8B72CBD71ECA8A92008910C2 /* SHSelectColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B72CBD61ECA8A92008910C2 /* SHSelectColorViewController.m */; };
 		8B72CBDD1ECA8BB8008910C2 /* SHColorWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B72CBDA1ECA8BB8008910C2 /* SHColorWheelView.m */; };
 		8B72CBDE1ECA8BB8008910C2 /* UIImageView+ColorAtPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B72CBDC1ECA8BB8008910C2 /* UIImageView+ColorAtPoint.m */; };
+		8B72CBE61ECAA3BD008910C2 /* SHAudioView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B72CBE51ECAA3BD008910C2 /* SHAudioView.m */; };
+		8B72CBE81ECAA3CA008910C2 /* SHAudioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B72CBE71ECAA3CA008910C2 /* SHAudioView.xib */; };
 		8B75AFBD1EC15CDD009F7D33 /* UIBarButtonItem+init.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B75AFBA1EC15CDD009F7D33 /* UIBarButtonItem+init.m */; };
 		8B75AFBE1EC15CDD009F7D33 /* UIButton+init.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B75AFBC1EC15CDD009F7D33 /* UIButton+init.m */; };
 		8B9E8B601EBC5E140037FAF1 /* SHTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B5F1EBC5E140037FAF1 /* SHTaskViewController.m */; };
@@ -80,6 +82,9 @@
 		8B72CBDA1ECA8BB8008910C2 /* SHColorWheelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHColorWheelView.m; sourceTree = "<group>"; };
 		8B72CBDB1ECA8BB8008910C2 /* UIImageView+ColorAtPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ColorAtPoint.h"; sourceTree = "<group>"; };
 		8B72CBDC1ECA8BB8008910C2 /* UIImageView+ColorAtPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ColorAtPoint.m"; sourceTree = "<group>"; };
+		8B72CBE41ECAA3BD008910C2 /* SHAudioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAudioView.h; sourceTree = "<group>"; };
+		8B72CBE51ECAA3BD008910C2 /* SHAudioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAudioView.m; sourceTree = "<group>"; };
+		8B72CBE71ECAA3CA008910C2 /* SHAudioView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHAudioView.xib; sourceTree = "<group>"; };
 		8B75AFB91EC15CDD009F7D33 /* UIBarButtonItem+init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+init.h"; sourceTree = "<group>"; };
 		8B75AFBA1EC15CDD009F7D33 /* UIBarButtonItem+init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+init.m"; sourceTree = "<group>"; };
 		8B75AFBB1EC15CDD009F7D33 /* UIButton+init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+init.h"; sourceTree = "<group>"; };
@@ -196,6 +201,9 @@
 				8B72CBCF1ECA86E5008910C2 /* SHLedView.h */,
 				8B72CBD01ECA86E5008910C2 /* SHLedView.m */,
 				8B72CBD21ECA86EF008910C2 /* SHLedView.xib */,
+				8B72CBE41ECAA3BD008910C2 /* SHAudioView.h */,
+				8B72CBE51ECAA3BD008910C2 /* SHAudioView.m */,
+				8B72CBE71ECAA3CA008910C2 /* SHAudioView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -627,6 +635,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B72CBE81ECAA3CA008910C2 /* SHAudioView.xib in Resources */,
 				8BAA7E3A1EC0172F003BD713 /* SHSenceViewController.storyboard in Resources */,
 				8BADAE411EBC2FA200D9E785 /* LaunchScreen.storyboard in Resources */,
 				8B9E8B751EBC6A850037FAF1 /* SHAddViewController.xib in Resources */,
@@ -702,6 +711,7 @@
 				8BFDBC251EC5668000801D7B /* GCDAsyncUdpSocket.m in Sources */,
 				8B9E8B791EBC72120037FAF1 /* SHIBeacon.m in Sources */,
 				8B75AFBE1EC15CDD009F7D33 /* UIButton+init.m in Sources */,
+				8B72CBE61ECAA3BD008910C2 /* SHAudioView.m in Sources */,
 				8BADAE611EBC458000D9E785 /* SHViewController.m in Sources */,
 				8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */,
 				8B9E8B701EBC648D0037FAF1 /* SHConstant.m in Sources */,
