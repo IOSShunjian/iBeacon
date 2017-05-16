@@ -17,8 +17,8 @@
 /// 显示颜色的view
 @property (nonatomic, strong) UIView *showColorView;
 
-/// 当前触发的按钮
-@property (nonatomic, strong) SHButton *currentButton;
+/// 保存颜色的按钮
+@property (nonatomic, strong) SHButton *saveColorButton;
 
 @end
 
@@ -61,8 +61,6 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-
-
 /// 实现这个代理是为了方便发送数据
 - (void)setZonesColorData:(NSData *)colorData recognizer:(UIGestureRecognizer *)recognizer {
     
@@ -79,6 +77,13 @@
     UIColor *color = [UIColor colorWithRed:red/100.0 green:green/100.0 blue:blue/100.0 alpha:alpha/100.0];
     self.showColorView.backgroundColor = color;
     
+    // 记录颜色
+    self.saveColorButton.buttonPara1 = red;
+    self.saveColorButton.buttonPara2 = green;
+    self.saveColorButton.buttonPara3 = blue;
+    self.saveColorButton.buttonPara4 = alpha;
+    
+    
     // 手势结束才发
 //    if (recognizer.state == UIGestureRecognizerStateEnded) {
 //        Byte colorArray[] = { (Byte)red, (Byte)green, (Byte)blue, (Byte)alpha, 0X00, 0X00};
@@ -87,13 +92,14 @@
 //    }
 }
 
-- (void)show {
+- (void)show:(SHButton *)deviceButton {
+    
+    self.saveColorButton = deviceButton;
     
     self.modalPresentationStyle = UIModalPresentationPageSheet;
     
     // 弹出
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:self animated:YES completion:nil];
-
 }
 
 /// 显示颜色指示条

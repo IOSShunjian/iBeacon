@@ -21,8 +21,6 @@
 
 @implementation SHLedView
 
-
-
 /// 设定值
 - (void)setDeviceButton:(SHButton *)deviceButton {
     _deviceButton = deviceButton;
@@ -35,7 +33,7 @@
     
     SHSelectColorViewController *selectController = [[SHSelectColorViewController alloc] init];
     
-    [selectController show];
+    [selectController show: self.deviceButton];
 }
 
 

@@ -56,18 +56,21 @@ typedef enum  {
 /// 区域任务类型(YES: 进入区域 NO: 离开区域)
 @property (nonatomic, assign) BOOL isEnterAreaTask;
 
-
 // MARK: - 不同的参数(不同设备不同)
 
-/// 参数一:[Dimmer: 通道, Curtain: Open通道]
+/// 参数一:[Dimmer: 通道, Curtain: Open通道, LED: red]
 @property (assign, nonatomic) Byte buttonPara1;
 
-/// 参数二: [Dimmmer: 亮度值, Curtain:  Close 通道];
+/// 参数二: [Dimmmer: 亮度值, Curtain:  Close 通道, LED: green];
 @property (assign, nonatomic) Byte buttonPara2;
 
-/// 参数三: [Curtain: 窗帘的状态(开或关)]
+/// 参数三: [Curtain: 窗帘的状态(开:on或关), LED: blue]
 @property (assign, nonatomic) Byte buttonPara3;
+
+/// 参数四: [LED: alpha]
 @property (assign, nonatomic) Byte buttonPara4;
+
+
 @property (assign, nonatomic) Byte buttonPara5;
 @property (assign, nonatomic) Byte buttonPara6;
 
