@@ -42,7 +42,9 @@
     // 设置保存的亮度值
     self.deviceButton.buttonPara2 = lightValue;
     
-    [SHSendDeviceData setDimmer:self.deviceButton];
+    if (!(lightValue % 5)) {
+         [SHSendDeviceData setDimmer:self.deviceButton];
+    }
 }
 
 

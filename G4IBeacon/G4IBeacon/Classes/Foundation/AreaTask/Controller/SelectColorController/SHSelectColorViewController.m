@@ -88,10 +88,8 @@
     self.saveColorButton.buttonPara3 = blue;
     self.saveColorButton.buttonPara4 = alpha;
     
-    
     // 手势结束才发
     if (recognizer.state == UIGestureRecognizerStateEnded) {
-        Byte colorArray[] = { (Byte)red, (Byte)green, (Byte)blue, (Byte)alpha, 0X00, 0X00};
     
         [SHSendDeviceData setLedColor:self.saveColorButton
          ];

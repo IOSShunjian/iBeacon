@@ -12,6 +12,7 @@
 #import "SHCurtainView.h"
 #import "SHLedView.h"
 
+
 @interface SHAreaTaskTableViewCell()
 
 /// 名称
@@ -31,6 +32,8 @@
 
 /// LED
 @property (strong, nonatomic) SHLedView *ledView;
+
+
 
 @end
 
@@ -79,6 +82,11 @@
         }
             break;
             
+        case ButtonKindAC: {
+            
+        }
+            break;
+            
         default:
             break;
     }
@@ -114,5 +122,7 @@
     }
     return _ledView;
 }
+
+
 
 @end
