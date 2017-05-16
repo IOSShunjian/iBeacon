@@ -12,6 +12,6 @@
 
 
 /// 显示取色计
-- (void)show:(SHButton *)deviceButton;
+- (void)show:(SHButton *)deviceButton colorView:(UIView *)colorView;
 
 @end

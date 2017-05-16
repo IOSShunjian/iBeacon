@@ -17,8 +17,12 @@
 /// 显示颜色的view
 @property (nonatomic, strong) UIView *showColorView;
 
+/// cell上显示的颜色
+@property (nonatomic, strong) UIView *cellColorView;
+
 /// 保存颜色的按钮
 @property (nonatomic, strong) SHButton *saveColorButton;
+
 
 @end
 
@@ -76,12 +80,14 @@
     
     UIColor *color = [UIColor colorWithRed:red/100.0 green:green/100.0 blue:blue/100.0 alpha:alpha/100.0];
     self.showColorView.backgroundColor = color;
+    self.cellColorView.backgroundColor = color;
     
     // 记录颜色
     self.saveColorButton.buttonPara1 = red;
     self.saveColorButton.buttonPara2 = green;
     self.saveColorButton.buttonPara3 = blue;
     self.saveColorButton.buttonPara4 = alpha;
+    
     
     
     // 手势结束才发
@@ -92,9 +98,10 @@
 //    }
 }
 
-- (void)show:(SHButton *)deviceButton {
+- (void)show:(SHButton *)deviceButton colorView:(UIView *)colorView {
     
     self.saveColorButton = deviceButton;
+    self.cellColorView = colorView;
     
     self.modalPresentationStyle = UIModalPresentationPageSheet;
     

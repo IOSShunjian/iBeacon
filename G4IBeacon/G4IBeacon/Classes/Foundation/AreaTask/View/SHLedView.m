@@ -33,7 +33,7 @@
     
     SHSelectColorViewController *selectController = [[SHSelectColorViewController alloc] init];
     
-    [selectController show: self.deviceButton];
+    [selectController show:self.deviceButton colorView:self.showColorView];
 }
 
 
