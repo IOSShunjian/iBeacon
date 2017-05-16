@@ -81,27 +81,15 @@
     
     // 手势结束才发
 //    if (recognizer.state == UIGestureRecognizerStateEnded) {
-        Byte colorArray[] = { (Byte)red, (Byte)green, (Byte)blue, (Byte)alpha, 0X00, 0X00};
+//        Byte colorArray[] = { (Byte)red, (Byte)green, (Byte)blue, (Byte)alpha, 0X00, 0X00};
     
 //        [SHSendDeviceData setLED:self.currentButton colorData:[NSMutableData dataWithBytes:colorArray length:sizeof(colorArray)]];
 //    }
 }
 
-- (void)show:(SHButton *)button {
+- (void)show {
     
-    // 记录按钮
-    self.currentButton = button;
-    
-    // 设置弹出模式
-    self.modalPresentationStyle = UIModalPresentationPopover;
-    
-    // 设置方向
-    self.popoverPresentationController.permittedArrowDirections =
-    UIPopoverArrowDirectionAny;
-    
-    // 设置区域
-    self.popoverPresentationController.sourceView = button;
-    self.popoverPresentationController.sourceRect = button.bounds;
+    self.modalPresentationStyle = UIModalPresentationPageSheet;
     
     // 弹出
     [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:self animated:YES completion:nil];

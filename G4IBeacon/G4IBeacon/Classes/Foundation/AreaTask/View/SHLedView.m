@@ -35,8 +35,7 @@
     
     SHSelectColorViewController *selectController = [[SHSelectColorViewController alloc] init];
     
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:selectController animated:YES completion:nil
-     ];
+    [selectController show];
 }
 
 
