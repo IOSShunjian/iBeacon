@@ -10,6 +10,7 @@
 
 #import "SHDimmerView.h"
 #import "SHCurtainView.h"
+#import "SHLedView.h"
 
 @interface SHAreaTaskTableViewCell()
 
@@ -27,6 +28,9 @@
 
 /// 窗帘
 @property (strong, nonatomic) SHCurtainView *curtainView;
+
+/// LED
+@property (strong, nonatomic) SHLedView *ledView;
 
 @end
 
@@ -69,6 +73,14 @@
         }
             break;
             
+        case ButtonKindLed: {
+            
+            [self.diferentView addSubview:self.ledView];
+            self.ledView.deviceButton = deviceButton;
+            self.ledView.frame = self.diferentView.bounds;
+        }
+            break;
+            
         default:
             break;
     }
@@ -95,6 +107,14 @@
         _lightView = [SHDimmerView dimmerView];
     }
     return _lightView;
+}
+
+- (SHLedView *)ledView {
+    
+    if (!_ledView) {
+        _ledView = [SHLedView ledView];
+    }
+    return _ledView;
 }
 
 @end

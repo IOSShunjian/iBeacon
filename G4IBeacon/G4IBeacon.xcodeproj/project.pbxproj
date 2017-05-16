@@ -15,6 +15,8 @@
 		8B53DBFD1EC3F2EA00ED5334 /* SHDimmerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B53DBF71EC3F2EA00ED5334 /* SHDimmerView.m */; };
 		8B53DBFE1EC3F2EA00ED5334 /* SHDimmerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B53DBF81EC3F2EA00ED5334 /* SHDimmerView.xib */; };
 		8B53DC081EC42D5300ED5334 /* SHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B53DC071EC42D5300ED5334 /* SHButton.m */; };
+		8B72CBD11ECA86E5008910C2 /* SHLedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B72CBD01ECA86E5008910C2 /* SHLedView.m */; };
+		8B72CBD31ECA86EF008910C2 /* SHLedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B72CBD21ECA86EF008910C2 /* SHLedView.xib */; };
 		8B75AFBD1EC15CDD009F7D33 /* UIBarButtonItem+init.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B75AFBA1EC15CDD009F7D33 /* UIBarButtonItem+init.m */; };
 		8B75AFBE1EC15CDD009F7D33 /* UIButton+init.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B75AFBC1EC15CDD009F7D33 /* UIButton+init.m */; };
 		8B9E8B601EBC5E140037FAF1 /* SHTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B5F1EBC5E140037FAF1 /* SHTaskViewController.m */; };
@@ -66,6 +68,9 @@
 		8B53DBF81EC3F2EA00ED5334 /* SHDimmerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHDimmerView.xib; sourceTree = "<group>"; };
 		8B53DC061EC42D5300ED5334 /* SHButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHButton.h; sourceTree = "<group>"; };
 		8B53DC071EC42D5300ED5334 /* SHButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHButton.m; sourceTree = "<group>"; };
+		8B72CBCF1ECA86E5008910C2 /* SHLedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLedView.h; sourceTree = "<group>"; };
+		8B72CBD01ECA86E5008910C2 /* SHLedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLedView.m; sourceTree = "<group>"; };
+		8B72CBD21ECA86EF008910C2 /* SHLedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHLedView.xib; sourceTree = "<group>"; };
 		8B75AFB91EC15CDD009F7D33 /* UIBarButtonItem+init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+init.h"; sourceTree = "<group>"; };
 		8B75AFBA1EC15CDD009F7D33 /* UIBarButtonItem+init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+init.m"; sourceTree = "<group>"; };
 		8B75AFBB1EC15CDD009F7D33 /* UIButton+init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+init.h"; sourceTree = "<group>"; };
@@ -178,6 +183,9 @@
 				8B53DBF61EC3F2EA00ED5334 /* SHDimmerView.h */,
 				8B53DBF71EC3F2EA00ED5334 /* SHDimmerView.m */,
 				8B53DBF81EC3F2EA00ED5334 /* SHDimmerView.xib */,
+				8B72CBCF1ECA86E5008910C2 /* SHLedView.h */,
+				8B72CBD01ECA86E5008910C2 /* SHLedView.m */,
+				8B72CBD21ECA86EF008910C2 /* SHLedView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -592,6 +600,7 @@
 				8BADAE411EBC2FA200D9E785 /* LaunchScreen.storyboard in Resources */,
 				8B9E8B751EBC6A850037FAF1 /* SHAddViewController.xib in Resources */,
 				8B53DBFC1EC3F2EA00ED5334 /* SHCurtainView.xib in Resources */,
+				8B72CBD31ECA86EF008910C2 /* SHLedView.xib in Resources */,
 				8BADAE7A1EBC4D4D00D9E785 /* SHAllTableViewCell.xib in Resources */,
 				8B9E8B661EBC60240037FAF1 /* SHTaskCollectionViewCell.xib in Resources */,
 				8B53DBFE1EC3F2EA00ED5334 /* SHDimmerView.xib in Resources */,
@@ -669,6 +678,7 @@
 				8BADAE5B1EBC456200D9E785 /* SHTabBarController.m in Sources */,
 				8B9E8B821EBC760C0037FAF1 /* FileTools.m in Sources */,
 				8B9E8B651EBC60240037FAF1 /* SHTaskCollectionViewCell.m in Sources */,
+				8B72CBD11ECA86E5008910C2 /* SHLedView.m in Sources */,
 				8BE509581EC432390090E6BC /* SHSettingViewController.m in Sources */,
 				8BF61A281EC2C7B0009030CD /* SHAreaViewController.m in Sources */,
 				8B53DBF91EC3F2EA00ED5334 /* SHAreaTaskTableViewCell.m in Sources */,

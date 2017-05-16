@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="SHLedView">
+            <rect key="frame" x="0.0" y="0.0" width="283" height="130"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8q-4L-ToM">
+                    <rect key="frame" x="20" y="33" width="64" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="64" id="hV0-PX-Xmh"/>
+                        <constraint firstAttribute="height" constant="64" id="vW6-Dt-1vP"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="colorWheel"/>
+                    <connections>
+                        <action selector="selectColor" destination="iN0-l3-epB" eventType="touchUpInside" id="7Hz-S9-Wvs"/>
+                    </connections>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XMX-ma-2tv">
+                    <rect key="frame" x="189" y="33" width="64" height="64"/>
+                    <color key="backgroundColor" red="0.89850309080000001" green="0.40340559980000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="XMX-ma-2tv" firstAttribute="bottom" secondItem="z8q-4L-ToM" secondAttribute="bottom" id="38o-Sk-04T"/>
+                <constraint firstItem="z8q-4L-ToM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Qaq-Tn-gbG"/>
+                <constraint firstItem="z8q-4L-ToM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="g1N-LN-HYj"/>
+                <constraint firstAttribute="trailing" secondItem="XMX-ma-2tv" secondAttribute="trailing" constant="30" id="mBX-hS-U4C"/>
+                <constraint firstItem="XMX-ma-2tv" firstAttribute="width" secondItem="z8q-4L-ToM" secondAttribute="width" id="nK0-dJ-WUH"/>
+                <constraint firstItem="XMX-ma-2tv" firstAttribute="top" secondItem="z8q-4L-ToM" secondAttribute="top" id="tEP-Gu-2dO"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="selectColorButton" destination="z8q-4L-ToM" id="6a8-V6-W5y"/>
+                <outlet property="showColorView" destination="XMX-ma-2tv" id="Z8C-KC-Pca"/>
+            </connections>
+            <point key="canvasLocation" x="65.5" y="124"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="colorWheel" width="64" height="64"/>
+    </resources>
+</document>
