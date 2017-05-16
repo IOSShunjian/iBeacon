@@ -29,6 +29,9 @@
     
     // 保存状态
     self.deviceButton.buttonPara3 = sender.on;
+    
+    // 发送指令
+    [SHSendDeviceData curtainOpenOrClose:self.deviceButton];
 }
 
 + (instancetype)curtainView {
