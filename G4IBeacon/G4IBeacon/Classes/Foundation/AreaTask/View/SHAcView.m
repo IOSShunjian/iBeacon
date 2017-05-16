@@ -42,10 +42,9 @@
     [SHSendDeviceData acOnAndOff:self.deviceButton];
 }
 
-
 /// 空调温度的变化
-- (IBAction)acTempChange {
-
+- (IBAction)acTempChange:(UISlider *)sender {
+    
     // 获得它的值
     Byte tempValue = (NSUInteger)self.changeTempSlider.value;
     
@@ -54,11 +53,22 @@
     self.deviceButton.buttonPara2 = tempValue;
     
     [SHSendDeviceData updateACTempture:self.deviceButton];
+
 }
 
 
 - (void)setDeviceButton:(SHButton *)deviceButton {
     _deviceButton = deviceButton;
+    
+    // 设置状态
+    self.acSwitch.on = deviceButton.buttonPara1;
+    self.tempLabel.text = [NSString stringWithFormat:@"%zd°C", deviceButton.buttonPara2];
+    
+    Byte tempValue = deviceButton.buttonPara2;
+    
+    self.changeTempSlider.value = tempValue;
+    
+    [self acTempChange:self.changeTempSlider];
     
 }
 

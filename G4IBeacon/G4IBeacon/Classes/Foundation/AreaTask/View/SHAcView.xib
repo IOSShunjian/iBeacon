@@ -18,7 +18,7 @@
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="16" minValue="16" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="eiK-zC-yO5">
                     <rect key="frame" x="43" y="50" width="324" height="31"/>
                     <connections>
-                        <action selector="acTempChange" destination="iN0-l3-epB" eventType="valueChanged" id="9Jj-rv-Rya"/>
+                        <action selector="acTempChange:" destination="iN0-l3-epB" eventType="valueChanged" id="lzI-hh-De6"/>
                     </connections>
                 </slider>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16°C" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aT-OR-plH">
