@@ -52,7 +52,7 @@
     
     [self setUpChildController:[[SHTaskViewController alloc] init] title:@"task" imageName:@"task" highlightedImageName:@"task_highlighted"];
     
-//    [self setUpChildController:[[SHAllViewController alloc] init] title:@"All" imageName:@"All" highlightedImageName:@"All_highlighted"];
+    [self setUpChildController:[[SHAllViewController alloc] init] title:@"All" imageName:@"All" highlightedImageName:@"All_highlighted"];
 }
 
 /**
