@@ -66,8 +66,13 @@
             
             [self.diferentView addSubview:self.lightView];
             self.lightView.deviceButton = deviceButton;
-            
             self.lightView.frame = self.diferentView.bounds;
+            
+            // 隐藏其它类型
+            self.acView.hidden = YES;
+            self.ledView.hidden = YES;
+            self.audioView.hidden = YES;
+            self.curtainView.hidden = YES;
         }
             break;
             
@@ -76,6 +81,12 @@
             [self.diferentView addSubview:self.curtainView];
             self.curtainView.deviceButton = deviceButton;
             self.curtainView.frame = self.diferentView.bounds;
+            
+            // 隐藏其它类型
+            self.acView.hidden = YES;
+            self.ledView.hidden = YES;
+            self.audioView.hidden = YES;
+            self.lightView.hidden = YES;
         }
             break;
             
@@ -84,6 +95,12 @@
             [self.diferentView addSubview:self.ledView];
             self.ledView.deviceButton = deviceButton;
             self.ledView.frame = self.diferentView.bounds;
+            
+            // 隐藏其它类型
+            self.acView.hidden = YES;
+            self.curtainView.hidden = YES;
+            self.audioView.hidden = YES;
+            self.lightView.hidden = YES;
         }
             break;
             
@@ -92,6 +109,12 @@
         
             self.acView.deviceButton = deviceButton;
             self.acView.frame = self.diferentView.bounds;
+            
+            // 隐藏其它类型
+            self.curtainView.hidden = YES;
+            self.ledView.hidden = YES;
+            self.audioView.hidden = YES;
+            self.lightView.hidden = YES;
         }
             break;
             
@@ -100,6 +123,12 @@
             [self.diferentView addSubview:self.audioView];
             self.audioView.deviceButton = deviceButton;
             self.audioView.frame = self.diferentView.bounds;
+            
+            // 隐藏其它类型
+            self.acView.hidden = YES;
+            self.ledView.hidden = YES;
+            self.curtainView.hidden = YES;
+            self.lightView.hidden = YES;
         }
             break;
             
