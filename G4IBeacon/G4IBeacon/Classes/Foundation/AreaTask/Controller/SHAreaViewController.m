@@ -23,8 +23,6 @@
 /// 设备种类
 @property (assign, nonatomic) NSUInteger deviceKindCount;
 
-/// 显示任务的tableView
-//@property (strong, nonatomic) UITableView *taskView;
 
 @end
 

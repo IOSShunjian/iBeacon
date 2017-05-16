@@ -89,13 +89,13 @@
     self.saveColorButton.buttonPara4 = alpha;
     
     
-    
     // 手势结束才发
-//    if (recognizer.state == UIGestureRecognizerStateEnded) {
-//        Byte colorArray[] = { (Byte)red, (Byte)green, (Byte)blue, (Byte)alpha, 0X00, 0X00};
+    if (recognizer.state == UIGestureRecognizerStateEnded) {
+        Byte colorArray[] = { (Byte)red, (Byte)green, (Byte)blue, (Byte)alpha, 0X00, 0X00};
     
-//        [SHSendDeviceData setLED:self.currentButton colorData:[NSMutableData dataWithBytes:colorArray length:sizeof(colorArray)]];
-//    }
+        [SHSendDeviceData setLedColor:self.saveColorButton
+         ];
+    }
 }
 
 - (void)show:(SHButton *)deviceButton colorView:(UIView *)colorView {

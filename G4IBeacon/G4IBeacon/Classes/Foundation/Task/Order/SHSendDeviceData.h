@@ -16,4 +16,7 @@
 /// 窗帘打开和关闭
 + (void)curtainOpenOrClose:(SHButton *)button;
 
+/// 设置LED颜色
++ (void)setLedColor:(SHButton *)button;
+
 @end

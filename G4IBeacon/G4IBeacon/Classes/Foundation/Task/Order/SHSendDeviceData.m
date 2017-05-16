@@ -31,4 +31,11 @@
     [[SHUdpSocket shareSHUdpSocket] sendDataWithOperatorCode:0X0031 targetSubnetID:button.subNetID targetDeviceID:button.deviceID additionalContentData:[NSMutableData dataWithBytes:curtainData length:sizeof(curtainData)]];
 }
 
+/// 设置LED颜色
++ (void)setLedColor:(SHButton *)button {
+    
+    Byte colorData[] = {button.buttonPara1, button.buttonPara2, button.buttonPara3, button.buttonPara4, 0X00, 0X00};
+    
+     [[SHUdpSocket shareSHUdpSocket] sendDataWithOperatorCode:0xF080 targetSubnetID:button.subNetID targetDeviceID:button.deviceID additionalContentData:[NSMutableData dataWithBytes:colorData length:sizeof(colorData)]];
+}
 @end
