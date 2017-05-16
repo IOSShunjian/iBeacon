@@ -13,4 +13,7 @@
 /// 设置调光器
 + (void)setDimmer:(SHButton *)button;
 
+/// 窗帘打开和关闭
++ (void)curtainOpenOrClose:(SHButton *)button;
+
 @end
