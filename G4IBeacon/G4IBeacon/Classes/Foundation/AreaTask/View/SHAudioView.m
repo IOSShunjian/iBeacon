@@ -27,26 +27,36 @@
 /// 播放
 - (IBAction)playClick {
     
-    SHLog(@"正在播放");
+    self.playButton.selected = !self.playButton.selected;
+    self.deviceButton.buttonPara1 = self.playButton.selected;
     
+//    [SHSendDeviceData musicPlayAndStop:self.deviceButton];
 }
 
 /// 改变量音量
 - (IBAction)changeVolume {
-
+    
+    // 获得它的值
+    Byte volValue = (NSUInteger)self.volSlider.value;
+    
+    self.volumeLabel.text = [NSString stringWithFormat:@"%zd", volValue];
+    self.deviceButton.buttonPara2 = self.volSlider.maximumValue - volValue;
+    
+    // 修改音量
+    [SHSendDeviceData changeAudioVol:self.deviceButton];
+    
 }
 
 /// 上一首
 - (IBAction)lastSong {
     
-    SHLog(@"上一首");
-
+    [SHSendDeviceData playSong:self.deviceButton isNext:YES];
 }
 
 /// 下一首
 - (IBAction)nextSong {
     
-    SHLog(@"下一首");
+    [SHSendDeviceData playSong:self.deviceButton isNext:NO];
 }
 
 

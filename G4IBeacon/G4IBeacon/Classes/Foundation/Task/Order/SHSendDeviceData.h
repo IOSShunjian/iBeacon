@@ -25,4 +25,13 @@
 /// 温度变化
 + (void)updateACTempture:(SHButton *)button;
 
+/// 播放或结束音乐
++ (void)musicPlayAndStop:(SHButton *)button;
+
+/// 变更音量
++ (void)changeAudioVol:(SHButton *)button;
+
+/// 播放上一首或者下一首音乐
++ (void)playSong:(SHButton *)button isNext:(BOOL)isNext;
+
 @end

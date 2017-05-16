@@ -55,4 +55,31 @@
     [[SHUdpSocket shareSHUdpSocket] sendDataWithOperatorCode:0XE3D8 targetSubnetID:button.subNetID targetDeviceID:button.deviceID additionalContentData:[NSMutableData dataWithBytes:tempture length:sizeof(tempture)]];
 }
 
+/// 播放或结束音乐
++ (void)musicPlayAndStop:(SHButton *)button {
+    
+    BOOL playOrEnd = button.buttonPara1 ? 0X03 : 0X04;
+    
+    Byte sonData[4] = {0X04, playOrEnd, 0X00, 0X00};
+    
+    [[SHUdpSocket shareSHUdpSocket] sendDataWithOperatorCode:0X0218 targetSubnetID:button.subNetID targetDeviceID:button.deviceID additionalContentData:[NSMutableData dataWithBytes:sonData length:sizeof(sonData)]];
+}
+
+/// 变更音量
++ (void)changeAudioVol:(SHButton *)button {
+    
+    // 改变声音
+    Byte array[4] = {0X05, 0X01, 0X03,  button.buttonPara2 };
+    
+    [[SHUdpSocket shareSHUdpSocket] sendDataWithOperatorCode:0x0218 targetSubnetID:button.subNetID targetDeviceID:button.deviceID additionalContentData:[NSMutableData dataWithBytes:array length:sizeof(array)]];
+}
+
+/// 播放上一首或者下一首音乐
++ (void)playSong:(SHButton *)button isNext:(BOOL)isNext {
+    
+    Byte songDataArray[4] = {0X04, isNext ? 0X02 : 0X01, 0X00, 0X00};
+    
+    [[SHUdpSocket shareSHUdpSocket] sendDataWithOperatorCode:0x0218 targetSubnetID:button.subNetID targetDeviceID:button.deviceID additionalContentData:[NSMutableData dataWithBytes:songDataArray length:sizeof(songDataArray)]];
+}
+
 @end

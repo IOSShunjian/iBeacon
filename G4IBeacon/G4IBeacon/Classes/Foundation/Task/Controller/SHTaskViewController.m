@@ -113,6 +113,13 @@
             }
                 break;
                 
+            case ButtonKindAC: {
+            
+                [SHSendDeviceData acOnAndOff:button];
+                [SHSendDeviceData updateACTempture:button];
+            }
+                break;
+                
             default:
                 break;
         }
