@@ -96,27 +96,20 @@
         switch (button.buttonKind) {
                 
             case ButtonKindLight: {
-                
-                // 延时执行
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [SHSendDeviceData setDimmer:button];
-                });
+
+                [SHSendDeviceData setDimmer:button];
             }
                 break;
                 
             case ButtonKindCurtain: {
             
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [SHSendDeviceData curtainOpenOrClose:button];
-                });
+                [SHSendDeviceData curtainOpenOrClose:button];
             }
                 break;
                 
             case ButtonKindLed: {
             
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                    [SHSendDeviceData setLedColor:button];
-                });
+                [SHSendDeviceData setLedColor:button];
             }
                 break;
                 
