@@ -58,10 +58,10 @@ typedef enum  {
 
 // MARK: - 不同的参数(不同设备不同)
 
-/// 参数一:[Dimmer: 通道, Curtain: Open通道, LED: red]
+/// 参数一:[Dimmer: 通道, Curtain: Open通道, LED: red, AC: 打开或关闭的状态]
 @property (assign, nonatomic) Byte buttonPara1;
 
-/// 参数二: [Dimmmer: 亮度值, Curtain:  Close 通道, LED: green];
+/// 参数二: [Dimmmer: 亮度值, Curtain:  Close 通道, LED: green, Ac:设置的温度];
 @property (assign, nonatomic) Byte buttonPara2;
 
 /// 参数三: [Curtain: 窗帘的状态(开:on或关), LED: blue]

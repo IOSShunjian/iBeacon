@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z8q-4L-ToM">
-                    <rect key="frame" x="20" y="33" width="64" height="64"/>
+                    <rect key="frame" x="0.0" y="33" width="64" height="64"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="64" id="hV0-PX-Xmh"/>
                         <constraint firstAttribute="height" constant="64" id="vW6-Dt-1vP"/>
@@ -34,7 +34,7 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="XMX-ma-2tv" firstAttribute="bottom" secondItem="z8q-4L-ToM" secondAttribute="bottom" id="38o-Sk-04T"/>
-                <constraint firstItem="z8q-4L-ToM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Qaq-Tn-gbG"/>
+                <constraint firstItem="z8q-4L-ToM" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Qaq-Tn-gbG"/>
                 <constraint firstItem="z8q-4L-ToM" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="g1N-LN-HYj"/>
                 <constraint firstAttribute="trailing" secondItem="XMX-ma-2tv" secondAttribute="trailing" constant="30" id="mBX-hS-U4C"/>
                 <constraint firstItem="XMX-ma-2tv" firstAttribute="width" secondItem="z8q-4L-ToM" secondAttribute="width" id="nK0-dJ-WUH"/>

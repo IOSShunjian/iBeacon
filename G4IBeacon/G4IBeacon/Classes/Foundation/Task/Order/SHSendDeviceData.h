@@ -19,4 +19,10 @@
 /// 设置LED颜色
 + (void)setLedColor:(SHButton *)button;
 
+/// AC 空调开关
++ (void)acOnAndOff:(SHButton *)button;
+
+/// 温度变化
++ (void)updateACTempture:(SHButton *)button;
+
 @end

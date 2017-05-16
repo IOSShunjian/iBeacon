@@ -16,7 +16,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="28T-Hc-gjq">
-                    <rect key="frame" x="10" y="29" width="27" height="25"/>
+                    <rect key="frame" x="0.0" y="29" width="27" height="25"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="25" id="ydk-ju-ebV"/>
                     </constraints>
@@ -25,7 +25,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="NDR-To-spC">
-                    <rect key="frame" x="50" y="26" width="191" height="31"/>
+                    <rect key="frame" x="35" y="26" width="206" height="31"/>
                     <color key="thumbTintColor" red="0.89850309080000001" green="0.40340559980000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <connections>
                         <action selector="slideChange:" destination="iN0-l3-epB" eventType="valueChanged" id="YSB-87-A76"/>
@@ -36,9 +36,9 @@
             <constraints>
                 <constraint firstItem="28T-Hc-gjq" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="1bN-kv-iqk"/>
                 <constraint firstAttribute="trailing" secondItem="NDR-To-spC" secondAttribute="trailing" constant="10" id="G8H-00-ZH5"/>
-                <constraint firstItem="28T-Hc-gjq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="I85-ne-JEo"/>
+                <constraint firstItem="28T-Hc-gjq" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="I85-ne-JEo"/>
                 <constraint firstItem="NDR-To-spC" firstAttribute="centerY" secondItem="28T-Hc-gjq" secondAttribute="centerY" id="Oav-C1-FX9"/>
-                <constraint firstItem="NDR-To-spC" firstAttribute="leading" secondItem="28T-Hc-gjq" secondAttribute="trailing" constant="15" id="VXE-gK-o9G"/>
+                <constraint firstItem="NDR-To-spC" firstAttribute="leading" secondItem="28T-Hc-gjq" secondAttribute="trailing" constant="10" id="VXE-gK-o9G"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
