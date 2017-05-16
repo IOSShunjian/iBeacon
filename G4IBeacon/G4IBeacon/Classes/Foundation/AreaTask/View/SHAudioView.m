@@ -30,11 +30,17 @@
     self.playButton.selected = !self.playButton.selected;
     self.deviceButton.buttonPara1 = self.playButton.selected;
     
-//    [SHSendDeviceData musicPlayAndStop:self.deviceButton];
+    if (self.playButton.selected) {
+        self.volSlider.enabled = NO;
+    }
+    
+    [SHSendDeviceData musicPlayAndStop:self.deviceButton];
+    
+    
 }
 
 /// 改变量音量
-- (IBAction)changeVolume {
+- (IBAction)changeVolume:(UISlider *)sender {
     
     // 获得它的值
     Byte volValue = (NSUInteger)self.volSlider.value;
@@ -42,9 +48,7 @@
     self.volumeLabel.text = [NSString stringWithFormat:@"%zd", volValue];
     self.deviceButton.buttonPara2 = self.volSlider.maximumValue - volValue;
     
-    // 修改音量
-    [SHSendDeviceData changeAudioVol:self.deviceButton];
-    
+    [SHSendDeviceData updateAuidoVOL:self.deviceButton];
 }
 
 /// 上一首
@@ -55,7 +59,6 @@
 
 /// 下一首
 - (IBAction)nextSong {
-    
     [SHSendDeviceData playSong:self.deviceButton isNext:NO];
 }
 
@@ -63,7 +66,15 @@
 - (void)setDeviceButton:(SHButton *)deviceButton {
     _deviceButton = deviceButton;
     
+    self.playButton.selected = deviceButton.buttonPara1;
     
+    Byte vol = deviceButton.buttonPara2;
+    
+    self.volumeLabel.text = [NSString stringWithFormat:@"%zd", vol];
+    
+    self.volSlider.value = vol;
+    
+    [self changeVolume:self.volSlider];
 }
 
 /// 实例化

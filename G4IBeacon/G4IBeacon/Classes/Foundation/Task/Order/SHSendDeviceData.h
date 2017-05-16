@@ -28,10 +28,10 @@
 /// 播放或结束音乐
 + (void)musicPlayAndStop:(SHButton *)button;
 
-/// 变更音量
-+ (void)changeAudioVol:(SHButton *)button;
+/// 调整音量
++ (void)updateAuidoVOL:(SHButton *)button;
 
-/// 播放上一首或者下一首音乐
+/// 切换音乐
 + (void)playSong:(SHButton *)button isNext:(BOOL)isNext;
 
 @end

@@ -89,6 +89,7 @@
             
         case ButtonKindAC: {
             [self.diferentView addSubview:self.acView];
+        
             self.acView.deviceButton = deviceButton;
             self.acView.frame = self.diferentView.bounds;
         }
