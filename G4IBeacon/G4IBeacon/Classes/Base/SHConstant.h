@@ -11,6 +11,7 @@
 
 #import <Foundation/Foundation.h>
 
+extern CGFloat SHStatusHeight;
 
 extern CGFloat SHNavigationBarHeight;
 

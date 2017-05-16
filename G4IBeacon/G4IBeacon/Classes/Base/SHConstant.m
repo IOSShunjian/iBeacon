@@ -8,6 +8,8 @@
 
 #import "SHConstant.h"
 
+CGFloat SHStatusHeight = 20;
+
 CGFloat SHNavigationBarHeight = 64;
 
 CGFloat SHTabBarHeight = 49;

@@ -17,6 +17,9 @@
 		8B53DC081EC42D5300ED5334 /* SHButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B53DC071EC42D5300ED5334 /* SHButton.m */; };
 		8B72CBD11ECA86E5008910C2 /* SHLedView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B72CBD01ECA86E5008910C2 /* SHLedView.m */; };
 		8B72CBD31ECA86EF008910C2 /* SHLedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B72CBD21ECA86EF008910C2 /* SHLedView.xib */; };
+		8B72CBD71ECA8A92008910C2 /* SHSelectColorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B72CBD61ECA8A92008910C2 /* SHSelectColorViewController.m */; };
+		8B72CBDD1ECA8BB8008910C2 /* SHColorWheelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B72CBDA1ECA8BB8008910C2 /* SHColorWheelView.m */; };
+		8B72CBDE1ECA8BB8008910C2 /* UIImageView+ColorAtPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B72CBDC1ECA8BB8008910C2 /* UIImageView+ColorAtPoint.m */; };
 		8B75AFBD1EC15CDD009F7D33 /* UIBarButtonItem+init.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B75AFBA1EC15CDD009F7D33 /* UIBarButtonItem+init.m */; };
 		8B75AFBE1EC15CDD009F7D33 /* UIButton+init.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B75AFBC1EC15CDD009F7D33 /* UIButton+init.m */; };
 		8B9E8B601EBC5E140037FAF1 /* SHTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B9E8B5F1EBC5E140037FAF1 /* SHTaskViewController.m */; };
@@ -71,6 +74,12 @@
 		8B72CBCF1ECA86E5008910C2 /* SHLedView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHLedView.h; sourceTree = "<group>"; };
 		8B72CBD01ECA86E5008910C2 /* SHLedView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHLedView.m; sourceTree = "<group>"; };
 		8B72CBD21ECA86EF008910C2 /* SHLedView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHLedView.xib; sourceTree = "<group>"; };
+		8B72CBD51ECA8A92008910C2 /* SHSelectColorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSelectColorViewController.h; sourceTree = "<group>"; };
+		8B72CBD61ECA8A92008910C2 /* SHSelectColorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSelectColorViewController.m; sourceTree = "<group>"; };
+		8B72CBD91ECA8BB8008910C2 /* SHColorWheelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHColorWheelView.h; sourceTree = "<group>"; };
+		8B72CBDA1ECA8BB8008910C2 /* SHColorWheelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHColorWheelView.m; sourceTree = "<group>"; };
+		8B72CBDB1ECA8BB8008910C2 /* UIImageView+ColorAtPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+ColorAtPoint.h"; sourceTree = "<group>"; };
+		8B72CBDC1ECA8BB8008910C2 /* UIImageView+ColorAtPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+ColorAtPoint.m"; sourceTree = "<group>"; };
 		8B75AFB91EC15CDD009F7D33 /* UIBarButtonItem+init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+init.h"; sourceTree = "<group>"; };
 		8B75AFBA1EC15CDD009F7D33 /* UIBarButtonItem+init.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+init.m"; sourceTree = "<group>"; };
 		8B75AFBB1EC15CDD009F7D33 /* UIButton+init.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+init.h"; sourceTree = "<group>"; };
@@ -174,6 +183,7 @@
 		8B53DBEF1EC3F2EA00ED5334 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				8B72CBD81ECA8BB8008910C2 /* ColorWheel */,
 				8B53DBF01EC3F2EA00ED5334 /* SHAreaTaskTableViewCell.h */,
 				8B53DBF11EC3F2EA00ED5334 /* SHAreaTaskTableViewCell.m */,
 				8B53DBF21EC3F2EA00ED5334 /* SHAreaTaskTableViewCell.xib */,
@@ -195,6 +205,26 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8B72CBD41ECA8A92008910C2 /* SelectColorController */ = {
+			isa = PBXGroup;
+			children = (
+				8B72CBD51ECA8A92008910C2 /* SHSelectColorViewController.h */,
+				8B72CBD61ECA8A92008910C2 /* SHSelectColorViewController.m */,
+			);
+			path = SelectColorController;
+			sourceTree = "<group>";
+		};
+		8B72CBD81ECA8BB8008910C2 /* ColorWheel */ = {
+			isa = PBXGroup;
+			children = (
+				8B72CBD91ECA8BB8008910C2 /* SHColorWheelView.h */,
+				8B72CBDA1ECA8BB8008910C2 /* SHColorWheelView.m */,
+				8B72CBDB1ECA8BB8008910C2 /* UIImageView+ColorAtPoint.h */,
+				8B72CBDC1ECA8BB8008910C2 /* UIImageView+ColorAtPoint.m */,
+			);
+			path = ColorWheel;
 			sourceTree = "<group>";
 		};
 		8B9E8B5C1EBC5E070037FAF1 /* Task */ = {
@@ -484,6 +514,7 @@
 		8BF61A191EC2C467009030CD /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				8B72CBD41ECA8A92008910C2 /* SelectColorController */,
 				8BF61A221EC2C7B0009030CD /* SHAreaViewController.h */,
 				8BF61A231EC2C7B0009030CD /* SHAreaViewController.m */,
 				8BF61A241EC2C7B0009030CD /* SHEnterAreaViewController.h */,
@@ -667,6 +698,7 @@
 			files = (
 				8BADAE791EBC4D4D00D9E785 /* SHAllTableViewCell.m in Sources */,
 				8BADAE5E1EBC457400D9E785 /* SHNavigationController.m in Sources */,
+				8B72CBDE1ECA8BB8008910C2 /* UIImageView+ColorAtPoint.m in Sources */,
 				8BFDBC251EC5668000801D7B /* GCDAsyncUdpSocket.m in Sources */,
 				8B9E8B791EBC72120037FAF1 /* SHIBeacon.m in Sources */,
 				8B75AFBE1EC15CDD009F7D33 /* UIButton+init.m in Sources */,
@@ -674,6 +706,7 @@
 				8BADAE361EBC2FA200D9E785 /* AppDelegate.m in Sources */,
 				8B9E8B701EBC648D0037FAF1 /* SHConstant.m in Sources */,
 				8B9E8B6D1EBC62D40037FAF1 /* SHSenceViewController.m in Sources */,
+				8B72CBD71ECA8A92008910C2 /* SHSelectColorViewController.m in Sources */,
 				8BADAE721EBC4A7500D9E785 /* SHAllViewController.m in Sources */,
 				8BADAE5B1EBC456200D9E785 /* SHTabBarController.m in Sources */,
 				8B9E8B821EBC760C0037FAF1 /* FileTools.m in Sources */,
@@ -688,6 +721,7 @@
 				8BFDBC271EC5668000801D7B /* UIDevice+IPAddresses.m in Sources */,
 				8BADAE6F1EBC4A4A00D9E785 /* SHTableViewController.m in Sources */,
 				8BF61A2A1EC2C7B1009030CD /* SHExitAreaViewController.m in Sources */,
+				8B72CBDD1ECA8BB8008910C2 /* SHColorWheelView.m in Sources */,
 				8BADAE6C1EBC48A700D9E785 /* UIView+frame.m in Sources */,
 				8BADAE681EBC489200D9E785 /* UIColor+set.m in Sources */,
 				8BF61A291EC2C7B0009030CD /* SHEnterAreaViewController.m in Sources */,

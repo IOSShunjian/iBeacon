@@ -7,6 +7,7 @@
 //
 
 #import "SHLedView.h"
+#import "SHSelectColorViewController.h"
 
 @interface SHLedView ()
 
@@ -37,7 +38,10 @@
 /// 选取颜色
 - (IBAction)selectColor {
     
+    SHSelectColorViewController *selectController = [[SHSelectColorViewController alloc] init];
     
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:selectController animated:YES completion:nil
+     ];
 }
 
 
