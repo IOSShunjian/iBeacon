@@ -50,6 +50,7 @@
     Byte volValue = (NSUInteger)self.volSlider.value;
     
     self.volumeLabel.text = [NSString stringWithFormat:@"%zd", volValue];
+    // 存储的实际对应音量值（相反）
     self.deviceButton.buttonPara2 = self.volSlider.maximumValue - volValue;
     
     [SHSendDeviceData updateAuidoVOL:self.deviceButton];
@@ -73,14 +74,15 @@
     // 获取播放状态
     self.playButton.selected = deviceButton.buttonPara1;
     [SHSendDeviceData musicPlayAndStop:deviceButton];
+    
+    // 取出音量值
 
-//    Byte vol = self.volSlider.maximumValue - deviceButton.buttonPara2;
-//    
-//    self.volumeLabel.text = [NSString stringWithFormat:@"%zd", vol];
-//    
-//    self.volSlider.value = vol;
-//    
-//    [self changeVolume:self.volSlider];
+    Byte vol = self.volSlider.maximumValue - deviceButton.buttonPara2;
+
+    self.volumeLabel.text = [NSString stringWithFormat:@"%zd", vol];
+    self.volSlider.value = vol;
+
+    [self changeVolume:self.volSlider];
 }
 
 /// 实例化

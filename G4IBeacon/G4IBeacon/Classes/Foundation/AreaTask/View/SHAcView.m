@@ -58,6 +58,8 @@
     
     // 设置温度
     Byte tempValue = deviceButton.buttonPara2;
+    
+    SHLog(@"%d", tempValue);
     self.tempLabel.text = [NSString stringWithFormat:@"%zd°C", tempValue];
     
     self.changeTempSlider.value = tempValue;
