@@ -24,15 +24,23 @@
 
 @implementation SHAudioView
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.volSlider.enabled = self.playButton.selected;
+}
+
 /// 播放
 - (IBAction)playClick {
     
+    // 切换
     self.playButton.selected = !self.playButton.selected;
+    
     self.deviceButton.buttonPara1 = self.playButton.selected;
     
+    self.volSlider.enabled = self.playButton.selected;
+    
     [SHSendDeviceData musicPlayAndStop:self.deviceButton];
-    
-    
 }
 
 /// 改变量音量

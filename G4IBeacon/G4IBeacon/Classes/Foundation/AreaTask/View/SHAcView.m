@@ -37,7 +37,7 @@
 /// 空调温度的变化
 - (IBAction)acTempChange:(UISlider *)sender {
     
-    // 获得它的值
+    // 获得温度
     Byte tempValue = (NSUInteger)self.changeTempSlider.value;
     
     self.tempLabel.text = [NSString stringWithFormat:@"%zd°C", tempValue];
