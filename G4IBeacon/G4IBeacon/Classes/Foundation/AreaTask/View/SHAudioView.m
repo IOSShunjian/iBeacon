@@ -67,7 +67,7 @@
     [SHSendDeviceData playSong:self.deviceButton isNext:NO];
 }
 
-
+/// 设置初始化数据
 - (void)setDeviceButton:(SHButton *)deviceButton {
     _deviceButton = deviceButton;
 
@@ -76,12 +76,7 @@
     [SHSendDeviceData musicPlayAndStop:deviceButton];
     
     // 取出音量值
-
-    Byte vol = self.volSlider.maximumValue - deviceButton.buttonPara2;
-
-    self.volumeLabel.text = [NSString stringWithFormat:@"%zd", vol];
-    self.volSlider.value = vol;
-
+    self.volSlider.value = self.volSlider.maximumValue - deviceButton.buttonPara2;
     [self changeVolume:self.volSlider];
 }
 

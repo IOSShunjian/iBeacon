@@ -26,6 +26,14 @@
 
 // MARK: - 每个iBeacon中所有的设备操作
 
+/// 删除当前区域中的所有按钮
+- (void)deleteCurrentZonesButtons:(SHIBeacon *)iBeacon {
+    
+    for (SHButton *button in iBeacon.allDeviceButtonInCurrentZone) {
+        [self deleteButton:button];
+    }
+}
+
 /// 存储当前的区域
 - (void)saveCurrentZonesButtons:(SHIBeacon *)iBeacon {
     
@@ -45,7 +53,7 @@
 - (void)deleteButton:(SHButton *)button {
     
     // 准备SQL
-    NSString *sql = sql = [NSString stringWithFormat:@"DELETE FROM DeviceButtonForZone WHERE iBeaconID = %zd and buttonID = %zd",button.iBeaconID,button.buttonID];
+    NSString *sql = sql = [NSString stringWithFormat:@"DELETE FROM DeviceButtonForZone WHERE iBeaconID = %zd and buttonID = %zd",button.iBeaconID, button.buttonID];
     
     // 执行sql
     [self insetData:sql];
@@ -154,6 +162,9 @@
     if (![self isiBeaconExist:iBeacon]) {
         return YES;
     }
+    
+    // 先删除区域中的按钮
+    [self deleteCurrentZonesButtons:iBeacon];
     
     // 如果存在就直接删除
     NSString *deleteSql = [NSString stringWithFormat:@"DELETE FROM iBeaconList WHERE iBeaconID = %zd", iBeacon.iBeaconID];
