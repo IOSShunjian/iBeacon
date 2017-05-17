@@ -69,16 +69,18 @@
 
 - (void)setDeviceButton:(SHButton *)deviceButton {
     _deviceButton = deviceButton;
-    
+
+    // 获取播放状态
     self.playButton.selected = deviceButton.buttonPara1;
-    
-    Byte vol = self.volSlider.maximumValue - deviceButton.buttonPara2;
-    
-    self.volumeLabel.text = [NSString stringWithFormat:@"%zd", vol];
-    
-    self.volSlider.value = vol;
-    
-    [self changeVolume:self.volSlider];
+    [SHSendDeviceData musicPlayAndStop:deviceButton];
+
+//    Byte vol = self.volSlider.maximumValue - deviceButton.buttonPara2;
+//    
+//    self.volumeLabel.text = [NSString stringWithFormat:@"%zd", vol];
+//    
+//    self.volSlider.value = vol;
+//    
+//    [self changeVolume:self.volSlider];
 }
 
 /// 实例化
