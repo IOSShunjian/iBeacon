@@ -24,12 +24,20 @@
 @implementation SHAcView
 
 
+- (void)awakeFromNib {
+    [super awakeFromNib];
+    
+    self.changeTempSlider.enabled = !self.acSwitch.on;
+}
+
 // 空调的打开和关闭
 - (IBAction)acTurnOnAndOff {
     
     self.changeTempSlider.enabled = self.acSwitch.on;
     
     self.deviceButton.buttonPara1 = self.acSwitch.on;
+    
+    self.changeTempSlider.enabled = self.acSwitch.on;
     
     [SHSendDeviceData acOnAndOff:self.deviceButton];
 }
@@ -59,8 +67,7 @@
     // 设置温度
     Byte tempValue = deviceButton.buttonPara2;
     
-    SHLog(@"%d", tempValue);
-    self.tempLabel.text = [NSString stringWithFormat:@"%zd°C", tempValue];
+//    self.tempLabel.text = [NSString stringWithFormat:@"%zd°C", tempValue];
     
     self.changeTempSlider.value = tempValue;
     [self acTempChange:self.changeTempSlider];
