@@ -27,15 +27,7 @@
 // 空调的打开和关闭
 - (IBAction)acTurnOnAndOff {
     
-    if (!self.acSwitch.on) {
-        // 如果空调关闭 不能调节温度
-        self.changeTempSlider.enabled = NO;
-        
-//        [SVProgressHUD showInfoWithStatus:@"The air conditioner is closed"];
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-//            [SVProgressHUD dismiss];
-//        });
-    }
+    self.changeTempSlider.enabled = self.acSwitch.on;
     
     self.deviceButton.buttonPara1 = self.acSwitch.on;
     
@@ -53,7 +45,6 @@
     self.deviceButton.buttonPara2 = tempValue;
     
     [SHSendDeviceData updateACTempture:self.deviceButton];
-
 }
 
 
@@ -62,14 +53,15 @@
     
     // 设置状态
     self.acSwitch.on = deviceButton.buttonPara1;
-    self.tempLabel.text = [NSString stringWithFormat:@"%zd°C", deviceButton.buttonPara2];
     
+    [SHSendDeviceData acOnAndOff:deviceButton];
+    
+    // 设置温度
     Byte tempValue = deviceButton.buttonPara2;
+    self.tempLabel.text = [NSString stringWithFormat:@"%zd°C", tempValue];
     
     self.changeTempSlider.value = tempValue;
-    
     [self acTempChange:self.changeTempSlider];
-    
 }
 
 + (instancetype)acView {
