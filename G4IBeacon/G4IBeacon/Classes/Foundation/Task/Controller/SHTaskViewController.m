@@ -38,7 +38,10 @@
 
     // 先找到对应的模型
     SHIBeacon *iBeacon = [self searchSuitTask:beacon];
-    [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"rssi: %zd", ABS(beacon.rssi)]];
+    
+    if (iBeacon.minorValue == 1) {
+        [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"rssi: %zd", ABS(beacon.rssi)]];
+    }
     
     // 要先过滤 0
     if ((ABS(beacon.rssi) > iBeacon.rssiValue + iBeacon.rssiBufValue) || (!beacon.rssi)) {
@@ -162,6 +165,8 @@
     for (CLBeacon *beacon in beacons) {
         // 执行任务
         [self executeTask:beacon];
+        
+//        SHLog(@"%@", beacon);
     }
 }
 
@@ -273,7 +278,7 @@
     for (SHIBeacon *iBeacon in self.alliBeacons) {
         
         // 建立相应的区域模型
-        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:iBeacon.uuidString] major:iBeacon.majorValue minor:iBeacon.minorValue identifier:@"iBeacon"];
+        CLBeaconRegion *region = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:iBeacon.uuidString] major:iBeacon.majorValue identifier:@"iBeacon"];
         region.notifyOnEntry = YES;
         region.notifyOnExit = YES;
         region.notifyEntryStateOnDisplay = YES;
