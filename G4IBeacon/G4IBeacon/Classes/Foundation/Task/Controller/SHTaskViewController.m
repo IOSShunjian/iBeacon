@@ -27,8 +27,6 @@
 /// 定位管理器
 @property (nonatomic, strong) CLLocationManager *locationManager;
 
-
-
 @end
 
 @implementation SHTaskViewController
@@ -82,9 +80,8 @@
         
     } else {
         
- 
+        // 中间状态 
     }
-
 }
 
 /// 执行区域任务

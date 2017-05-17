@@ -28,6 +28,9 @@
     UIColor *color = [UIColor colorWithRed:deviceButton.buttonPara1/100.0 green:deviceButton.buttonPara2/100.0 blue:deviceButton.buttonPara3/100.0 alpha:deviceButton.buttonPara4/100.0];
     
     self.showColorView.backgroundColor = color;
+    
+    // 默认发送一下指令
+    [SHSendDeviceData setLedColor:deviceButton];
 }
 
 /// 选取颜色
@@ -37,7 +40,6 @@
     
     [selectController show:self.deviceButton colorView:self.showColorView];
 }
-
 
 
 + (instancetype)ledView {
