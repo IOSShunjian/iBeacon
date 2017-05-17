@@ -35,6 +35,9 @@
 
 // MARK: - 区域操作
 
+/// 这个iBeacon是否存在
+- (BOOL)isiBeaconExist:(SHIBeacon *)iBeacon;
+
 /// 搜索所有的iBeacon
 - (NSMutableArray *)searchiBeacons;
 
@@ -47,8 +50,6 @@
 /// 插入一个新的iBeacon
 - (BOOL)insertiBeacon:(SHIBeacon *)iBeacon;
 
-/// 这个iBeacon是否存在
-- (BOOL)isiBeaconExist:(SHIBeacon *)iBeacon;
 
 SingletonInterface(SHSQLiteManager)
 

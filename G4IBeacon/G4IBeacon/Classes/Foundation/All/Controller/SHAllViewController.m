@@ -110,11 +110,7 @@
 - (void)locationManager:(CLLocationManager *)manager rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error {
     
     if (error) {
-        [SVProgressHUD showInfoWithStatus:@"open the phone Bluetooth"];
         
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [SVProgressHUD dismiss];
-        });
     }
 }
 
@@ -122,11 +118,18 @@
 - (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
     
     if (error) {
-        [SVProgressHUD showInfoWithStatus:@"open the phone Bluetooth"];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            [SVProgressHUD dismiss];
-        });
+        
     }
+}
+
+/// 显示错误信息
+- (void)showErrorMessage {
+    
+    [SVProgressHUD showInfoWithStatus:@"open the phone Bluetooth"];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [SVProgressHUD dismiss];
+    });
 }
 
 /// 用户授权的变化

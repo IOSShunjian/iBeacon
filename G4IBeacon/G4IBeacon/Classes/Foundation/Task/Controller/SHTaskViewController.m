@@ -39,8 +39,9 @@
     // 先找到对应的模型
     SHIBeacon *iBeacon = [self searchSuitTask:beacon];
     
-    if (iBeacon.minorValue == 1) {
-        [SVProgressHUD showInfoWithStatus:[NSString stringWithFormat:@"rssi: %zd", ABS(beacon.rssi)]];
+    // 如果数据库不存在就不要执行了
+    if (![[SHSQLiteManager shareSHSQLiteManager] isiBeaconExist:iBeacon]) {
+        return;
     }
     
     // 要先过滤 0
@@ -48,7 +49,7 @@
         
         // 已经离开了这个区域的回调
         if (iBeacon.isExiteArea) {
-            
+            SHLog(@"已经离开了: %zd",  iBeacon.minorValue);
             return;
         }
         
@@ -56,9 +57,10 @@
         iBeacon.isExiteArea = !iBeacon.isExiteArea;
         iBeacon.isEnterArea = !iBeacon.isExiteArea;
  
+        SHLog(@"执行【离开: %zd】区域的任务 - %zd", iBeacon.minorValue, ABS(beacon.rssi));
         
         // 发出离开通知
-        [self sendExitNotification];
+        [self sendExitNotification: iBeacon];
         
         [self executeAreaTask:iBeacon];
         
@@ -66,7 +68,7 @@
         
         // 已经进入了区域后的回调
         if (iBeacon.isEnterArea) {
-            
+            SHLog(@"已经进来了-%zd",  iBeacon.minorValue);
             return;
         }
         
@@ -74,16 +76,17 @@
         iBeacon.isEnterArea = !iBeacon.isEnterArea;
         iBeacon.isExiteArea = !iBeacon.isEnterArea;
         
-//        SHLog(@"执行【来到】区域的任务 - %d", ABS(beacon.rssi));
+        SHLog(@"执行【来到: %zd】区域的任务 - %d",  iBeacon.minorValue, ABS(beacon.rssi));
         
         // 发出进入区域
-        [self sendEnterNotification];
+        [self sendEnterNotification: iBeacon];
         
         [self executeAreaTask:iBeacon];
         
     } else {
         
-        // 中间状态 
+        // 中间状态
+        SHLog(@">>%zd中间状态: - %zd",  iBeacon.minorValue,ABS(beacon.rssi));
     }
 }
 
@@ -163,10 +166,9 @@
     }
     
     for (CLBeacon *beacon in beacons) {
+
         // 执行任务
         [self executeTask:beacon];
-        
-//        SHLog(@"%@", beacon);
     }
 }
 
@@ -234,18 +236,18 @@
 //注意： 相同的UUID只会触发一次
 
 /// 发送进入区域的通知
-- (void)sendEnterNotification {
+- (void)sendEnterNotification:(SHIBeacon *)iBeacon {
     
     UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = @"welcome";
+    notification.alertBody = [NSString stringWithFormat:@"welcome - %zd", iBeacon.minorValue];
     notification.soundName = @"Default";
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
 
 ///发送离开区域的通知
-- (void)sendExitNotification {
+- (void)sendExitNotification:(SHIBeacon *)iBeacon {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = @"Exit Region";
+    notification.alertBody = [NSString stringWithFormat: @"Exit Region - %zd", iBeacon.minorValue];
     notification.soundName = @"Default";
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
