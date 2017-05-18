@@ -12,12 +12,11 @@
 
 @interface SHSettingViewController : SHViewController
 
-
 /// 设置按钮
 @property (strong,nonatomic)SHButton *settingButton;
 
-/// 来源控制器
-@property (nonatomic, strong) SHAreaViewController *sourceViewController;
+/// iBeacon模型
+@property (nonatomic, strong) SHIBeacon *iBeacon;
 
 
 @end

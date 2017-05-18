@@ -23,7 +23,6 @@
 /// 设备种类
 @property (assign, nonatomic) NSUInteger deviceKindCount;
 
-
 @end
 
 @implementation SHAreaViewController
@@ -122,22 +121,6 @@
     [[SHSQLiteManager shareSHSQLiteManager] inserNewButton:deviceButton];
 }
 
-
-// MARK: - 代理
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-
-    SHSettingViewController *settingViewController = [[UIStoryboard storyboardWithName:NSStringFromClass([SHSettingViewController class]) bundle:nil] instantiateInitialViewController];
-    
-    // 设置长按的按钮
-    settingViewController.settingButton = self.iBeacon.allDeviceButtonInCurrentZone[indexPath.row];
-    
-    settingViewController.sourceViewController = self;
-    
-    [self.navigationController pushViewController:settingViewController animated:YES];
-
-}
-
 // MARK: - 数据源
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
@@ -151,34 +134,10 @@
     // 获得按钮
     cell.deviceButton = self.iBeacon.allDeviceButtonInCurrentZone[indexPath.row];
     
-//    // cell添加一个长按手势
-//    UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(setDeviceArgs:)];
-//    
-//    longPressGestureRecognizer.minimumPressDuration = 1.0;
-//    
-//    [cell addGestureRecognizer:longPressGestureRecognizer];
+    cell.iBeacon = self.iBeacon;
     
     return cell;
 }
-
-
-//- (void)setDeviceArgs:(UILongPressGestureRecognizer *)longPressGestureRecognizer {
-//    
-//    if (longPressGestureRecognizer.state != UIGestureRecognizerStateBegan) {
-//        return;
-//    }
-//    
-//    SHSettingViewController *settingViewController = [[UIStoryboard storyboardWithName:NSStringFromClass([SHSettingViewController class]) bundle:nil] instantiateInitialViewController];
-//    
-//    NSIndexPath *indexPath = self.tableView.indexPathForSelectedRow;
-//    
-//    // 设置长按的按钮
-//    settingViewController.settingButton = self.iBeacon.allDeviceButtonInCurrentZone[indexPath.row];
-//    
-//    settingViewController.sourceViewController = self;
-//    
-//    [self.navigationController pushViewController:settingViewController animated:YES];
-//}
 
 // MARK: - getter && setter
 

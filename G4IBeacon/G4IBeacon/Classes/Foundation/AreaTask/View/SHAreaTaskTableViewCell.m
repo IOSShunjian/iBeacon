@@ -7,6 +7,7 @@
 //
 
 #import "SHAreaTaskTableViewCell.h"
+#import "SHSettingViewController.h"
 
 #import "SHDimmerView.h"
 #import "SHCurtainView.h"
@@ -47,7 +48,30 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     
+    // 取消选择
     self.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    // 添加手势
+    self.iconView.userInteractionEnabled = YES;
+    
+    UILongPressGestureRecognizer *longPressGestureRecognizer = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(setDeviceButtonArgs)];
+    
+    longPressGestureRecognizer.minimumPressDuration = 1.0;
+    
+    [self.iconView addGestureRecognizer:longPressGestureRecognizer];
+    
+}
+
+/// 设置设备按钮的参数
+- (void)setDeviceButtonArgs {
+
+    SHSettingViewController *settingViewController = [[UIStoryboard storyboardWithName:NSStringFromClass([SHSettingViewController class]) bundle:nil] instantiateInitialViewController];
+    
+    // 传递参数
+    settingViewController.settingButton = self.deviceButton;
+    settingViewController.iBeacon = self.iBeacon;
+    
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:settingViewController animated:YES completion:nil];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -36,6 +36,10 @@
 /// 保存
 - (IBAction)saveButtonClick:(UIButton *)sender {
     
+    [SVProgressHUD showSuccessWithStatus:@"save Data"];
+    
+    [self.view endEditing:YES];
+    
     self.settingButton.subNetID = (Byte)self.subNetTextField.text.integerValue;
     self.settingButton.deviceID = (Byte)self.deviceTextField.text.integerValue;
     
@@ -48,23 +52,21 @@
         self.settingButton.buttonPara2 = (Byte)self.curtainCloseChannel.text.integerValue;
     }
     
-    [SVProgressHUD showSuccessWithStatus:@"save Data"];
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 /// 删除按钮
 - (IBAction)deleteButtonClick:(UIButton *)sender {
     
-    // 来源控制器的保存按钮数组中删除
-    if ([self.sourceViewController.iBeacon.allDeviceButtonInCurrentZone containsObject:self.settingButton]) {
-        [self.sourceViewController.iBeacon.allDeviceButtonInCurrentZone removeObject:self.settingButton];
+    if ([self.iBeacon.allDeviceButtonInCurrentZone containsObject:self.settingButton]) {
+        [self.iBeacon.allDeviceButtonInCurrentZone removeObject:self.settingButton];
     }
 
     // 数据库也要删除
     [[SHSQLiteManager shareSHSQLiteManager] deleteButton:self.settingButton];;
     
     // 返回
-    [self.navigationController popViewControllerAnimated:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {

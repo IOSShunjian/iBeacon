@@ -13,6 +13,9 @@
 /// cell对应的按钮
 @property (nonatomic, strong) SHButton *deviceButton;
 
+/// iBeacon模型
+@property (nonatomic, strong) SHIBeacon *iBeacon;
+
 /// 行高
 + (CGFloat)cellRowHeight;
 
