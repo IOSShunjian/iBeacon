@@ -8,6 +8,7 @@
 
 #import "SHAreaTaskTableViewCell.h"
 #import "SHSettingViewController.h"
+#import "SHNavigationController.h"
 
 #import "SHDimmerView.h"
 #import "SHCurtainView.h"
@@ -71,7 +72,9 @@
     settingViewController.settingButton = self.deviceButton;
     settingViewController.iBeacon = self.iBeacon;
     
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:settingViewController animated:YES completion:nil];
+    SHNavigationController *navigationSettingViewController = [[SHNavigationController alloc] initWithRootViewController:settingViewController];
+    
+    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:navigationSettingViewController animated:YES completion:nil];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

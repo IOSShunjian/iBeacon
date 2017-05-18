@@ -76,7 +76,7 @@
         iBeacon.isEnterArea = !iBeacon.isEnterArea;
         iBeacon.isExiteArea = !iBeacon.isEnterArea;
         
-        SHLog(@"执行【来到: %zd】区域的任务 - %d",  iBeacon.minorValue, ABS(beacon.rssi));
+        SHLog(@"执行【来到: %zd】区域的任务 - %ld",  iBeacon.minorValue, ABS(beacon.rssi));
         
         // 发出进入区域
         [self sendEnterNotification: iBeacon];
