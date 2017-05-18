@@ -52,7 +52,7 @@
         self.settingButton.buttonPara2 = (Byte)self.curtainCloseChannel.text.integerValue;
     }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 /// 删除按钮
@@ -66,7 +66,7 @@
     [[SHSQLiteManager shareSHSQLiteManager] deleteButton:self.settingButton];;
     
     // 返回
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)viewDidDisappear:(BOOL)animated {
