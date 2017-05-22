@@ -23,7 +23,7 @@
 + (void)curtainOpenOrClose:(SHButton *)button {
     
     // 打开和关闭通道
-    Byte curtainStartOrStop = button.buttonPara3 ? button.buttonPara1 : button.buttonPara2;
+    Byte curtainStartOrStop = button.buttonPara3 ? button.buttonPara2 : button.buttonPara1;
     
     // 和Dimmer一样
     Byte curtainData[] = {curtainStartOrStop, 100, 0, 0};

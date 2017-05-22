@@ -95,6 +95,10 @@ void pack_crc(Byte *ptr, unichar len);
     SHLog(@"socket关闭: %@", error);
     [self.socket close];
     self.socket = nil;
+    
+    [SVProgressHUD showErrorWithStatus:@"socket closed"];
+    
+    [self.socket localHost];
 }
 
 
