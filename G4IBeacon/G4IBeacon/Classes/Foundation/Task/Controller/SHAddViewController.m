@@ -67,6 +67,7 @@
     self.rssiBufferTextField.text = [NSString stringWithFormat:@"%zd", self.iBeacon.rssiBufValue];
     
     self.taskEnable.on = self.iBeacon.isTaskEnable;
+    [self taskEnableClick];
 }
 
 
@@ -102,6 +103,7 @@
     self.iBeacon.rssiValue = rssiValue;
     self.iBeacon.rssiBufValue = rssiBufValue;
     self.iBeacon.uuidString = UUIDStirng;
+    self.iBeacon.isTaskEnable = self.taskEnable.isOn;
     
     return YES;
 }

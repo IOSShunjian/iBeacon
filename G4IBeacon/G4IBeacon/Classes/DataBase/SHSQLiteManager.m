@@ -117,8 +117,10 @@
 /// 搜索所有的iBeacon
 - (NSMutableArray *)searchiBeacons {
     
+    NSString *sql = @"select iBeaconID, name, uuidString, majorValue, minorValue, rssiValue, rssiBufValue, isTaskEnable from iBeaconList order by iBeaconID;";
+    
     // 获得字典数组
-    NSArray *resultiBeacons = [self selectProprty:@"select iBeaconID, name, uuidString, majorValue, minorValue, rssiValue, rssiBufValue from iBeaconList order by iBeaconID;"];
+    NSArray *resultiBeacons = [self selectProprty: sql];
     
     // 将字典数组转换成模型
     NSMutableArray *alliBeacons = [NSMutableArray arrayWithCapacity:resultiBeacons.count];
@@ -189,18 +191,20 @@
     // 判断这个iBeaonID是否存在，如果存在更新，否则插入
     if ([self isiBeaconExist:iBeacon]) { // 更新
         
-        inserSql = [NSString stringWithFormat:@"UPDATE iBeaconList SET name = '%@', uuidString = '%@', majorValue = %zd, minorValue = %zd, rssiValue = %zd, rssiBufValue = %zd WHERE iBeaconID = %zd", iBeacon.name, iBeacon.uuidString, iBeacon.majorValue, iBeacon.minorValue, iBeacon.rssiValue, iBeacon.rssiBufValue, iBeacon.iBeaconID];
+        inserSql = [NSString stringWithFormat:@"UPDATE iBeaconList SET name = '%@', uuidString = '%@', majorValue = %zd, minorValue = %zd, rssiValue = %zd, rssiBufValue = %zd, isTaskEnable = %d WHERE iBeaconID = %zd", iBeacon.name, iBeacon.uuidString, iBeacon.majorValue, iBeacon.minorValue, iBeacon.rssiValue, iBeacon.rssiBufValue, iBeacon.isTaskEnable, iBeacon.iBeaconID];
         
     } else {  // 直接插入
         
         // 也没有相同的iBeacon
         if (![self isAleardyAddiBeacon:iBeacon]) {
-            inserSql = [NSString stringWithFormat:@"INSERT  INTO iBeaconList(iBeaconID, name, uuidString, majorValue, minorValue, rssiValue, rssiBufValue) VALUES(%zd, '%@', '%@', %zd, %zd, %zd, %zd);", iBeacon.iBeaconID, iBeacon.name, iBeacon.uuidString, iBeacon.majorValue, iBeacon.minorValue, iBeacon.rssiValue, iBeacon.rssiBufValue];
+            inserSql = [NSString stringWithFormat:@"INSERT  INTO iBeaconList(iBeaconID, name, uuidString, majorValue, minorValue, rssiValue, rssiBufValue, isTaskEnable) VALUES(%zd, '%@', '%@', %zd, %zd, %zd, %zd, %d);", iBeacon.iBeaconID, iBeacon.name, iBeacon.uuidString, iBeacon.majorValue, iBeacon.minorValue, iBeacon.rssiValue, iBeacon.rssiBufValue, iBeacon.isTaskEnable];
         } else {
             return  NO;
         }
         
     }
+    
+    SHLog(@"%@", inserSql);
     
     return [self insetData:inserSql];
 }
@@ -258,7 +262,8 @@
     'majorValue' INTEGER NOT NULL DEFAULT (0),\
     'minorValue' INTEGER NOT NULL DEFAULT (0), \
     'rssiValue' INTEGER NOT NULL DEFAULT (0),\
-    'rssiBufValue' INTEGER NOT NULL DEFAULT (0)\
+    'rssiBufValue' INTEGER NOT NULL DEFAULT (0),\
+    'isTaskEnable' BOOL NOT NULL DEFAULT (0)\
     );";
     
     [self.queue inTransaction:^(FMDatabase *db, BOOL *rollback) {

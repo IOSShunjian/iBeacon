@@ -319,8 +319,10 @@
     
     SHAddViewController *addViewController = [[SHAddViewController alloc] init];
     
-    addViewController.iBeacon = [[SHIBeacon alloc] init];
-    addViewController.iBeacon.iBeaconID = [[SHSQLiteManager shareSHSQLiteManager] getMaxiBeaconID] + 1;
+    SHIBeacon *iBeacon = [[SHIBeacon alloc] init];
+    iBeacon.iBeaconID = [[SHSQLiteManager shareSHSQLiteManager] getMaxiBeaconID] + 1;
+    
+    addViewController.iBeacon = iBeacon;
     
     [self.navigationController pushViewController:addViewController animated:YES];
 }

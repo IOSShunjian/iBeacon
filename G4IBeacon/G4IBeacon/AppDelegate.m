@@ -33,6 +33,8 @@
     // 注册通知
     [self registerLocalNotification];
     
+    SHLog(@"%@", [FileTools documentPath]);
+    
     return YES;
 }
 
