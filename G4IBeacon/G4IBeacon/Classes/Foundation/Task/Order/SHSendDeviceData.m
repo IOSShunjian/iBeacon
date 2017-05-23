@@ -28,6 +28,8 @@
     // 和Dimmer一样
     Byte curtainData[] = {curtainStartOrStop, 100, 0, 0};
     
+//    SHLog(@"%d - %d", curtainStartOrStop, button.buttonPara3);
+    
     [[SHUdpSocket shareSHUdpSocket] sendDataWithOperatorCode:0X0031 targetSubnetID:button.subNetID targetDeviceID:button.deviceID additionalContentData:[NSMutableData dataWithBytes:curtainData length:sizeof(curtainData)]];
 }
 

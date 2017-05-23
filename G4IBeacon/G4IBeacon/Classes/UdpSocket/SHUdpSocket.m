@@ -98,7 +98,9 @@ void pack_crc(Byte *ptr, unichar len);
     
     [SVProgressHUD showErrorWithStatus:@"socket closed"];
     
-    [self.socket localHost];
+//    [self.socket localHost];
+    
+    [self.socket enableBroadcast:YES error:&error];
 }
 
 
@@ -210,7 +212,7 @@ void pack_crc(Byte *ptr, unichar len);
     // 6.2 发送
     
     // 由于这个项目是区域多任务，所以需要延时操作
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.15 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.015 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         // UDP通信永远是不连接的所以用下面的方法来发送
         [self.socket sendData:sendMessageData toHost:server_IP port:server_PORT withTimeout:-1 tag:0];
         // 接收数据
