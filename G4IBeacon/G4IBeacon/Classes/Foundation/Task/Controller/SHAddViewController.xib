@@ -128,6 +128,9 @@
                                 </label>
                                 <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UOU-B5-O7q">
                                     <rect key="frame" x="75.5" y="4.5" width="51" height="31"/>
+                                    <connections>
+                                        <action selector="taskEnableClick" destination="-1" eventType="valueChanged" id="pVR-vK-5tI"/>
+                                    </connections>
                                 </switch>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>

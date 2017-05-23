@@ -52,4 +52,7 @@
 /// 区域成员数量
 @property (nonatomic, assign) NSUInteger memberCount;
 
+/// 增加是否任务有效
+@property (nonatomic, assign) BOOL isTaskEnable;
+
 @end

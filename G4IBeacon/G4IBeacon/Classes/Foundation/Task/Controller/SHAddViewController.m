@@ -30,9 +30,20 @@
 /// pickerView
 @property (strong, nonatomic) UIPickerView *pickerView;
 
+/// 任务是否有效
+@property (weak, nonatomic) IBOutlet UISwitch *taskEnable;
+
 @end
 
 @implementation SHAddViewController
+
+
+/// 任务是否有效
+- (IBAction)taskEnableClick {
+    
+    self.iBeacon.isTaskEnable = self.taskEnable.isOn;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,6 +65,8 @@
     self.rssiTextField.text = [NSString stringWithFormat:@"%zd", self.iBeacon.rssiValue];
     
     self.rssiBufferTextField.text = [NSString stringWithFormat:@"%zd", self.iBeacon.rssiBufValue];
+    
+    self.taskEnable.on = self.iBeacon.isTaskEnable;
 }
 
 
