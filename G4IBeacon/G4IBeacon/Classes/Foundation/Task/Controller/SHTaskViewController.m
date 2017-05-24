@@ -41,7 +41,6 @@
     
     // 如果数据库不存在 或者任务没有开启 就不要执行了
     if (![[SHSQLiteManager shareSHSQLiteManager] isiBeaconExist:iBeacon]) {
-//        SHLog(@"不能执行任务");
         return;
     }
     
@@ -82,7 +81,7 @@
         iBeacon.isEnterArea = !iBeacon.isEnterArea;
         iBeacon.isExiteArea = !iBeacon.isEnterArea;
         
-        SHLog(@"执行【来到: %zd】区域的任务 - %ld",  iBeacon.minorValue, ABS(beacon.rssi));
+        SHLog(@"执行【来到: %zd】区域的任务 - %zd",  iBeacon.minorValue, ABS(beacon.rssi));
         
         // 发出进入区域
         [self sendEnterNotification: iBeacon];
