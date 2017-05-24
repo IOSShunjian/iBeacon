@@ -39,13 +39,19 @@
     // 先找到对应的模型
     SHIBeacon *iBeacon = [self searchSuitTask:beacon];
     
-    // 如果数据库不存在就不要执行了
+    // 如果数据库不存在 或者任务没有开启 就不要执行了
     if (![[SHSQLiteManager shareSHSQLiteManager] isiBeaconExist:iBeacon]) {
+//        SHLog(@"不能执行任务");
+        return;
+    }
+    
+    if (iBeacon.isTaskEnable == NO) {
+        SHLog(@"任务没有开启-- iBeacon:%@", iBeacon.name);
         return;
     }
     
     // 要先过滤 0
-    if ((ABS(beacon.rssi) > iBeacon.rssiValue + iBeacon.rssiBufValue) || (!beacon.rssi)) {
+    if ((ABS(beacon.rssi) >= iBeacon.rssiValue + iBeacon.rssiBufValue) || (!beacon.rssi)) {
         
         // 已经离开了这个区域的回调
         if (iBeacon.isExiteArea) {
@@ -233,13 +239,11 @@
 
 // MARK: - 本地通知
 
-//注意： 相同的UUID只会触发一次
-
 /// 发送进入区域的通知
 - (void)sendEnterNotification:(SHIBeacon *)iBeacon {
     
     UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = [NSString stringWithFormat:@"welcome - %zd", iBeacon.minorValue];
+    notification.alertBody = [NSString stringWithFormat:@"welcome - %@", iBeacon.name];
     notification.soundName = @"Default";
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }
@@ -247,7 +251,7 @@
 ///发送离开区域的通知
 - (void)sendExitNotification:(SHIBeacon *)iBeacon {
     UILocalNotification *notification = [[UILocalNotification alloc] init];
-    notification.alertBody = [NSString stringWithFormat: @"Exit Region - %zd", iBeacon.minorValue];
+    notification.alertBody = [NSString stringWithFormat: @"Exit Region - %@", iBeacon.name];
     notification.soundName = @"Default";
     [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
 }

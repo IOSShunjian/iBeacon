@@ -123,13 +123,13 @@
     
     // 如果是调光器
     if (self.settingButton.buttonKind == ButtonKindLight) {
-        //        self.dimmerLabel.text = @"Dimmer Channel NO.";
+        
         self.dimmerChannel.hidden = NO;
         self.dimmerLabel.hidden = NO;
     }
     
     if (self.settingButton.buttonKind == ButtonKindMediaTV) {
-        self.dimmerLabel.text = @"TV Channel NO.";
+ 
         self.dimmerChannel.hidden = NO;
         self.dimmerLabel.hidden = NO;
     }
