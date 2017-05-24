@@ -98,7 +98,7 @@ void pack_crc(Byte *ptr, unichar len);
     
     [SVProgressHUD showErrorWithStatus:@"socket closed"];
     
-//    [self.socket localHost];
+    [self.socket localHost];
     
     [self.socket enableBroadcast:YES error:&error];
 }

@@ -41,6 +41,14 @@
 
 #pragma mark - 点击事件
 
+/// 取消操作
+- (IBAction)cancleButtonClick {
+    
+    [self.view endEditing:YES];
+    
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+}
+
 /// 保存
 - (IBAction)saveButtonClick:(UIButton *)sender {
     

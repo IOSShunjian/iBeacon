@@ -39,7 +39,7 @@
                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
-                                            <action selector="cancelButtonClick:" destination="UG2-G8-Fol" eventType="touchUpInside" id="vRS-ax-RZh"/>
+                                            <action selector="cancleButtonClick" destination="UG2-G8-Fol" eventType="touchUpInside" id="N6G-d2-jW3"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0o-99-3Q8">
