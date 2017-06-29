@@ -4,4 +4,6 @@ pod 'SVProgressHUD'
 
 pod 'FMDB'
 
+pod 'BabyBluetooth','~> 0.7.0'
+
 end

@@ -47,6 +47,9 @@
 #import "SHUdpSocket.h"
 #import "SHSendDeviceData.h"
 
+#import <BabyBluetooth.h>
+
+
 #endif
 
 #endif /* G4IBeacon_pch */

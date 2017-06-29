@@ -7,212 +7,125 @@
 //
 
 #import "SHAllViewController.h"
-#import <CoreLocation/CoreLocation.h>
 
-#import "SHAllTableViewCell.h"
+// 导入框架
+#import <CoreBluetooth/CoreBluetooth.h>
 
 
+@interface SHAllViewController () <CBCentralManagerDelegate, CBPeripheralDelegate>
 
-@interface SHAllViewController () <CLLocationManagerDelegate>
+/**
+ 中央管理器
+ */
+@property (strong, nonatomic) CBCentralManager *manager;
 
-/// 定位
-@property (nonatomic, strong) CLLocationManager *locationManager;
-
-/// 设备区域
-@property (nonatomic, strong) CLBeaconRegion *region;
-
-/// 扫描到的所有设备
-@property (nonatomic, strong) NSArray *beacons;
+/**
+ 外设的存储数组
+ */
+@property (strong, nonatomic) NSMutableArray *peripheralArray;
 
 @end
 
 @implementation SHAllViewController
 
-// MARK: - UI
-
-- (void)dealloc {
-    
-    // 停止扫描
-    [self.locationManager stopMonitoringForRegion:self.region];
-    [self.locationManager stopRangingBeaconsInRegion:self.region];
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = SHGlobalBackgroundColor;
+    // 1.建立中央管理者 nil - 主队列
+    // 提示蓝牙开关未打开时会弹出警告框
+    self.manager = [[CBCentralManager alloc] initWithDelegate:self queue:nil options:@{CBCentralManagerOptionShowPowerAlertKey:@YES}];
     
-    self.navigationItem.title = @"All Device On Line";
-    
-    // 准备表格
-    [self initTableView];
-    
-    // 开始定位扫描
-    [self startScanDevice];
+    // 2.扫描 外边设备 Services:UUID， nil - 扫描全部服务
+    [self.manager scanForPeripheralsWithServices:nil options:nil];
 }
 
-/// 准备表格
-- (void)initTableView {
-    
-    self.tableView.rowHeight = [SHAllTableViewCell cellRowHeight];
-    
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-    [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([SHAllTableViewCell class]) bundle:nil] forCellReuseIdentifier:NSStringFromClass([SHAllTableViewCell class])];
-}
+// MARK: - CBCentralManager的代理
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-// MARK: - 定位与扫描
-
-/// 获得详细数据的回调
-- (void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray<CLBeacon *> *)beacons inRegion:(CLBeaconRegion *)region {
+/**
+ 代理回调  -- 将要开始第四步 -- 4.1
+ 
+ @param central 管理器
+ @param peripheral 外设
+ @param advertisementData 数据
+ @param RSSI 信号强度
+ */
+- (void)centralManager:(CBCentralManager *)central didDiscoverPeripheral:(CBPeripheral *)peripheral advertisementData:(NSDictionary<NSString *, id> *)advertisementData RSSI:(NSNumber *)RSSI {
     
-    if (!beacons.count) {
-        self.beacons = nil;
-        return;
-    }
-
-    //如果存在不是我们要监测的iBeacon那就停止扫描
-    if (![[region.proximityUUID UUIDString] isEqualToString:UUIDStirng]) {
-        [self.locationManager stopMonitoringForRegion:region];
-        [self.locationManager stopRangingBeaconsInRegion:region];
-    }
+   
     
-//    for (CLBeacon *beacon in beacons) {
-//        NSLog(@"All - %@", beacon);
-//    }
+     if (advertisementData[CBAdvertisementDataLocalNameKey] == nil || advertisementData[CBAdvertisementDataServiceUUIDsKey] == nil) return;
     
-    // 设置最新信息
-    self.beacons = beacons;
-    [self.tableView reloadData];
-}
-
-/// 获得状态
-- (void)locationManager:(CLLocationManager *)manager didDetermineState:(CLRegionState)state forRegion:(CLRegion *)region {
+     SHLog(@"发现外围设备...%@, %@", advertisementData, RSSI);
     
-    if (state == CLRegionStateInside) {
-        NSLog(@"进入区域");
+    // 如果存在不添加
+    if (![self.peripheralArray containsObject:peripheral]) {
         
-        // 获得详细信息
-        [self.locationManager startRangingBeaconsInRegion:self.region];
+        //停扫
+//        [self.manager stopScan];
         
-    } else if (state == CLRegionStateOutside) {
-         NSLog(@"离开区域");
-        [self.locationManager stopRangingBeaconsInRegion:self.region];
-    }
-}
-
-/// 获得距离失败
-- (void)locationManager:(CLLocationManager *)manager rangingBeaconsDidFailForRegion:(CLBeaconRegion *)region withError:(NSError *)error {
-    
-    if (error) {
+        [self.peripheralArray addObject:peripheral];
         
+        // 刷新表格
+        [self.tableView reloadData];
     }
+    
+    
 }
 
-/// 打开监听失败
-- (void)locationManager:(CLLocationManager *)manager monitoringDidFailForRegion:(CLRegion *)region withError:(NSError *)error {
+/**
+ 这个代理必须实现 3.开始扫描
+ */
+- (void)centralManagerDidUpdateState:(CBCentralManager *)central {
     
-    if (error) {
-        
-    }
-}
+    switch (central.state) {
+        case CBManagerStatePoweredOn: {
 
-/// 显示错误信息
-- (void)showErrorMessage {
-    
-    [SVProgressHUD showInfoWithStatus:@"open the phone Bluetooth"];
-    
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [SVProgressHUD dismiss];
-    });
-}
-
-/// 用户授权的变化
-- (void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status {
-    
-    switch (status) {
-        case kCLAuthorizationStatusAuthorizedAlways: {
+            // 3.扫描外设
+            [central scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey:@YES}];
             
-            // 授权才开始开启监测
-            [self.locationManager startMonitoringForRegion:self.region];
-            [self.locationManager requestStateForRegion:self.region];
         }
-            
             break;
             
         default:
+            NSLog(@"此设备不支持BLE或未打开蓝牙功能，无法作为外围设备.");
             break;
     }
 }
 
-/// 开始定位扫描
-- (void)startScanDevice {
+// MARK: - 代理
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    [self.manager stopScan];
     
-    if (![CLLocationManager locationServicesEnabled]) {
-        return;
-    }
-    
-    if (![CLLocationManager isMonitoringAvailableForClass:[CLBeaconRegion class]]) {
-        return;
-    }
-    
-    // 申请手动授权
-    [self.locationManager requestAlwaysAuthorization];
+    SHLog(@"停止扫描");
 }
 
 // MARK: - 数据源
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    
-    return self.beacons.count;
+ 
+    return self.peripheralArray.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([self class]) forIndexPath:indexPath];
     
-    SHAllTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([SHAllTableViewCell class]) forIndexPath:indexPath];
+    CBPeripheral *peripheral = self.peripheralArray[indexPath.row];
     
-    cell.beacon = self.beacons[indexPath.row];
+    cell.textLabel.text = peripheral.name;
     
     return cell;
 }
 
+#pragma mark - getter && setter
 
-// MARK: - getter && setter
-
-/// region
-- (CLBeaconRegion *)region {
-    
-    if (!_region) {
-        
-        _region = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:UUIDStirng] identifier:REGION_IDENTIFIER];
-        
-        _region.notifyEntryStateOnDisplay = YES;
-        _region.notifyOnExit = YES;
-        _region.notifyOnEntry = YES;
+- (NSMutableArray *)peripheralArray {
+    if (!_peripheralArray) {
+        _peripheralArray = [NSMutableArray array];
     }
-    return _region;
-}
-
-/// locationManager
-- (CLLocationManager *)locationManager {
-    
-    if (!_locationManager) {
-        _locationManager = [[CLLocationManager alloc] init];
-        _locationManager.delegate = self;
-
-        _locationManager.distanceFilter = kCLDistanceFilterNone;
-//
-//        if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9) {
-//            _locationManager.allowsBackgroundLocationUpdates = YES;
-//        }
-        
-    }
-    return _locationManager;
+    return _peripheralArray;
 }
 
 @end

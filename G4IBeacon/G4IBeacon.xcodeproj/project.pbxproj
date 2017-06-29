@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3A2C4068DD82872EE3059F55 /* libPods-G4IBeacon.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B95283FCCC4C7A219B5ACDE /* libPods-G4IBeacon.a */; };
+		8B2C66511F04CA1B000B2472 /* SHAllViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8B2C66501F04CA1B000B2472 /* SHAllViewController.storyboard */; };
 		8B53DBF91EC3F2EA00ED5334 /* SHAreaTaskTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B53DBF11EC3F2EA00ED5334 /* SHAreaTaskTableViewCell.m */; };
 		8B53DBFA1EC3F2EA00ED5334 /* SHAreaTaskTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8B53DBF21EC3F2EA00ED5334 /* SHAreaTaskTableViewCell.xib */; };
 		8B53DBFB1EC3F2EA00ED5334 /* SHCurtainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B53DBF41EC3F2EA00ED5334 /* SHCurtainView.m */; };
@@ -48,8 +49,6 @@
 		8BADAE6C1EBC48A700D9E785 /* UIView+frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE6B1EBC48A700D9E785 /* UIView+frame.m */; };
 		8BADAE6F1EBC4A4A00D9E785 /* SHTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE6E1EBC4A4A00D9E785 /* SHTableViewController.m */; };
 		8BADAE721EBC4A7500D9E785 /* SHAllViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE711EBC4A7500D9E785 /* SHAllViewController.m */; };
-		8BADAE791EBC4D4D00D9E785 /* SHAllTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BADAE771EBC4D4D00D9E785 /* SHAllTableViewCell.m */; };
-		8BADAE7A1EBC4D4D00D9E785 /* SHAllTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8BADAE781EBC4D4D00D9E785 /* SHAllTableViewCell.xib */; };
 		8BE509581EC432390090E6BC /* SHSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BE509561EC432390090E6BC /* SHSettingViewController.m */; };
 		8BE509591EC432390090E6BC /* SHSettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE509571EC432390090E6BC /* SHSettingViewController.storyboard */; };
 		8BF61A281EC2C7B0009030CD /* SHAreaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8BF61A231EC2C7B0009030CD /* SHAreaViewController.m */; };
@@ -64,6 +63,7 @@
 /* Begin PBXFileReference section */
 		1B95283FCCC4C7A219B5ACDE /* libPods-G4IBeacon.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-G4IBeacon.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5F2047FA1748EAE8A447F506 /* Pods-G4IBeacon.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-G4IBeacon.release.xcconfig"; path = "Pods/Target Support Files/Pods-G4IBeacon/Pods-G4IBeacon.release.xcconfig"; sourceTree = "<group>"; };
+		8B2C66501F04CA1B000B2472 /* SHAllViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SHAllViewController.storyboard; sourceTree = "<group>"; };
 		8B53DBF01EC3F2EA00ED5334 /* SHAreaTaskTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAreaTaskTableViewCell.h; sourceTree = "<group>"; };
 		8B53DBF11EC3F2EA00ED5334 /* SHAreaTaskTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAreaTaskTableViewCell.m; sourceTree = "<group>"; };
 		8B53DBF21EC3F2EA00ED5334 /* SHAreaTaskTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHAreaTaskTableViewCell.xib; sourceTree = "<group>"; };
@@ -137,9 +137,6 @@
 		8BADAE711EBC4A7500D9E785 /* SHAllViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAllViewController.m; sourceTree = "<group>"; };
 		8BADAE731EBC4B3200D9E785 /* G4IBeacon.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = G4IBeacon.pch; sourceTree = "<group>"; };
 		8BADAE741EBC4B7000D9E785 /* PrintLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrintLog.h; sourceTree = "<group>"; };
-		8BADAE761EBC4D4D00D9E785 /* SHAllTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHAllTableViewCell.h; sourceTree = "<group>"; };
-		8BADAE771EBC4D4D00D9E785 /* SHAllTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHAllTableViewCell.m; sourceTree = "<group>"; };
-		8BADAE781EBC4D4D00D9E785 /* SHAllTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SHAllTableViewCell.xib; sourceTree = "<group>"; };
 		8BE509551EC432390090E6BC /* SHSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SHSettingViewController.h; sourceTree = "<group>"; };
 		8BE509561EC432390090E6BC /* SHSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SHSettingViewController.m; sourceTree = "<group>"; };
 		8BE509571EC432390090E6BC /* SHSettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SHSettingViewController.storyboard; sourceTree = "<group>"; };
@@ -485,6 +482,7 @@
 			children = (
 				8BADAE701EBC4A7500D9E785 /* SHAllViewController.h */,
 				8BADAE711EBC4A7500D9E785 /* SHAllViewController.m */,
+				8B2C66501F04CA1B000B2472 /* SHAllViewController.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -510,9 +508,6 @@
 		8BADAE751EBC4D2100D9E785 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8BADAE761EBC4D4D00D9E785 /* SHAllTableViewCell.h */,
-				8BADAE771EBC4D4D00D9E785 /* SHAllTableViewCell.m */,
-				8BADAE781EBC4D4D00D9E785 /* SHAllTableViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -643,6 +638,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8B2C66511F04CA1B000B2472 /* SHAllViewController.storyboard in Resources */,
 				8B72CBE81ECAA3CA008910C2 /* SHAudioView.xib in Resources */,
 				8BAA7E3A1EC0172F003BD713 /* SHSenceViewController.storyboard in Resources */,
 				8B72CBED1ECAA55A008910C2 /* SHAcView.xib in Resources */,
@@ -650,7 +646,6 @@
 				8B9E8B751EBC6A850037FAF1 /* SHAddViewController.xib in Resources */,
 				8B53DBFC1EC3F2EA00ED5334 /* SHCurtainView.xib in Resources */,
 				8B72CBD31ECA86EF008910C2 /* SHLedView.xib in Resources */,
-				8BADAE7A1EBC4D4D00D9E785 /* SHAllTableViewCell.xib in Resources */,
 				8B9E8B661EBC60240037FAF1 /* SHTaskCollectionViewCell.xib in Resources */,
 				8B53DBFE1EC3F2EA00ED5334 /* SHDimmerView.xib in Resources */,
 				8B53DBFA1EC3F2EA00ED5334 /* SHAreaTaskTableViewCell.xib in Resources */,
@@ -714,7 +709,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8BADAE791EBC4D4D00D9E785 /* SHAllTableViewCell.m in Sources */,
 				8BADAE5E1EBC457400D9E785 /* SHNavigationController.m in Sources */,
 				8B72CBDE1ECA8BB8008910C2 /* UIImageView+ColorAtPoint.m in Sources */,
 				8BFDBC251EC5668000801D7B /* GCDAsyncUdpSocket.m in Sources */,
